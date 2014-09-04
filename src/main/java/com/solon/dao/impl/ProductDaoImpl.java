@@ -8,9 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
+import com.solon.dao.spec.IProductDao;
 import com.solon.dto.Product;
 
-public class ProductDaoImpl {
+public class ProductDaoImpl implements IProductDao{
 	private static final ProductRowMapper ROW_MAPPER = new ProductRowMapper();
 
 	private static class ProductRowMapper implements RowMapper<Product> {
@@ -55,6 +56,7 @@ public class ProductDaoImpl {
 	@Autowired
 	private JdbcTemplate template;
 
+	@Override
 	public List<Product> findAll() {
 		return template.query(SQL_FIND_ALL, ROW_MAPPER);
 	}
