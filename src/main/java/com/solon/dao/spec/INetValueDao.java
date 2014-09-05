@@ -7,4 +7,6 @@ import com.solon.dto.NetValue;
 public interface INetValueDao {
 
 	List<NetValue> findByProductId(int productId);
+
+	List<NetValue> findAll();
 }

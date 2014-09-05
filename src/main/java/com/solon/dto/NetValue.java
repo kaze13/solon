@@ -2,7 +2,7 @@ package com.solon.dto;
 
 import java.sql.Date;
 
-public class NetValue {
+public class NetValue implements Comparable<NetValue> {
 
 	private int productId;
 	private Date evalueDate;
@@ -48,6 +48,11 @@ public class NetValue {
 
 	public void setNetIncreaseRate(double netIncreaseRate) {
 		this.netIncreaseRate = netIncreaseRate;
+	}
+
+	@Override
+	public int compareTo(NetValue o) {
+		return evalueDate.compareTo(o.evalueDate);
 	}
 
 	@Override

@@ -20,4 +20,10 @@ public class NetValueServiceImpl implements INetValueService {
 		return netValueDao.findByProductId(productId);
 	}
 
+	@Override
+	public List<NetValue> findAll() {
+		return netValueDao.findAll();
+
+	}
+
 }

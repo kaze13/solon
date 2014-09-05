@@ -49,6 +49,11 @@ public class NetValueDaoImpl implements INetValueDao {
 	private JdbcTemplate template;
 
 	@Override
+	public List<NetValue> findAll() {
+		return template.query(SQL_FIND_ALL, ROW_MAPPER);
+	}
+
+	@Override
 	public List<NetValue> findByProductId(int productId) {
 		return template.query(SQL_FIND_BY_PRODUCT_ID, ROW_MAPPER, productId);
 

@@ -1,9 +1,13 @@
 package com.solon.controller;
 
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,8 +34,21 @@ public class MainController {
 	INetValueService netValueService;
 
 	@RequestMapping
-	public String index(ModelMap model) {
+	public String index(Model model) {
 		return "index";
+	}
+
+	@RequestMapping(value = "show")
+	public String product(ModelMap model) {
+		List<Product> products = productService.findAll();
+		Map<Integer, List<NetValue>> valueMapping = new HashMap<Integer, List<NetValue>>();
+		for (Product product : products) {
+			valueMapping.put(product.getProductId(),
+					netValueService.findByProductId(product.getProductId()));
+		}
+		model.addAttribute("products", products);
+		model.addAttribute("valueMapping", valueMapping);
+		return "product";
 	}
 
 	@RequestMapping(value = "products")
@@ -49,7 +66,9 @@ public class MainController {
 	@RequestMapping(value = "net_value")
 	public @ResponseBody
 	List<NetValue> getNetValue(@RequestParam int productId) {
-		return netValueService.findByProductId(productId);
+		List<NetValue> values = netValueService.findByProductId(productId);
+		Collections.sort(values);
+		return values;
 	}
 
 	@RequestMapping(value = "user")

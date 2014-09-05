@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Product</title>
+<link rel="stylesheet" href="./resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="./resources/css/product.css">
+
+</head>
+<div class="container">
+
+	<div class="row">
+		<!--Nav Bar -->
+
+		<nav class="col-md-2 bs-docs-sidebar">
+		<ul id="sidebar" class="nav nav-stacked fixed">
+			#foreach( $product in $products)
+			<li><a href="#product-${product.productId}">${product.productName}</a>
+				<ul class="nav nav-stacked">
+					<li><a href="#introduction-${product.productId}">产品概要</a>
+						<ul class="nav nav-stacked ">
+							<li><a href="#product-info-${product.productId}">产品要素</a></li>
+							<li><a href="#trusts-struct-${product.productId}">信托结构</a></li>
+							<li><a href="#fee-detail-${product.productId}">费率明细</a></li>
+							<li><a href="#trusts-info-${product.productId}">信托认购</a></li>
+						</ul></li>
+					<li><a href="#value-${product.productId}">产品净值</a></li>
+					<li><a href="#value-graph-${product.productId}">走势图</a></li>
+					<li><a href="#buy-process-${product.productId}">认购过程</a></li>
+				</ul></li> #end
+		</ul>
+		</nav>
+		<!--Main Content -->
+		<div class="col-md-10 sheet">
+			#foreach( $product in $products)
+			<div id="product-${product.productId}" class="product-section"
+				data-id="${product.productId}">
+				<section id="introduction-${product.productId}">
+				<h1>$product.productName</h1>
+				<h2>产品概要</h2>
+				<div id="product-info-${product.productId}">
+					<h3>产品要素</h3>
+					<table class="table table-striped">
+						<col width="40%">
+						<col width="50%">
+						<tr>
+							<td>产品名称</td>
+							<td>$product.productName</td>
+						</tr>
+						<tr>
+							<td>投资范围</td>
+							<td>$product.range</td>
+						</tr>
+						<tr>
+							<td>投资经理</td>
+							<td>$product.manager</td>
+						</tr>
+						<tr>
+							<td>最低认购金额</td>
+							<td>$product.minInvest</td>
+						</tr>
+						<tr>
+							<td>存续期</td>
+							<td>$product.adoptionPeriod</td>
+						</tr>
+						<tr>
+							<td>资金封闭期</td>
+							<td>$product.closePeriod</td>
+						</tr>
+						<tr>
+							<td>成立日</td>
+							<td>$product.createDate</td>
+						</tr>
+						<tr>
+							<td>开放日</td>
+							<td>$product.openDate</td>
+						</tr>
+					</table>
+				</div>
+				<div id="trusts-struct-${product.productId}">
+					<h3>信托结构</h3>
+					<table class="table table-striped">
+						<col width="40%">
+						<col width="50%">
+						<tr>
+							<td>监管机构</td>
+							<td>$product.watchingOrg</td>
+						</tr>
+						<tr>
+							<td>受托人</td>
+							<td>$product.trustee</td>
+						</tr>
+						<tr>
+							<td>保管银行</td>
+							<td>$product.bank</td>
+						</tr>
+						<tr>
+							<td>证券经纪商</td>
+							<td>$product.borker</td>
+						</tr>
+						<tr>
+							<td>投资顾问</td>
+							<td>$product.counselor</td>
+						</tr>
+					</table>
+				</div>
+				<div id="fee-detail-${product.productId}">
+					<h3>费率明细</h3>
+					<table class="table table-striped">
+						<col width="40%">
+						<col width="50%">
+						<tr>
+							<td>认购费率</td>
+							<td>$product.subscriptionFee</td>
+						</tr>
+						<tr>
+							<td>年固定管理费率</td>
+							<td>$product.annualManageFee</td>
+						</tr>
+						<tr>
+							<td>浮动管理费</td>
+							<td>$product.floatManageFee</td>
+						</tr>
+					</table>
+				</div>
+				<div id="trusts-info-${product.productId}">
+					<h3>信托认购</h3>
+					<table class="table table-striped">
+						<col width="40%">
+						<col width="50%">
+						<tr>
+							<td>认购账户名</td>
+							<td>$product.subscriptionAccount</td>
+						</tr>
+						<tr>
+							<td>认购账户开户行</td>
+							<td>$product.subscriptionBank</td>
+						</tr>
+						<tr>
+							<td>认购账户账号</td>
+							<td>$product.floatManageFee</td>
+						</tr>
+					</table>
+				</div>
+				</section>
+
+				<section id="value-${product.productId}">
+				<h2>产品净值</h2>
+				<table class="table table-striped">
+					<col width="25%">
+					<col width="25%">
+					<col width="25%">
+					<col width="25%">
+					<tr>
+						<th>日期类型
+						</th>
+						<th>更新日期</th>
+						<th>信托单位净值（元）</th>
+						<th>累计净值增长率</th>
+					</tr>
+					#foreach($value in $valueMapping.get(${product.productId}))
+					<tr class="net-value-item-${product.productId}">
+						<td>$value.evalueType</td>
+						<td class="evalue-date">$value.evalueDate</td>
+						<td class="net-value">$value.netValue</td>
+						<td>$value.netIncreaseRate</td>
+					</tr>
+					#end
+
+				</table>
+				</section>
+
+				<section id="value-graph-${product.productId}">
+				<h2>走势图</h2>
+				<div class="value-graph-container" data-id="${product.productId}"
+					data-name="${product.productName}"
+					style="width: 100%; height: 400px;"></div>
+				</section>
+				<section id="buy-process-${product.productId}">
+				<h2>认购流程</h2>
+				<div>${product.subscriptionProcess}</div>
+				</section>
+			</div>
+
+			#end
+		</div>
+	</div>
+</div>
+
+<script src="./resources/js/jquery-1.9.1.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="./resources/js/bootstrap.min.js"></script>
+<script src="./resources/js/product.js"></script>
+
+</body>
+</html>
