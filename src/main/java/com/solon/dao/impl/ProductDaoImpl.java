@@ -7,11 +7,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
 import com.solon.dao.spec.IProductDao;
 import com.solon.dto.Product;
 
-public class ProductDaoImpl implements IProductDao{
+@Repository
+public class ProductDaoImpl implements IProductDao {
 	private static final ProductRowMapper ROW_MAPPER = new ProductRowMapper();
 
 	private static class ProductRowMapper implements RowMapper<Product> {
@@ -47,6 +49,8 @@ public class ProductDaoImpl implements IProductDao{
 	private static final String SQL_FIND_ALL = "SELECT " + SQL_COLUMNS
 			+ " FROM product ";
 
+	private static final String SQL_FIND_BY_ID = SQL_FIND_ALL
+			+ " WHERE PRODUCT_ID = ?";
 	private static final String SQL_INSERT = "INSERT INTO product ("
 			+ SQL_COLUMNS
 			+ ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -61,6 +65,10 @@ public class ProductDaoImpl implements IProductDao{
 		return template.query(SQL_FIND_ALL, ROW_MAPPER);
 	}
 
+	@Override
+	public Product findById(int id) {
+		return template.queryForObject(SQL_FIND_BY_ID, ROW_MAPPER, id);
+	}
 	// @Override
 	// public void insert(final List<Product> productList) {
 	// template.batchUpdate(SQL_INSERT, new BatchPreparedStatementSetter() {

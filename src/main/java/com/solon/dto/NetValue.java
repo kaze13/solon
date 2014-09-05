@@ -6,7 +6,7 @@ public class NetValue {
 
 	private int productId;
 	private Date evalueDate;
-	private Date evalueType;
+	private int evalueType;
 	private double netValue;
 	private double netIncreaseRate;
 
@@ -26,11 +26,11 @@ public class NetValue {
 		this.evalueDate = evalueDate;
 	}
 
-	public Date getEvalueType() {
+	public int getEvalueType() {
 		return evalueType;
 	}
 
-	public void setEvalueType(Date evalueType) {
+	public void setEvalueType(int evalueType) {
 		this.evalueType = evalueType;
 	}
 

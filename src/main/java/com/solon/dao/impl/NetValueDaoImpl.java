@@ -7,10 +7,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
 import com.solon.dao.spec.INetValueDao;
 import com.solon.dto.NetValue;
 
+@Repository
 public class NetValueDaoImpl implements INetValueDao {
 	private static final NetValueRowMapper ROW_MAPPER = new NetValueRowMapper();
 
@@ -21,7 +23,7 @@ public class NetValueDaoImpl implements INetValueDao {
 			try {
 				netValue.setProductId(rs.getInt("product_id"));
 				netValue.setEvalueDate(rs.getDate("evalue_date"));
-				netValue.setEvalueType(rs.getDate("evalue_type"));
+				netValue.setEvalueType(rs.getInt("evalue_type"));
 				netValue.setNetValue(rs.getDouble("net_value"));
 				netValue.setNetIncreaseRate(rs.getDouble("net_increase_rate"));
 			} catch (SQLException e) {
