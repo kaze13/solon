@@ -1,11 +1,14 @@
 package com.solon.dao.impl;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.apache.commons.dbutils.QueryRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
@@ -69,29 +72,32 @@ public class ProductDaoImpl implements IProductDao {
 	public Product findById(int id) {
 		return template.queryForObject(SQL_FIND_BY_ID, ROW_MAPPER, id);
 	}
-	// @Override
-	// public void insert(final List<Product> productList) {
-	// template.batchUpdate(SQL_INSERT, new BatchPreparedStatementSetter() {
-	//
-	// @Override
-	// public void setValues(PreparedStatement ps, int i) throws SQLException {
-	// Product obj = productList.get(i);
-	// Long seq = template.queryForObject(SQL_NEXT_SEQ, Long.class);
-	//
-	// new QueryRunner().fillStatement(ps, seq, obj.getObjId(),
-	// obj.getHasDraft(),
-	// Integer.valueOf(obj.getDraftType().ordinal()), obj.getDraftId(),
-	// obj.getSheetId());
-	//
-	// obj.setId(seq);
-	// }
-	//
-	// @Override
-	// public int getBatchSize() {
-	// return objList.size();
-	// }
-	// });
-	//
-	// return OOMDaoUtil.sumIntArray(rets);
-	// }
+
+	@Override
+	public void insert(final Product product) {
+		template.update(SQL_INSERT, new PreparedStatementSetter() {
+
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+				new QueryRunner().fillStatement(ps, product.getProductId(),
+						product.getProductName(),
+						product.getProductShortName(), product.getStatus(),
+						product.getStrategy(), product.getStatus(),
+						product.getStrategy(), product.getRange(),
+						product.getManager(), product.getMinInvest(),
+						product.getAdoptionPeriod(), product.getClosePeriod(),
+						product.getCreateDate(), product.getOpenDate(),
+						product.getWatchingOrg(), product.getTrustee(),
+						product.getBank(), product.getBorker(),
+						product.getCounselor(), product.getSubscriptionFee(),
+						product.getAnnualManageFee(),
+						product.getFloatManageFee(),
+						product.getSubscriptionAccount(),
+						product.getSubscriptionBank(),
+						product.getSubscriptionId(),
+						product.getSubscriptionProcess());
+			}
+		});
+
+	}
 }

@@ -1,5 +1,7 @@
 package com.solon.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,11 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	public User findById(String id) {
 		return userDao.findById(id);
+	}
+	
+	@Override
+	public List<User> findAll(){
+		return userDao.findAll();
 	}
 
 }

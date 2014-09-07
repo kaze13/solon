@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,9 +34,20 @@ public class MainController {
 	@Autowired
 	INetValueService netValueService;
 
-	@RequestMapping
+	@RequestMapping(value = "/")
 	public String index(Model model) {
 		return "index";
+	}
+
+	@RequestMapping(value = "admin")
+	public String admin(Model model) {
+		List<Product> products = productService.findAll();
+		List<User> users = userService.findAll();
+		List<NetValue> netValues = netValueService.findAll();
+		model.addAttribute("products", products);
+		model.addAttribute("users", users);
+		model.addAttribute("netValues", netValues);
+		return "admin";
 	}
 
 	@RequestMapping(value = "show")
@@ -52,29 +64,31 @@ public class MainController {
 	}
 
 	@RequestMapping(value = "products")
-	public @ResponseBody
-	List<Product> getAllProducts() {
+	public @ResponseBody List<Product> getAllProducts() {
 		return productService.findAll();
 	}
 
 	@RequestMapping(value = "product")
-	public @ResponseBody
-	Product getProduct(@RequestParam int id) {
+	public @ResponseBody Product getProduct(@RequestParam int id) {
 		return productService.findById(id);
 	}
 
 	@RequestMapping(value = "net_value")
-	public @ResponseBody
-	List<NetValue> getNetValue(@RequestParam int productId) {
+	public @ResponseBody List<NetValue> getNetValue(@RequestParam int productId) {
 		List<NetValue> values = netValueService.findByProductId(productId);
 		Collections.sort(values);
 		return values;
 	}
 
 	@RequestMapping(value = "user")
-	public @ResponseBody
-	User getUser(@RequestParam String id) {
+	public @ResponseBody User getUser(@RequestParam String id) {
 		return userService.findById(id);
+	}
+
+	@RequestMapping(value = "add_product", method = RequestMethod.POST )
+	public String addProduct(@RequestBody Product product) {
+		productService.insert(product);
+		return "admin";
 	}
 
 }

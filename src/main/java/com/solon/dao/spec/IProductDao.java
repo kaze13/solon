@@ -10,4 +10,6 @@ public interface IProductDao {
 
 	Product findById(int id);
 
+	void insert(Product product);
+
 }

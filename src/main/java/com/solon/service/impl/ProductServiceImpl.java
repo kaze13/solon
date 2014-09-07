@@ -25,4 +25,8 @@ public class ProductServiceImpl implements IProductService {
 		return productDao.findById(id);
 	}
 
+	@Override
+	public void insert(Product product){
+		productDao.insert(product);
+	}
 }

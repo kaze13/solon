@@ -9,45 +9,262 @@
 <div class="container">
 
 	<div class="row">
+		<!-- Nav tabs -->
+		<ul class="nav nav-tabs" role="tablist">
+			<li class="active"><a href="#product" role="tab"
+				data-toggle="tab">产品</a></li>
+			<li><a href="#net-value" role="tab" data-toggle="tab">市值</a></li>
+			<li><a href="#user" role="tab" data-toggle="tab">用户</a></li>
+		</ul>
 
-		<div>
-			<table class="table table-striped">
-				<tr>
-					<th>Id</th>
-					<th>产品名称</th>
-					<th>产品略称</th>
-					<th>产品状态</th>
-					<th>CTA和阿尔法策略</th>
-					<th>资产范围</th>
-					<th>投资经理</th>
-					<th>最少认购</th>
-					<th>续存期</th>
-					<th>资金封闭期</th>
-					<th>成立日</th>
-					<th>开放日</th>
-					<th>监管机构</th>
-					<th>托管人</th>
-					<th>保管银行</th>
-					<th>证券经纪商</th>
-					<th>投资顾问</th>
-					<th>认购费率</th>
-					<th>年固定管理费率</th>
-					<th>浮动管理费</th>
-					<th>认购账户名</th>
-					<th>认购账户开户行</th>
-					<th>认购账户账号</th>
-					<th>认购流程</th>
-					<th>购买的网站地址</th>
-				</tr>
-				
-				
-			</table>
+		<!-- Tab panes -->
+		<div class="tab-content">
+			<div class="tab-pane active" id="product">
+				<div>
+					<button id="add-product-btn" class="btn btn-primary">新增</button>
+				</div>
+				<table class="table table-striped">
+					<tr>
+						<th>Id</th>
+						<th>产品名称</th>
+						<th>产品略称</th>
+						<th>产品状态</th>
+						<th>CTA和阿尔法策略</th>
+						<th>资产范围</th>
+						<th>投资经理</th>
+						<th>最少认购</th>
+						<th>续存期</th>
+						<th>资金封闭期</th>
+						<th>成立日</th>
+						<th>开放日</th>
+						<th>监管机构</th>
+						<th>托管人</th>
+						<th>保管银行</th>
+						<th>证券经纪商</th>
+						<th>投资顾问</th>
+						<th>认购费率</th>
+						<th>年固定管理费率</th>
+						<th>浮动管理费</th>
+						<th>认购账户名</th>
+						<th>认购账户开户行</th>
+						<th>认购账户账号</th>
+						<th>认购流程</th>
+						<th>购买的网站地址</th>
+						<th>修改</th>
+						<th>删除</th>
+					</tr>
+					#foreach($product in $products)
+					<tr>
+						<td>$product.productId</td>
+						<td>$product.productName</td>
+						<td>$product.productShortName</td>
+						<td>$product.status</td>
+						<td>$product.strategy</td>
+						<td>$product.range</td>
+						<td>$product.manager</td>
+						<td>$product.minInvest</td>
+						<td>$product.adoptionPeriod</td>
+						<td>$product.closePeriod</td>
+						<td>$product.createDate</td>
+						<td>$product.openDate</td>
+						<td>$product.watchingOrg</td>
+						<td>$product.trustee</td>
+						<td>$product.bank</td>
+						<td>$product.borker</td>
+						<td>$product.counselor</td>
+						<td>$product.subscriptionFee</td>
+						<td>$product.annualManageFee</td>
+						<td>$product.floatManageFee</td>
+						<td>$product.subscriptionAccount</td>
+						<td>$product.subscriptionBank</td>
+						<td>$product.subscriptionId</td>
+						<td>$product.subscriptionProcess</td>
+						<td><button class="btn btn-default">修改</button></td>
+						<td><button class="btn btn-danger">删除</button></td>
+					</tr>
+					#end
+
+				</table>
+			</div>
+			<div class="tab-pane" id="net-value">...</div>
+			<div class="tab-pane" id="user">...</div>
 		</div>
+		<div></div>
 	</div>
 </div>
 
+<div class="modal fade" id="add-product-modal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				</button>
+				<h4 class="modal-title">新增产品</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" role="form">
+					<div class="form-group">
+						<label for="productId" class="col-sm-2 control-label">产品ID</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="productId">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="productName" class="col-sm-2 control-label">产品名称</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="productName">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="productShortName" class="col-sm-2 control-label">产品略称</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="productShortName">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="status" class="col-sm-2 control-label">产品状态</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="status">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="strategy" class="col-sm-2 control-label">CTA和阿尔法策略</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="strategy">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="range" class="col-sm-2 control-label">资产范围</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="range">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="manager" class="col-sm-2 control-label">投资经理</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="manager">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="minInvest" class="col-sm-2 control-label">最少认购</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="minInvest">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="adoptionPeriod" class="col-sm-2 control-label">续存期</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="adoptionPeriod">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="closePeriod" class="col-sm-2 control-label">资金封闭期</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="closePeriod">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="createDate" class="col-sm-2 control-label">成立日</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="createDate">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="openDate" class="col-sm-2 control-label">开放日</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="openDate">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="watchingOrg" class="col-sm-2 control-label">监管机构</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="watchingOrg">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="trustee" class="col-sm-2 control-label">托管人</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="trustee">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="bank" class="col-sm-2 control-label">保管银行</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="bank">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="borker" class="col-sm-2 control-label">证券经纪商</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="borker">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="counselor" class="col-sm-2 control-label">投资顾问</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="counselor">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="subscriptionFee" class="col-sm-2 control-label">认购费率</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id=subscriptionFee>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="annualManageFee" class="col-sm-2 control-label">年固定管理费率</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="annualManageFee">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="floatManageFee" class="col-sm-2 control-label">浮动管理费</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="floatManageFee">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="subscriptionAccount" class="col-sm-2 control-label">认购账户名</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="subscriptionAccount">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="subscriptionBank" class="col-sm-2 control-label">认购账户开户行</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="subscriptionBank">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="subscriptionId" class="col-sm-2 control-label">认购账户账号</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="subscriptionId">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="subscriptionProcess" class="col-sm-2 control-label">认购流程</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="subscriptionProcess">
+						</div>
+					</div>
+				
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				<button id="add-product-confirm-btn" type="button" class="btn btn-primary">新增</button>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
 <script src="./resources/js/jquery-1.9.1.min.js"></script>
 <script src="./resources/js/bootstrap.min.js"></script>
+<script src="./resources/js/admin.js"></script>
 
 </body>
 </html>

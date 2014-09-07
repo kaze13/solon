@@ -2,6 +2,7 @@ package com.solon.dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -48,6 +49,11 @@ public class UserDaoImpl implements IUserDao {
 	@Override
 	public User findById(String id) {
 		return template.queryForObject(SQL_FIND_BY_ID, ROW_MAPPER, id);
+	}
+	
+	@Override
+	public List<User> findAll(){
+		return template.query(SQL_FIND_ALL, ROW_MAPPER);
 	}
 
 }
