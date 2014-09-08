@@ -86,9 +86,9 @@ public class MainController {
 	}
 
 	@RequestMapping(value = "add_product", method = RequestMethod.POST )
-	public String addProduct(@RequestBody Product product) {
+	public @ResponseBody String addProduct(@RequestBody Product product) {
 		productService.insert(product);
-		return "admin";
+		return "success";
 	}
 
 }

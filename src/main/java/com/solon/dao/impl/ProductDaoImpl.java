@@ -21,27 +21,41 @@ public class ProductDaoImpl implements IProductDao {
 
 	private static class ProductRowMapper implements RowMapper<Product> {
 		@Override
-		public Product mapRow(ResultSet resultSet, int arg1) {
-			Product productDto;
+		public Product mapRow(ResultSet rs, int arg1) {
+			Product product = new Product();
 			try {
-				productDto = new Product(resultSet.getInt(1),
-						resultSet.getString(2), resultSet.getString(3),
-						resultSet.getInt(4), resultSet.getInt(5),
-						resultSet.getString(6), resultSet.getString(7),
-						resultSet.getString(8), resultSet.getString(9),
-						resultSet.getString(10), resultSet.getDate(11),
-						resultSet.getString(12), resultSet.getString(13),
-						resultSet.getString(14), resultSet.getString(15),
-						resultSet.getString(16), resultSet.getString(17),
-						resultSet.getDouble(18), resultSet.getDouble(19),
-						resultSet.getDouble(20), resultSet.getString(21),
-						resultSet.getString(22), resultSet.getString(23),
-						resultSet.getString(24));
+				product.setProductId(rs.getInt(1));
+				product.setProductName(rs.getString(2));
+				product.setProductShortName(rs.getString(3));
+				product.setStatus(rs.getInt(4));
+				product.setStrategy(rs.getInt(5));
+				product.setRange(rs.getString(6));
+				product.setManager(rs.getString(7));
+				product.setMinInvest(rs.getString(8));
+				product.setAdoptionPeriod(rs.getString(9));
+				product.setClosePeriod(rs.getString(10));
+				product.setCreateDate(rs.getDate(11));
+				product.setOpenDate(rs.getString(12));
+				product.setWatchingOrg(rs.getString(13));
+				product.setTrustee(rs.getString(14));
+				product.setBank(rs.getString(15));
+				product.setBorker(rs.getString(16));
+				product.setCounselor(rs.getString(17));
+				product.setSubscriptionFee(rs.getDouble(18));
+				product.setAnnualManageFee(rs.getDouble(19));
+				product.setFloatManageFee(rs.getDouble(20));
+				product.setSubscriptionAccount(rs.getString(21));
+				product.setSubscriptionBank(rs.getString(22));
+				product.setSubscriptionId(rs.getString(23));
+				product.setSubscriptionProcess(rs.getString(24));
+
 			} catch (SQLException e) {
 				e.printStackTrace();
 				throw new RuntimeException();
+			} catch (NullPointerException e) {
+				//do nothing
 			}
-			return productDto;
+			return product;
 		}
 	}
 
@@ -56,7 +70,7 @@ public class ProductDaoImpl implements IProductDao {
 			+ " WHERE PRODUCT_ID = ?";
 	private static final String SQL_INSERT = "INSERT INTO product ("
 			+ SQL_COLUMNS
-			+ ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			+ ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 	private static String SQL_DELETE = "delete from product where product_id = ? ";
 
@@ -82,7 +96,6 @@ public class ProductDaoImpl implements IProductDao {
 				new QueryRunner().fillStatement(ps, product.getProductId(),
 						product.getProductName(),
 						product.getProductShortName(), product.getStatus(),
-						product.getStrategy(), product.getStatus(),
 						product.getStrategy(), product.getRange(),
 						product.getManager(), product.getMinInvest(),
 						product.getAdoptionPeriod(), product.getClosePeriod(),

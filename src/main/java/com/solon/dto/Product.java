@@ -62,6 +62,34 @@ public class Product {
 		this.subscriptionProcess = subscriptProcess;
 	}
 
+	public Product() {
+		super();
+		this.productId = 0;
+		this.productName = "";
+		this.productShortName = "";
+		this.status = 0;
+		this.strategy = 0;
+		this.range = "";
+		this.manager = "";
+		this.minInvest = "";
+		this.adoptionPeriod = "";
+		this.closePeriod = "";
+		this.createDate = new Date();
+		this.openDate = "";
+		this.watchingOrg = "";	
+		this.trustee = "";
+		this.bank = "";
+		this.borker = "";
+		this.counselor = "";
+		this.subscriptionFee = 0;
+		this.annualManageFee = 0;
+		this.floatManageFee = 0;
+		this.subscriptionAccount = "";
+		this.subscriptionBank = "";
+		this.subscriptionId = "";
+		this.subscriptionProcess = "";
+	}
+
 	public int getProductId() {
 		return productId;
 	}
