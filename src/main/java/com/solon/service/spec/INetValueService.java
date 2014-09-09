@@ -8,4 +8,10 @@ public interface INetValueService {
 	List<NetValue> findAll();
 
 	List<NetValue> findByProductId(int productId);
+
+	void insert(NetValue value);
+
+	void update(NetValue value);
+
+	void remove(int id);
 }

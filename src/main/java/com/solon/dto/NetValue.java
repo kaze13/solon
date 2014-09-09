@@ -4,11 +4,20 @@ import java.sql.Date;
 
 public class NetValue implements Comparable<NetValue> {
 
+	private int id;
 	private int productId;
 	private Date evalueDate;
 	private int evalueType;
 	private double netValue;
 	private double netIncreaseRate;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public int getProductId() {
 		return productId;

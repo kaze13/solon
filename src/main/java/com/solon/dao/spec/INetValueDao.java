@@ -9,4 +9,10 @@ public interface INetValueDao {
 	List<NetValue> findByProductId(int productId);
 
 	List<NetValue> findAll();
+
+	void insert(NetValue value);
+
+	void update(NetValue value);
+
+	void remove(int id);
 }

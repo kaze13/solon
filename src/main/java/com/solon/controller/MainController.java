@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -50,13 +52,18 @@ public class MainController {
 		return "admin";
 	}
 
-	@RequestMapping(value = "show")
+	@RequestMapping(value = { "show", "login" })
 	public String product(ModelMap model) {
 		List<Product> products = productService.findAll();
 		Map<Integer, List<NetValue>> valueMapping = new HashMap<Integer, List<NetValue>>();
 		for (Product product : products) {
 			valueMapping.put(product.getProductId(),
 					netValueService.findByProductId(product.getProductId()));
+		}
+		Authentication auth = SecurityContextHolder.getContext()
+				.getAuthentication();
+		if (!auth.getPrincipal().equals("anonymousUser")) {
+			model.addAttribute("authenticated", true);
 		}
 		model.addAttribute("products", products);
 		model.addAttribute("valueMapping", valueMapping);
@@ -85,9 +92,21 @@ public class MainController {
 		return userService.findById(id);
 	}
 
-	@RequestMapping(value = "add_product", method = RequestMethod.POST )
+	@RequestMapping(value = "add_product", method = RequestMethod.POST)
 	public @ResponseBody String addProduct(@RequestBody Product product) {
 		productService.insert(product);
+		return "success";
+	}
+
+	@RequestMapping(value = "update_product", method = RequestMethod.POST)
+	public @ResponseBody String updateProduct(@RequestBody Product product) {
+		productService.update(product);
+		return "success";
+	}
+	
+	@RequestMapping(value = "remove_product", method = RequestMethod.POST)
+	public @ResponseBody String removeProduct(@RequestParam int id){
+		productService.remove(id);
 		return "success";
 	}
 

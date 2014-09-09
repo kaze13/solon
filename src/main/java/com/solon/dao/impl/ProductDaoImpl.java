@@ -53,24 +53,33 @@ public class ProductDaoImpl implements IProductDao {
 				e.printStackTrace();
 				throw new RuntimeException();
 			} catch (NullPointerException e) {
-				//do nothing
+				// do nothing
 			}
 			return product;
 		}
 	}
 
-	private static final String SQL_COLUMNS = "product_id, product_name, product_short_name, status, strategy, product_range, manager, min_invest,"
+	private static final String SQL_COLUMNS = "product_name, product_short_name, status, strategy, product_range, manager, min_invest,"
 			+ "adoption_period, close_period, create_date, open_date, watching_org, trustee, bank, broker, counselor, subscription_free, anual_manage_free, "
 			+ "float_manage_free, subscription_account, subscription_bank, subscription_id, subscription_process";
 
-	private static final String SQL_FIND_ALL = "SELECT " + SQL_COLUMNS
-			+ " FROM product ";
+	private static final String SQL_FIND_ALL = "SELECT " + "product_id,"
+			+ SQL_COLUMNS + " FROM product ";
 
 	private static final String SQL_FIND_BY_ID = SQL_FIND_ALL
 			+ " WHERE PRODUCT_ID = ?";
 	private static final String SQL_INSERT = "INSERT INTO product ("
 			+ SQL_COLUMNS
-			+ ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			+ ") VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+	private static final String SQL_UPDATE = "UPDATE solon.product SET "
+			+ "product_name = ?, product_short_name = ?, status = ?, "
+			+ "strategy = ?, product_range = ?, manager = ?, min_invest = ?, "
+			+ "adoption_period = ?, close_period = ?, create_date = ?, open_date = ?,"
+			+ " watching_org = ?, trustee = ?, bank = ?, broker = ?, counselor = ?,"
+			+ " subscription_free = ?, anual_manage_free = ?, float_manage_free = ?,"
+			+ " subscription_account = ?, subscription_bank = ?, subscription_id = ?, "
+			+ "subscription_process = ? WHERE product_id = ? ";
 
 	private static String SQL_DELETE = "delete from product where product_id = ? ";
 
@@ -88,13 +97,43 @@ public class ProductDaoImpl implements IProductDao {
 	}
 
 	@Override
+	public void remove(int id) {
+		template.update(SQL_DELETE, id);
+	}
+
+	@Override
+	public void update(final Product product) {
+		template.update(SQL_UPDATE, new PreparedStatementSetter() {
+
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+				new QueryRunner().fillStatement(ps, product.getProductName(),
+						product.getProductShortName(), product.getStatus(),
+						product.getStrategy(), product.getRange(),
+						product.getManager(), product.getMinInvest(),
+						product.getAdoptionPeriod(), product.getClosePeriod(),
+						product.getCreateDate(), product.getOpenDate(),
+						product.getWatchingOrg(), product.getTrustee(),
+						product.getBank(), product.getBorker(),
+						product.getCounselor(), product.getSubscriptionFee(),
+						product.getAnnualManageFee(),
+						product.getFloatManageFee(),
+						product.getSubscriptionAccount(),
+						product.getSubscriptionBank(),
+						product.getSubscriptionId(),
+						product.getSubscriptionProcess(),
+						product.getProductId());
+			}
+		});
+	}
+
+	@Override
 	public void insert(final Product product) {
 		template.update(SQL_INSERT, new PreparedStatementSetter() {
 
 			@Override
 			public void setValues(PreparedStatement ps) throws SQLException {
-				new QueryRunner().fillStatement(ps, product.getProductId(),
-						product.getProductName(),
+				new QueryRunner().fillStatement(ps, product.getProductName(),
 						product.getProductShortName(), product.getStatus(),
 						product.getStrategy(), product.getRange(),
 						product.getManager(), product.getMinInvest(),

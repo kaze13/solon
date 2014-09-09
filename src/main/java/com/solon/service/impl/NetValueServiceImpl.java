@@ -25,5 +25,20 @@ public class NetValueServiceImpl implements INetValueService {
 		return netValueDao.findAll();
 
 	}
+	
+	@Override
+	public void insert(NetValue value){
+		netValueDao.insert(value);
+	}
+	
+	@Override
+	public void update(NetValue value){
+		netValueDao.update(value);
+	}
+	
+	@Override
+	public void remove(int id){
+		netValueDao.remove(id);
+	}
 
 }

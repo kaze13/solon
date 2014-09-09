@@ -1,11 +1,14 @@
 package com.solon.dao.impl;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.apache.commons.dbutils.QueryRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
@@ -21,6 +24,7 @@ public class NetValueDaoImpl implements INetValueDao {
 		public NetValue mapRow(ResultSet rs, int arg1) {
 			NetValue netValue = new NetValue();
 			try {
+				netValue.setId(rs.getInt("id"));
 				netValue.setProductId(rs.getInt("product_id"));
 				netValue.setEvalueDate(rs.getDate("evalue_date"));
 				netValue.setEvalueType(rs.getInt("evalue_type"));
@@ -36,7 +40,7 @@ public class NetValueDaoImpl implements INetValueDao {
 
 	private static final String SQL_COLUMNS = "product_id, evalue_date, evalue_type, net_value, net_increase_rate";
 
-	private static final String SQL_FIND_ALL = "SELECT " + SQL_COLUMNS
+	private static final String SQL_FIND_ALL = "SELECT " + "id, " + SQL_COLUMNS
 			+ " FROM net_value ";
 
 	private static final String SQL_FIND_BY_PRODUCT_ID = SQL_FIND_ALL
@@ -44,6 +48,11 @@ public class NetValueDaoImpl implements INetValueDao {
 
 	private static final String SQL_INSERT = "INSERT INTO net_value ("
 			+ SQL_COLUMNS + ") VALUES (?, ?, ?, ?, ?)";
+
+	private static final String SQL_UPDATE = "UPDATE solon.net_value SET product_id = ?, evalue_date = ?, "
+			+ "evalue_type = ?, net_value = ?, net_increase_rate =?  WHERE id=?";
+
+	private static final String SQL_DELETE = "DELETE FROM NET_VALUE WHERE id=?";
 
 	@Autowired
 	private JdbcTemplate template;
@@ -57,6 +66,35 @@ public class NetValueDaoImpl implements INetValueDao {
 	public List<NetValue> findByProductId(int productId) {
 		return template.query(SQL_FIND_BY_PRODUCT_ID, ROW_MAPPER, productId);
 
+	}
+
+	@Override
+	public void insert(final NetValue value) {
+		template.update(SQL_INSERT, new PreparedStatementSetter() {
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+				new QueryRunner().fillStatement(ps, value.getProductId(),
+						value.getEvalueDate(), value.getEvalueType(),
+						value.getNetValue(), value.getNetIncreaseRate());
+			}
+		});
+	}
+
+	@Override
+	public void update(final NetValue value) {
+		template.update(SQL_INSERT, new PreparedStatementSetter() {
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+				new QueryRunner().fillStatement(ps, value.getProductId(),
+						value.getEvalueDate(), value.getEvalueType(),
+						value.getNetValue(), value.getNetIncreaseRate(), value.getId());
+			}
+		});
+	}
+	
+	@Override
+	public void remove(int id){
+		template.update(SQL_DELETE, id);
 	}
 
 }

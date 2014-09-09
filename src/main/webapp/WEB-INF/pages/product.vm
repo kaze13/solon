@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -8,7 +8,6 @@
 
 </head>
 <div class="container">
-
 	<div class="row">
 		<!--Nav Bar -->
 
@@ -32,11 +31,138 @@
 		</nav>
 		<!--Main Content -->
 		<div class="col-md-10 sheet">
-			#foreach( $product in $products)
+			#if($authenticated)
+			<div>
+				<button id="add-product-btn" class="btn btn-primary">新增</button>
+			</div>
+			<section id="add-product-section">
+
+			<h2>产品概要</h2>
+			<div>
+				<h3>产品要素</h3>
+				<table class="table table-striped">
+					<col width="40%">
+					<col width="50%">
+					<tr>
+						<td>产品名称</td>
+						<td><input type="text" id="productName" /></td>
+					</tr>
+					<tr>
+						<td>投资范围</td>
+						<td><input type="text" id="range" /></td>
+					</tr>
+					<tr>
+						<td>投资经理</td>
+						<td><input type="text" id="manager" /></td>
+					</tr>
+					<tr>
+						<td>最低认购金额</td>
+						<td><input type="text" id="minInvest" /></td>
+					</tr>
+					<tr>
+						<td>存续期</td>
+						<td><input type="text" id="adoptionPeriod" /></td>
+					</tr>
+					<tr>
+						<td>资金封闭期</td>
+						<td><input type="text" id="closePeriod" /></td>
+					</tr>
+					<tr>
+						<td>成立日</td>
+						<td><input type="text" id="createDate" /></td>
+					</tr>
+					<tr>
+						<td>开放日</td>
+						<td><input type="text" id="openDate" /></td>
+					</tr>
+				</table>
+			</div>
+			<div id="trusts-struct-${product.productId}">
+				<h3>信托结构</h3>
+				<table class="table table-striped">
+					<col width="40%">
+					<col width="50%">
+					<tr>
+						<td>监管机构</td>
+						<td><input type="text" id="watchingOrg" /></td>
+					</tr>
+					<tr>
+						<td>受托人</td>
+						<td><input type="text" id="trustee" /></td>
+					</tr>
+					<tr>
+						<td>保管银行</td>
+						<td><input type="text" id="bank" /></td>
+					</tr>
+					<tr>
+						<td>证券经纪商</td>
+						<td><input type="text" id="borker" /></td>
+					</tr>
+					<tr>
+						<td>投资顾问</td>
+						<td><input type="text" id="counselor" /></td>
+					</tr>
+				</table>
+			</div>
+			<div>
+				<h3>费率明细</h3>
+				<table class="table table-striped">
+					<col width="40%">
+					<col width="50%">
+					<tr>
+						<td>认购费率</td>
+						<td><input type="text" id="subscriptionFee" /></td>
+					</tr>
+					<tr>
+						<td>年固定管理费率</td>
+						<td><input type="text" id="annualManageFee" /></td>
+					</tr>
+					<tr>
+						<td>浮动管理费</td>
+						<td><input type="text" id="floatManageFee" /></td>
+					</tr>
+				</table>
+			</div>
+			<div>
+				<h3>信托认购</h3>
+				<table class="table table-striped">
+					<col width="40%">
+					<col width="50%">
+					<tr>
+						<td>认购账户名</td>
+						<td><input type="text" id="subscriptionAccount" /></td>
+					</tr>
+					<tr>
+						<td>认购账户开户行</td>
+						<td><input type="text" id="subscriptionBank" /></td>
+					</tr>
+					<tr>
+						<td>认购账户账号</td>
+						<td><input type="text" id="floatManageFee" /></td>
+					</tr>
+				</table>
+			</div>
+			<h2>认购流程</h2>
+			<textarea id="subscriptionProcess" rows='40' class="form-control" contenteditable='true'>
+			</textarea>
+			<button id="add-product-confirm-btn" class="btn btn-primary pull-right">确认新增</button>
+			</section>
+			#end #foreach( $product in $products)
 			<div id="product-${product.productId}" class="product-section"
 				data-id="${product.productId}">
 				<section id="introduction-${product.productId}">
-				<h1>$product.productName</h1>
+				<div>
+					<h1>$product.productName</h1>
+					#if($authenticated)
+					<div class="pull-right">
+						<button class="modify-product-btn btn btn-default">修改</button>
+						<button data-id="${product.productId}"
+							class="modify-product-confirm-btn btn btn-default">修改完成</button>
+						<button data-id="${product.productId}"
+							class="delete-product-btn btn btn-danger">删除</button>
+					</div>
+					#end
+				</div>
 				<h2>产品概要</h2>
 				<div id="product-info-${product.productId}">
 					<h3>产品要素</h3>
@@ -45,35 +171,54 @@
 						<col width="50%">
 						<tr>
 							<td>产品名称</td>
-							<td>$product.productName</td>
+							<td class="modify-td"><input type="text"
+								id="productName-${product.productId}"
+								value="$product.productName" /></td>
+							<td class="display-td">$product.productName</td>
 						</tr>
 						<tr>
 							<td>投资范围</td>
-							<td>$product.range</td>
+							<td class="modify-td"><input type="text"
+								id="range-${product.productId}" value="$product.range" /></td>
+							<td class="display-td">$product.range</td>
 						</tr>
 						<tr>
 							<td>投资经理</td>
-							<td>$product.manager</td>
+							<td class="modify-td"><input type="text"
+								id="manager-${product.productId}" value="$product.manager" /></td>
+							<td class="display-td">$product.manager</td>
 						</tr>
 						<tr>
 							<td>最低认购金额</td>
-							<td>$product.minInvest</td>
+							<td class="modify-td"><input type="text"
+								id="minInvest-${product.productId}" value="$product.minInvest" /></td>
+							<td class="display-td">$product.minInvest</td>
 						</tr>
 						<tr>
 							<td>存续期</td>
-							<td>$product.adoptionPeriod</td>
+							<td class="modify-td"><input type="text"
+								id="adoptionPeriod-${product.productId}"
+								value="$product.adoptionPeriod" /></td>
+							<td class="display-td">$product.adoptionPeriod</td>
 						</tr>
 						<tr>
 							<td>资金封闭期</td>
-							<td>$product.closePeriod</td>
+							<td class="modify-td"><input type="text"
+								id="closePeriod-${product.productId}"
+								value="$product.closePeriod" /></td>
+							<td class="display-td">$product.closePeriod</td>
 						</tr>
 						<tr>
 							<td>成立日</td>
-							<td>$product.createDate</td>
+							<td class="modify-td"><input type="text"
+								id="createDate-${product.productId}" value="$product.createDate" /></td>
+							<td class="display-td">$product.createDate</td>
 						</tr>
 						<tr>
 							<td>开放日</td>
-							<td>$product.openDate</td>
+							<td class="modify-td"><input type="text"
+								id="openDate-${product.productId}" value="$product.openDate" /></td>
+							<td class="display-td">$product.openDate</td>
 						</tr>
 					</table>
 				</div>
@@ -84,23 +229,34 @@
 						<col width="50%">
 						<tr>
 							<td>监管机构</td>
-							<td>$product.watchingOrg</td>
+							<td class="modify-td"><input type="text"
+								id="watchingOrg-${product.productId}"
+								value="$product.watchingOrg" /></td>
+							<td class="display-td">$product.watchingOrg</td>
 						</tr>
 						<tr>
 							<td>受托人</td>
-							<td>$product.trustee</td>
+							<td class="modify-td"><input type="text"
+								id="trustee-${product.productId}" value="$product.trustee" /></td>
+							<td class="display-td">$product.trustee</td>
 						</tr>
 						<tr>
 							<td>保管银行</td>
-							<td>$product.bank</td>
+							<td class="modify-td"><input type="text"
+								id="bank-${product.productId}" value="$product.bank" /></td>
+							<td class="display-td">$product.bank</td>
 						</tr>
 						<tr>
 							<td>证券经纪商</td>
-							<td>$product.borker</td>
+							<td class="modify-td"><input type="text"
+								id="borker-${product.productId}" value="$product.borker" /></td>
+							<td class="display-td">$product.borker</td>
 						</tr>
 						<tr>
 							<td>投资顾问</td>
-							<td>$product.counselor</td>
+							<td class="modify-td"><input type="text"
+								id="counselor-${product.productId}" value="$product.counselor" /></td>
+							<td class="display-td">$product.counselor</td>
 						</tr>
 					</table>
 				</div>
@@ -111,15 +267,24 @@
 						<col width="50%">
 						<tr>
 							<td>认购费率</td>
-							<td>$product.subscriptionFee</td>
+							<td class="modify-td"><input type="text"
+								id="subscriptionFee-${product.productId}"
+								value="$product.subscriptionFee" /></td>
+							<td class="display-td">$product.subscriptionFee</td>
 						</tr>
 						<tr>
 							<td>年固定管理费率</td>
-							<td>$product.annualManageFee</td>
+							<td class="modify-td"><input type="text"
+								id="annualManageFee-${product.productId}"
+								value="$product.annualManageFee" /></td>
+							<td class="display-td">$product.annualManageFee</td>
 						</tr>
 						<tr>
 							<td>浮动管理费</td>
-							<td>$product.floatManageFee</td>
+							<td class="modify-td"><input type="text"
+								id="floatManageFee-${product.productId}"
+								value="$product.floatManageFee" /></td>
+							<td class="display-td">$product.floatManageFee</td>
 						</tr>
 					</table>
 				</div>
@@ -130,15 +295,24 @@
 						<col width="50%">
 						<tr>
 							<td>认购账户名</td>
-							<td>$product.subscriptionAccount</td>
+							<td class="modify-td"><input type="text"
+								id="subscriptionAccount-${product.productId}"
+								value="$product.subscriptionAccount" /></td>
+							<td class="display-td">$product.subscriptionAccount</td>
 						</tr>
 						<tr>
 							<td>认购账户开户行</td>
-							<td>$product.subscriptionBank</td>
+							<td class="modify-td"><input type="text"
+								id="subscriptionBank-${product.productId}"
+								value="$product.subscriptionBank" /></td>
+							<td class="display-td">$product.subscriptionBank</td>
 						</tr>
 						<tr>
 							<td>认购账户账号</td>
-							<td>$product.floatManageFee</td>
+							<td class="modify-td"><input type="text"
+								id="floatManageFee-${product.productId}"
+								value="$product.floatManageFee" /></td>
+							<td class="display-td">$product.floatManageFee</td>
 						</tr>
 					</table>
 				</div>
@@ -152,8 +326,7 @@
 					<col width="25%">
 					<col width="25%">
 					<tr>
-						<th>日期类型
-						</th>
+						<th>日期类型</th>
 						<th>更新日期</th>
 						<th>信托单位净值（元）</th>
 						<th>累计净值增长率</th>
@@ -186,6 +359,177 @@
 		</div>
 	</div>
 </div>
+
+
+<div class="modal fade" id="add-product-modal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				</button>
+				<h4 class="modal-title">新增产品</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" role="form">
+					<div class="form-group">
+						<label for="productId" class="col-sm-2 control-label">产品ID</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="productId">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="productName" class="col-sm-2 control-label">产品名称</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="productName">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="productShortName" class="col-sm-2 control-label">产品略称</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="productShortName">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="status" class="col-sm-2 control-label">产品状态</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="status">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="strategy" class="col-sm-2 control-label">CTA和阿尔法策略</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="strategy">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="range" class="col-sm-2 control-label">资产范围</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="range">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="manager" class="col-sm-2 control-label">投资经理</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="manager">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="minInvest" class="col-sm-2 control-label">最少认购</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="minInvest">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="adoptionPeriod" class="col-sm-2 control-label">续存期</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="adoptionPeriod">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="closePeriod" class="col-sm-2 control-label">资金封闭期</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="closePeriod">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="createDate" class="col-sm-2 control-label">成立日</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="createDate">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="openDate" class="col-sm-2 control-label">开放日</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="openDate">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="watchingOrg" class="col-sm-2 control-label">监管机构</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="watchingOrg">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="trustee" class="col-sm-2 control-label">托管人</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="trustee">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="bank" class="col-sm-2 control-label">保管银行</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="bank">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="borker" class="col-sm-2 control-label">证券经纪商</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="borker">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="counselor" class="col-sm-2 control-label">投资顾问</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="counselor">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="subscriptionFee" class="col-sm-2 control-label">认购费率</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id=subscriptionFee>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="annualManageFee" class="col-sm-2 control-label">年固定管理费率</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="annualManageFee">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="floatManageFee" class="col-sm-2 control-label">浮动管理费</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="floatManageFee">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="subscriptionAccount" class="col-sm-2 control-label">认购账户名</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="subscriptionAccount">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="subscriptionBank" class="col-sm-2 control-label">认购账户开户行</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="subscriptionBank">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="subscriptionId" class="col-sm-2 control-label">认购账户账号</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="subscriptionId">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="subscriptionProcess" class="col-sm-2 control-label">认购流程</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="subscriptionProcess">
+						</div>
+					</div>
+
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				<button id="add-product-confirm-btn" type="button"
+					class="btn btn-primary">新增</button>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 
 <script src="./resources/js/jquery-1.9.1.min.js"></script>
 <script src="http://code.highcharts.com/highcharts.js"></script>
