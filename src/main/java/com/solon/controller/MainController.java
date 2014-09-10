@@ -113,6 +113,12 @@ public class MainController {
 	}
 	
 
+
+	@RequestMapping(value="about-us")
+	public String aboutUs(){
+		
+		return "about-us";
+	}
 	
 	@RequestMapping(value="contact-us")
 	public String contactUs(){

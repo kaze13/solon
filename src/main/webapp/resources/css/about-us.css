@@ -1,0 +1,11 @@
+.bar-container{
+	margin-top:50px;
+	width:200px;
+	
+}
+
+.affix{
+	position:fixed;
+	top:0px;
+	left:385px;
+}
