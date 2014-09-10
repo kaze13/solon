@@ -2070,6 +2070,7 @@ span.color-red {
   transition-duration: 1.5s;
 }
 #sequence .animate-in .title {
+  font: normal 24px  Arial, Helvetica, sans-serif,"黑体";
   left: 15%;
   -webkit-opacity: 1;
   -moz-opacity: 1;
@@ -2078,6 +2079,7 @@ span.color-red {
   -moz-transition-duration: 0.5s;
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
+  color: white;
 }
 #sequence .animate-out .title {
   left: 35%;
