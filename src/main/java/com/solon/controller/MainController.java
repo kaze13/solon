@@ -36,10 +36,12 @@ public class MainController {
 	@Autowired
 	INetValueService netValueService;
 
-	@RequestMapping(value = "/")
+	@RequestMapping(value = {"/", "index"})
 	public String index(Model model) {
 		return "index";
 	}
+	
+
 
 	@RequestMapping(value = "admin")
 	public String admin(Model model) {
@@ -108,6 +110,14 @@ public class MainController {
 	public @ResponseBody String removeProduct(@RequestParam int id){
 		productService.remove(id);
 		return "success";
+	}
+	
+
+	
+	@RequestMapping(value="contact-us")
+	public String contactUs(){
+		
+		return "contact-us";
 	}
 
 }

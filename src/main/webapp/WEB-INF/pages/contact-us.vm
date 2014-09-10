@@ -6,16 +6,12 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/icomoon-social.css">
-            <link rel="stylesheet" href="css/contact.css">  
-        <link rel="stylesheet" href="css/leaflet.css" />
-		<!--[if lte IE 8]>
-		    <link rel="stylesheet" href="css/leaflet.ie.css" />
-		<![endif]-->
-		<link rel="stylesheet" href="css/main.css">
-
-        <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+       <link rel="stylesheet" href="./resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="./resources/css/icomoon-social.css">
+<link rel="stylesheet" href="./resources/css/leaflet.css" />
+<link rel="stylesheet" href="./resources/css/main.css">
+<link rel="stylesheet" href="./resources/css/contact.css">
+<script src="./resources/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
        
@@ -26,21 +22,21 @@
 	        	
 		        <nav id="mainmenu" class="mainmenu">
 					<ul>
-						<li class="logo-wrapper"><a href="index.html"><img src="img/mPurpose-logo.png" alt="Multipurpose Twitter Bootstrap Template"></a></li>
+						<li class="logo-wrapper"><a href="index.html"><img src="./resources/img/mPurpose-logo.png" alt="Multipurpose Twitter Bootstrap Template"></a></li>
 						<li class="active">
-							<a href="index.html">首页</a>
+							<a href="index">首页</a>
 						</li>
 						<li>
-							<a href="about-us.html">关于双隆</a>
+							<a href="about-us">关于双隆</a>
 						</li>
 						<li>
-							<a href="products.html">基金产品</a>
+							<a href="products">基金产品</a>
 						</li>
 						<li>
-							<a href="cooperation.html">交流合作</a>
+							<a href="cooperation">交流合作</a>
 						</li>
 						<li>
-							<a href="contact-us.html">联系我们</a>
+							<a href="contact-us">联系我们</a>
 						</li>
 						
 						
@@ -121,17 +117,17 @@
 
         <!-- Javascripts -->
         
-        <script>window.jQuery || document.write('<script src="js/jquery-1.9.1.min.js"><\/script>')</script>
-        <script src="js/bootstrap.min.js"></script>
+        <script>window.jQuery || document.write('<script src="./resources/js/jquery-1.9.1.min.js"><\/script>')</script>
+        <script src="./resources/js/bootstrap.min.js"></script>
         <script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
-        <script src="js/jquery.fitvids.js"></script>
-        <script src="js/jquery.sequence-min.js"></script>
-        <script src="js/jquery.bxslider.js"></script>
-        <script src="js/main-menu.js"></script>
-        <script src="js/template.js"></script>
+        <script src="./resources/js/jquery.fitvids.js"></script>
+        <script src="./resources/js/jquery.sequence-min.js"></script>
+        <script src="./resources/js/jquery.bxslider.js"></script>
+        <script src="./resources/js/main-menu.js"></script>
+        <script src="./resources/js/template.js"></script>
         <script type="text/javascript"
 		src="http://api.map.baidu.com/api?v=1.5&ak=71eb1b504f214932e4e623db3b21d2d8"></script>
-	<script src="js/contact.main.js"></script>
+	<script src="./resources/js/contact.main.js"></script>
 	
 
     </body>
