@@ -8,7 +8,7 @@
 
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="./resources/css/icomoon-social.css">
-
+<link rel="Shortcut Icon" href="./resources/img/icon.png">
 <link rel="stylesheet" href="./resources/css/leaflet.css" />
 <!--[if lte IE 8]>
 		    <link rel="stylesheet" href="./resources/css/leaflet.ie.css" />
@@ -30,7 +30,7 @@
 			<nav id="mainmenu" class="mainmenu">
 				<ul>
 					<li class="logo-wrapper"><a href="index.html"><img
-							src="./resources/img/logo2.png"
+							src="./resources/img/logo.png"
 							alt="Multipurpose Twitter Bootstrap Template"></a></li>
 					<li class="active"><a href="index"><span class="glyphicon glyphicon-home"></span></a></li>
 					<li><a href="about-us">关于双隆</a></li>
