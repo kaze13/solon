@@ -129,5 +129,13 @@ public class MainController {
 		
 		return "contact-us";
 	}
+	
+	@RequestMapping(value="add-article")
+	public String addArticle(){
+		//TODO: Test Auth
+		return "add-article";
+	}
+	
+	
 
 }
