@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Product</title>
+<title>上海双隆投资有限公司</title>
 
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="./resources/css/icomoon-social.css">
@@ -21,7 +21,7 @@
 	        	
 		        <nav id="mainmenu" class="mainmenu">
 					<ul>
-						<li class="logo-wrapper"><a href="index.html"><img src="./resources/img/mPurpose-logo.png" alt="Multipurpose Twitter Bootstrap Template"></a></li>
+						<li class="logo-wrapper"><a href="index.html"><img src="./resources/img/logo2.png" alt="Multipurpose Twitter Bootstrap Template"></a></li>
 						<li >
 							<a href="index"><span class="glyphicon glyphicon-home"></span></a>
 						</li>

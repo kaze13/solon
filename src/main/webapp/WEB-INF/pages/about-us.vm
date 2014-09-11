@@ -2,7 +2,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>mPurpose - Multipurpose Feature Rich Bootstrap Template</title>
+        <title>上海双隆投资有限公司</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
@@ -23,7 +23,7 @@
 		        <nav id="mainmenu" class="mainmenu">
 					<ul>
 							<li class="logo-wrapper"><a href="index.html"><img
-							src="./resources/img/mPurpose-logo.png"
+							src="./resources/img/logo2.png"
 							alt="Multipurpose Twitter Bootstrap Template"></a></li>
 					<li ><a href="index"><span class="glyphicon glyphicon-home"></span></a></li>
 					<li class="active"><a href="about-us">关于双隆</a></li>
