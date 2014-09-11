@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="./resources/css/leaflet.css" />
 
 <link rel="stylesheet" href="./resources/css/main.css">
+<link rel="stylesheet" href="./resources/css/product.css">
 <link rel="Shortcut Icon" href="./resources/img/icon.png">
 <script src="./resources/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 </head>
@@ -355,24 +356,61 @@
 				</section>
 
 				<section id="value-${product.productId}">
-				<h2>产品净值</h2>
+				<div>
+					<h2>产品净值</h2>
+					<div class="pull-right">
+						<button class="add-value-btn btn btn-primary">新增</button>
+					</div>	
+				</div>
 				<table class="table table-striped">
+					#if($authenticated)
+					<col width="20%">
+					<col width="20%">
+					<col width="20%">
+					<col width="20%">
+					<col width="10%">
+					<col width="10%">
+					#else
 					<col width="25%">
 					<col width="25%">
 					<col width="25%">
-					<col width="25%">
+					<col width="25%">	
+					#end
 					<tr>
 						<th>日期类型</th>
 						<th>更新日期</th>
 						<th>信托单位净值（元）</th>
 						<th>累计净值增长率</th>
+						#if($authenticated)
+						<th></th>
+						<th></th>
+						#end
 					</tr>
 					#foreach($value in $valueMapping.get(${product.productId}))
 					<tr class="net-value-item-${product.productId}">
-						<td>$value.evalueType</td>
-						<td class="evalue-date">$value.evalueDate</td>
-						<td class="net-value">$value.netValue</td>
-						<td>$value.netIncreaseRate</td>
+						<td class="display-td">$value.evalueType</td>
+						<td class="modify-td"><input type="text"
+								id="evalueType-${product.productId}"
+								value="$value.evalueType" /></td>
+						<td class="display-td evalue-date">$value.evalueDate</td>
+						<td class="modify-td"><input type="text"
+								id="evalueDate-${product.productId}"
+								value="$value.evalueDate" /></td>
+						<td class="display-td net-value">$value.netValue</td>
+						<td class="modify-td"><input type="text"
+								id="netValue-${product.productId}"
+								value="$value.netValue" /></td>
+						<td class="display-td">$value.netIncreaseRate</td>
+						<td class="modify-td"><input type="text"
+								id="netIncreaseRate-${product.productId}"
+								value="$value.netIncreaseRate" /></td>
+						#if($authenticated)
+								<td>
+									<button class="btn btn-warning modify-value-btn">编辑</button>
+									<button class="btn btn-warning modify-value-confirm-btn">确认</button>
+								</td>
+								<td><button class="btn btn-danger remove-value-btn">删除</button></td>
+						#end
 					</tr>
 					#end
 
