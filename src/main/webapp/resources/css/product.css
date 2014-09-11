@@ -35,21 +35,21 @@
 }
 
 /* active & hover links */
-.bs-docs-sidebar .nav>.active>a, .bs-docs-sidebar .nav>li>a:hover,
-	.bs-docs-sidebar .nav>li>a:focus {
+.bs-docs-sidebar .nav>.active>a,.bs-docs-sidebar .nav>li>a:hover,.bs-docs-sidebar .nav>li>a:focus
+	{
 	color: #563d7c;
 	text-decoration: none;
 	background-color: transparent;
 	border-left-color: #563d7c;
 }
 /* all active links */
-.bs-docs-sidebar .nav>.active>a, .bs-docs-sidebar .nav>.active:hover>a,
-	.bs-docs-sidebar .nav>.active:focus>a {
+.bs-docs-sidebar .nav>.active>a,.bs-docs-sidebar .nav>.active:hover>a,.bs-docs-sidebar .nav>.active:focus>a
+	{
 	font-weight: 700;
 }
 /* nested active links */
-.bs-docs-sidebar .nav .nav>.active>a, .bs-docs-sidebar .nav .nav>.active:hover>a,
-	.bs-docs-sidebar .nav .nav>.active:focus>a {
+.bs-docs-sidebar .nav .nav>.active>a,.bs-docs-sidebar .nav .nav>.active:hover>a,.bs-docs-sidebar .nav .nav>.active:focus>a
+	{
 	font-weight: 500;
 }
 
@@ -90,5 +90,9 @@
 }
 
 #add-product-section {
+	display: none;
+}
+
+.modify-value-confirm-btn {
 	display: none;
 }

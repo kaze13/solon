@@ -93,6 +93,20 @@ $(document).ready(
 				})
 			})
 
+			$('.modify-value-btn').click(function() {
+				$(this).closest('tr').find('.modify-td').show();
+				$(this).closest('tr').find('.display-td').hide();
+				$(this).hide();
+				$(this).next().show();
+			})
+			
+			$('.modify-value-confirm-btn').click(function(){
+				$(this).closest('tr').find('.modify-td').hide();
+				$(this).closest('tr').find('.display-td').show();
+				$(this).hide();
+				$(this).prev().show();	
+			})
+
 			$('.modify-product-btn').click(function() {
 				$('.modify-td').show();
 				$('.display-td').hide();
@@ -100,15 +114,15 @@ $(document).ready(
 				$(this).next().show();
 
 			})
-			
-			$('.delete-product-btn').click(function(){
+
+			$('.delete-product-btn').click(function() {
 				$.ajax({
 					contentType : "application/json",
 					type : 'POST',
 					url : "remove_product?id=" + $(this).data('id'),
 				}).done(function() {
 					window.location.reload();
-				})	
+				})
 			})
 
 			$('.modify-product-confirm-btn').click(
