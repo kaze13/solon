@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>上海双隆投资有限公司</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+       <link rel="stylesheet" href="./resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="./resources/css/icomoon-social.css">
+<link rel="stylesheet" href="./resources/css/leaflet.css" />
+<link rel="stylesheet" href="./resources/css/main.css">
+<link rel="stylesheet" href="./resources/css/contact.css">
+<link rel="Shortcut Icon" href="./resources/img/icon.png">
+<script src="./resources/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+       
+
+        <!-- Navigation & Logo-->
+        <div class="mainmenu-wrapper">
+	        <div class="container">
+	        	
+		        <nav id="mainmenu" class="mainmenu">
+					<ul>
+						<li class="logo-wrapper"><a href="index.html"><img src="./resources/img/logo2.png" alt="Multipurpose Twitter Bootstrap Template"></a></li>
+						<li >
+							<a href="index"><span class="glyphicon glyphicon-home"></span></a>
+						</li>
+						<li >
+							<a href="about-us">产品管理</a>
+						</li>
+						<li>
+							<a href="show">净值管理</a>
+						</li>
+						
+						<li class="active">
+						    
+						    <a href="contact-us">咨询管理</a>
+						   
+						   
+							
+						</li>
+						
+						
+					</ul>
+				</nav>
+			</div>
+		</div>
+		
+		<div class="container after-heading">
+		<div class="box first">
+			<div class="row">
+
+				<div class="col-md-12" id="contact-us">
+				<label>标题</label>
+				
+				<form method="post">
+    <textarea></textarea>
+</form>
+
+
+					
+
+
+
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+    
+
+
+		
+
+	
+
+	    <!-- Footer -->
+	    <div class="footer">
+	    	<div class="container">
+		    	
+		    	<div class="row">
+		    		<div class="col-md-12">
+		    			<div class="footer-copyright">&copy; 2013 mPurpose. All rights reserved.</div>
+		    		</div>
+		    	</div>
+		    </div>
+	    </div>
+
+        <!-- Javascripts -->
+        
+        <script>window.jQuery || document.write('<script src="./resources/js/jquery-1.9.1.min.js"><\/script>')</script>
+        <script src="./resources/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="./resources/js/tinymce/tinymce.min.js"></script>
+        <script src="./resources/js/jquery.fitvids.js"></script>
+        <script src="./resources/js/jquery.sequence-min.js"></script>
+        <script src="./resources/js/jquery.bxslider.js"></script>
+        <script src="./resources/js/main-menu.js"></script>
+        <script src="./resources/js/template.js"></script>
+       
+	<script src="./resources/js/add-article.js"></script>
+	
+
+    </body>
+</html>
