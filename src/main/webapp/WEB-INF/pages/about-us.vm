@@ -49,6 +49,7 @@
   <li class="active"><a href="#company-general">公司概况</a></li>
   <li><a href="#company-structure">组织架构</a></li>
   <li><a href="#investment-way">投资理念</a></li>
+   <li><a href="#company-culture">公司文化</a></li>
 </ul>
 </div>
 		</div>
@@ -79,6 +80,61 @@
 国内量化投资总体上还属于起步阶段，还有很长的路要走。正因为如此，国内的量化投资还是一片“蓝海”，值得期待。上海双隆投资顺应趋势，于量化投资在国内刚起步时就抓住机会，专注于这一新兴投资方式。目前已完全自成体系，拥有一支理工科背景的博士、硕士等高学历人才组成的研发、交易团队以及一支行业经验丰富的交易系统开发和维护团队。
 上海双隆投资是国内最早一批专注于量化投资的机构，我们始终保持多策略、多市场、多品种的多样化分散投资优势，并根据市场的演化动态调整投资策略。双隆自主研发的交易系统保证我们可以更加高效地发挥策略研发上的优势。
 						</div>
+						</div>
+						
+						<div id = "company-culture">
+						<div class = "pictures">
+						<h2>公司文化</h2>
+						<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="./resources/img/portfolio1.jpg" alt="...">
+      <div class="carousel-caption">
+        
+      </div>
+    </div>
+    <div class="item">
+       <img src="./resources/img/portfolio2.jpg" alt="...">
+      <div class="carousel-caption">
+    
+      </div>
+    </div>
+    
+     <div class="item">
+       <img src="./resources/img/portfolio3.jpg" alt="...">
+      <div class="carousel-caption">
+    
+      </div>
+    </div>
+    
+      <div class="item">
+       <img src="./resources/img/portfolio4.jpg" alt="...">
+      <div class="carousel-caption">
+    
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+						
+						</div>
+						
 						</div>
 
 
