@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="./resources/css/icomoon-social.css">
 <link rel="stylesheet" href="./resources/css/leaflet.css" />
 <link rel="stylesheet" href="./resources/css/main.css">
-<link rel="stylesheet" href="./resources/css/contact.css">
+<link rel="stylesheet" href="./resources/css/add-article.css">
 <link rel="Shortcut Icon" href="./resources/img/icon.png">
 <script src="./resources/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
@@ -53,9 +53,11 @@
 			<div class="row">
 
 				<div class="col-md-12" id="contact-us">
-				<label>标题</label>
 				
+				<h1>创建新文章</h1>
 				<form method="post">
+				<label class="art-title-tag">文章标题</label>
+				<input type="text" class="art-title"></input>
     <textarea></textarea>
 </form>
 
