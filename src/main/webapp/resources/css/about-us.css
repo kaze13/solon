@@ -1,3 +1,6 @@
+body{
+	position: relative;
+}
 .bar-container{
 	margin-top:50px;
 	width:200px;

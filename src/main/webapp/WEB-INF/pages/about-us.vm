@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="./resources/css/about-us.css">
 <script src="./resources/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
-    <body>
+    <body data-spy="scroll" data-target=".navbar-example">
        
 
         <!-- Navigation & Logo-->
@@ -43,7 +43,7 @@
 			<div class="row">
 
 <div class="col-md-3">
-<div class="bar-container" id="memu-bar-container">
+<div class="bar-container navbar-example" id="memu-bar-container">
 
 		<ul class="nav nav-pills nav-stacked" >
   <li class="active"><a href="#company-general">公司概况</a></li>
