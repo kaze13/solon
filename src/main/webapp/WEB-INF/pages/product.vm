@@ -22,18 +22,16 @@
 		        <nav id="mainmenu" class="mainmenu">
 					<ul>
 						<li class="logo-wrapper"><a href="index.html"><img src="./resources/img/mPurpose-logo.png" alt="Multipurpose Twitter Bootstrap Template"></a></li>
-						<li class="active">
-							<a href="index">首页</a>
+						<li >
+							<a href="index"><span class="glyphicon glyphicon-home"></span></a>
 						</li>
 						<li>
 							<a href="about-us">关于双隆</a>
 						</li>
-						<li>
+						<li class="active">
 							<a href="show">基金产品</a>
 						</li>
-						<li>
-							<a href="cooperation">交流合作</a>
-						</li>
+						<li ><a href="sl-news">双隆咨询</a></li>
 						<li>
 							<a href="contact-us">联系我们</a>
 						</li>

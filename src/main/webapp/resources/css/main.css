@@ -2420,7 +2420,7 @@ span.color-red {
 .mainmenu > ul > li.active > a,
 .mainmenu .mainmenu-submenu-inner > li.active > a {
   color: #4f8db3;
-  font-weight: 600 !important;
+ 
 }
 .mainmenu > ul > li.mainmenu-open a,
 .mainmenu .mainmenu-submenu-inner > li.mainmenu-open a,
@@ -2678,4 +2678,8 @@ span.color-red {
 }
 .all-btn{
 	margin-left:23px;
+}
+li.active{
+	background: url(../img/page-background.png);
+	font-weight:bold;
 }

@@ -113,6 +113,10 @@ public class MainController {
 	}
 	
 
+	@RequestMapping(value="sl-news")
+	public String slNews(){
+		return "sl-news";
+	}
 
 	@RequestMapping(value="about-us")
 	public String aboutUs(){
