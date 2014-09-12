@@ -43,18 +43,18 @@ public class MainController {
 	
 
 
-	@RequestMapping(value = "admin")
-	public String admin(Model model) {
-		List<Product> products = productService.findAll();
-		List<User> users = userService.findAll();
-		List<NetValue> netValues = netValueService.findAll();
-		model.addAttribute("products", products);
-		model.addAttribute("users", users);
-		model.addAttribute("netValues", netValues);
-		return "admin";
-	}
+//	@RequestMapping(value = "admin")
+//	public String admin(Model model) {
+//		List<Product> products = productService.findAll();
+//		List<User> users = userService.findAll();
+//		List<NetValue> netValues = netValueService.findAll();
+//		model.addAttribute("products", products);
+//		model.addAttribute("users", users);
+//		model.addAttribute("netValues", netValues);
+//		return "admin";
+//	}
 
-	@RequestMapping(value = { "show", "login" })
+	@RequestMapping(value = { "show", "admin" })
 	public String product(ModelMap model) {
 		List<Product> products = productService.findAll();
 		Map<Integer, List<NetValue>> valueMapping = new HashMap<Integer, List<NetValue>>();
@@ -111,8 +111,25 @@ public class MainController {
 		productService.remove(id);
 		return "success";
 	}
-	
 
+	@RequestMapping(value = "add_value", method = RequestMethod.POST)
+	public @ResponseBody String addValue(@RequestBody NetValue value) {
+		netValueService.insert(value);
+		return "success";
+	}
+	
+	@RequestMapping(value = "update_value", method = RequestMethod.POST)
+	public @ResponseBody String updateValue(@RequestBody NetValue value) {
+		netValueService.update(value);
+		return "success";
+	}
+	
+	@RequestMapping(value = "remove_value", method = RequestMethod.POST)
+	public @ResponseBody String removeValue(@RequestParam int id){
+		netValueService.remove(id);
+		return "success";
+	}
+	
 	@RequestMapping(value="sl-news")
 	public String slNews(){
 		return "sl-news";

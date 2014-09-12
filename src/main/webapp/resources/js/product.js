@@ -99,12 +99,50 @@ $(document).ready(
 				$(this).hide();
 				$(this).next().show();
 			})
-			
-			$('.modify-value-confirm-btn').click(function(){
+
+			$('.add-value-btn').click(function() {
+				window.newValueProductId = $(this).data('id');
+				$('#add-value-modal').modal('show');
+			})
+
+			$('#add-value-confirm-btn').click(function() {
+				var data = {};
+				data.productId = parseInt(window.newValueProductId);
+				data.evalueDate = $('#evalueDate').val();
+				data.evalueType = $('#evalueType').val();
+				data.netValue = $('#netValue').val();
+				data.netIncreaseRate = $('#netIncreaseRate').val();
+				$.ajax({
+					data : JSON.stringify(data),
+					contentType : "application/json",
+					type : 'POST',
+					url : "add_value",
+				}).done(function() {
+					window.location.reload();
+				})
+			})
+
+			$('.modify-value-confirm-btn').click(function() {
 				$(this).closest('tr').find('.modify-td').hide();
 				$(this).closest('tr').find('.display-td').show();
 				$(this).hide();
-				$(this).prev().show();	
+				$(this).prev().show();
+				var id = $(this).id;
+				var data = {};
+				data.id = $(this).data('id');
+				data.productId = $(this).data('product-id');
+				data.evalueDate = $('#evalueDate-' + id).val();
+				data.evalueType = $('#evalueType-' + id).val();
+				data.netValue = $('#netValue-' + id).val();
+				data.netIncreaseRate = $('#netIncreaseRate-' + id).val();
+				$.ajax({
+					data : JSON.stringify(data),
+					contentType : "application/json",
+					type : 'POST',
+					url : "add_value",
+				}).done(function() {
+					window.location.reload();
+				})
 			})
 
 			$('.modify-product-btn').click(function() {
