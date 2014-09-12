@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="./resources/css/main.css">
 <link rel="stylesheet" href="./resources/css/add-article.css">
 <link rel="Shortcut Icon" href="./resources/img/icon.png">
-<script src="./resources/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
     </head>
     <body>
        
@@ -55,23 +55,17 @@
 				<div class="col-md-12" id="contact-us">
 				
 				<h1>创建新文章</h1>
-				<form method="post">
+				
 				<label class="art-title-tag">文章标题</label>
-				<input type="text" class="art-title"></input>
-    <textarea></textarea>
-</form>
-
-
-					
-
-
-
+				<input type="text" class="art-title">
+				
+   <textarea cols="80" id="editor1" name="editor1" rows="10"></textarea>
 
 				</div>
 
 			</div>
 		</div>
-	</div>
+
 
     
 
@@ -96,14 +90,14 @@
         
         <script>window.jQuery || document.write('<script src="./resources/js/jquery-1.9.1.min.js"><\/script>')</script>
         <script src="./resources/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="./resources/js/tinymce/tinymce.min.js"></script>
+        <script src="./resources/ckeditor//ckeditor.js"></script>
         <script src="./resources/js/jquery.fitvids.js"></script>
         <script src="./resources/js/jquery.sequence-min.js"></script>
         <script src="./resources/js/jquery.bxslider.js"></script>
         <script src="./resources/js/main-menu.js"></script>
         <script src="./resources/js/template.js"></script>
        
-	<script src="./resources/js/add-article.js"></script>
+	    <script src="./resources/js/add-article.js"></script>
 	
 
     </body>

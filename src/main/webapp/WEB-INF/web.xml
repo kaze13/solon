@@ -6,6 +6,34 @@
 	<display-name>Spring Web MVC Application</display-name>
 
 	<!-- Spring MVC -->
+	<listener>
+		<listener-class>php.java.servlet.ContextLoaderListener</listener-class>
+	</listener>
+	<servlet>
+		<servlet-name>PhpJavaServlet</servlet-name>
+		<servlet-class>php.java.servlet.PhpJavaServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PhpCGIServlet</servlet-name>
+		<servlet-class>php.java.servlet.fastcgi.FastCGIServlet</servlet-class>
+		<init-param>
+			<param-name>prefer_system_php_exec</param-name>
+			<param-value>On</param-value>
+		</init-param>
+		<init-param>
+			<param-name>php_include_java</param-name>
+			<param-value>Off</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PhpJavaServlet</servlet-name>
+		<url-pattern>*.phpjavabridge</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PhpCGIServlet</servlet-name>
+		<url-pattern>*.php</url-pattern>
+	</servlet-mapping>
+
 	<servlet>
 		<servlet-name>mvc-dispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -25,22 +53,21 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	
-	 <!-- Loads Spring Security config file -->
+
+	<!-- Loads Spring Security config file -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 			/WEB-INF/spring-security.xml
 		</param-value>
 	</context-param>
- 
+
 	<!-- Spring Security -->
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
-		<filter-class>org.springframework.web.filter.DelegatingFilterProxy
-		</filter-class>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 	</filter>
- 
+
 	<filter-mapping>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
