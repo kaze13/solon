@@ -37,8 +37,7 @@ public class MainController {
 	IUserService userService;
 	@Autowired
 	INetValueService netValueService;
-	@Autowired
-	IArticleService articleService;
+	
 
 	@RequestMapping(value = {"/", "index"})
 	public String index(Model model) {
@@ -134,10 +133,6 @@ public class MainController {
 		return "success";
 	}
 	
-	@RequestMapping(value="sl-news")
-	public String slNews(){
-		return "sl-news";
-	}
 
 	@RequestMapping(value="about-us")
 	public String aboutUs(){
@@ -158,12 +153,45 @@ public class MainController {
 	}
 	
 	
+	@Autowired
+	IArticleService articleService;
+	
+
+	
 	@RequestMapping(value = "submit-article", method = RequestMethod.POST)
 	public @ResponseBody String addArticle(@RequestBody Article article) {
 		articleService.insert(article);
 		return "success";
 	}
 	
+	@RequestMapping(value = "delete-article", method = RequestMethod.POST)
+	public @ResponseBody String deleteArticle(@RequestBody int id) {
+		articleService.remove(id);
+		return "success";
+	}
 	
+	@RequestMapping(value = "get-article")
+	public @ResponseBody String getArticleById(@RequestBody int id) {
+		articleService.findById(id);
+		return "success";
+	}
+	
+	@RequestMapping(value = "sl-news")
+	public String getArticleList() {
+		
+		List<Article> articles = null;
+		//if(type == 0){
+			articles = articleService.findAll();
+		//}
+		//else{
+		//	articles = articleService.findByType(type);
+		//}
+		//model.addAttribute("articles", articles);
+		
+		
+		return "sl-news";
+	}
+	
+
 
 }

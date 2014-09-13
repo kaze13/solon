@@ -24,7 +24,7 @@ public class ArticleDaoImpl implements IArticleDao {
 			Article article = new Article();
 			try {
 				article.setId(rs.getInt("article_id"));
-				article.setType(rs.getType());
+				article.setType(rs.getInt("article_type"));
 				article.setContent(rs.getString("content"));
 				article.setCreateDate(rs.getDate("publish_date"));
 				article.setTitle(rs.getString("title"));
@@ -39,6 +39,11 @@ public class ArticleDaoImpl implements IArticleDao {
 
 	
 	private static String INSERT_SQL = " insert into article (article_type, publish_date, title, content) values (?, ?, ?, ?)";
+	private static String SQL_SELECT_ALL = "select article_id, article_type, title, content, publish_date from article ";
+	private static String SQL_SELECT_BY_ID = "select article_id, article_type, title, content, publish_date from article where article_id = ? ";
+	private static String SQL_SELECT_BY_TYPE = "select article_id, article_type, title, content, publish_date from article where article_type = ? ";
+	private static String SQL_DELETE_BY_ID = " delete from article where article_id = ?";
+	
 	
 	@Autowired
 	private JdbcTemplate template;
@@ -46,18 +51,22 @@ public class ArticleDaoImpl implements IArticleDao {
 	@Override
 	public List<Article> findAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return template.query(SQL_SELECT_ALL, ROW_MAPPER);
 	}
 
 	@Override
 	public List<Article> findByType(int type) {
 		// TODO Auto-generated method stub
-		return null;
+		return template.query(SQL_SELECT_BY_TYPE, ROW_MAPPER, type);
 	}
 
 	@Override
 	public Article findById(int id) {
 		// TODO Auto-generated method stub
+		List<Article> result = template.query(SQL_SELECT_BY_ID, ROW_MAPPER, id);
+		if(result.size() > 0){
+			return result.get(0);
+		}
 		return null;
 	}
 
@@ -76,7 +85,7 @@ public class ArticleDaoImpl implements IArticleDao {
 	@Override
 	public void remove(int id) {
 		// TODO Auto-generated method stub
-
+		template.update(SQL_DELETE_BY_ID, id);
 	}
 
 	@Override
