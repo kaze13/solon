@@ -18,9 +18,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.solon.dto.Article;
 import com.solon.dto.NetValue;
 import com.solon.dto.Product;
 import com.solon.dto.User;
+import com.solon.service.spec.IArticleService;
 import com.solon.service.spec.INetValueService;
 import com.solon.service.spec.IProductService;
 import com.solon.service.spec.IUserService;
@@ -35,6 +37,8 @@ public class MainController {
 	IUserService userService;
 	@Autowired
 	INetValueService netValueService;
+	@Autowired
+	IArticleService articleService;
 
 	@RequestMapping(value = {"/", "index"})
 	public String index(Model model) {
@@ -151,6 +155,13 @@ public class MainController {
 	public String addArticle(){
 		//TODO: Test Auth
 		return "add-article";
+	}
+	
+	
+	@RequestMapping(value = "submit-article", method = RequestMethod.POST)
+	public @ResponseBody String addArticle(@RequestBody Article article) {
+		articleService.insert(article);
+		return "success";
 	}
 	
 	

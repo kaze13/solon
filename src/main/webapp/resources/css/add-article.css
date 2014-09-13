@@ -1,7 +1,22 @@
 .art-title{
-	width:200px;
+	width:500px;
 }
 
 .art-title-tag{
-	width:200px;
+	width:100px;
+}
+.title-line{
+	border-top:2px solid;
+	width:100%;
+	margin-top:5px;
+	padding:10px;
+}
+.button-pic{
+	height:50px;
+	width:50px;
+	margin-top:5px;
+	margin-right:60px;
+}
+.art-type{
+	width:100px;
 }

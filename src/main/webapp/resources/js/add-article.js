@@ -1,30 +1,36 @@
-$(document).ready(function(){
+(function($){
 	
-	//document.getElementById( 'count' ).innerHTML = window.CKEDITOR_LANGS.length;
-
-	var editor;
-
-	function createEditor( languageCode ) {
-		if ( editor )
-			editor.destroy();
-
-		// Replace the <textarea id="editor"> with an CKEditor
-		// instance, using default configurations.
-		editor = CKEDITOR.replace( 'editor1', {
-			language: languageCode,
-
-			on: {
-				instanceReady: function() {
-					// Wait for the editor to be ready to set
-					// the language combo.
-				
-				}
-			}
+	var controller = new Controller();
+	
+	controller.createEditor = function(){
+		
+		this.editor = CKEDITOR.replace( 'editor1', {
+			height:'600px',
 		});
-	}
+	};
 
+	controller.buildPage = function(){
+		this.createEditor();
+	};
+	
+	controller.getArticleData = function(){
+		var data = {};
+		data.title = $('#article-title').val();
+		data.type = $('#article-type-selector').val();
+		data.content = this.editor.getData();
+		return data;
+	};
+	
+	controller.submitArticle = function(){
+		var data = this.getArticleData();
+		this.saveToServer('submit-article', data);
+		
+	};
+	
+	controller.bindMyPageHander = function(){
+		$('#article-submit').on('click', $.proxy(this.submitArticle, this));
+	};
+	
+	controller.initialize();
 
-	// At page startup, load the default language:
-	createEditor( '' );
-
-});
+})(jQuery);
