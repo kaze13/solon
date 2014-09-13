@@ -170,23 +170,24 @@ public class MainController {
 		return "success";
 	}
 	
-	@RequestMapping(value = "get-article")
-	public @ResponseBody String getArticleById(@RequestBody int id) {
-		articleService.findById(id);
-		return "success";
-	}
 	
+	@RequestMapping(value = "get-article")
+	public String getArticleById(@RequestParam int id, ModelMap model) {
+		Article article = articleService.findById(id);
+		List<Article> recentArticles = articleService.findAll();
+		recentArticles = recentArticles.subList(0, 10 < recentArticles.size() ? 10 : recentArticles.size());
+		model.addAttribute("article", article);
+		model.addAttribute("recentArticles", recentArticles);
+		return "article-page";
+	}
 	@RequestMapping(value = "sl-news")
-	public String getArticleList() {
+	public String getArticleList(ModelMap model) {
 		
 		List<Article> articles = null;
-		//if(type == 0){
-			articles = articleService.findAll();
-		//}
-		//else{
-		//	articles = articleService.findByType(type);
-		//}
-		//model.addAttribute("articles", articles);
+		articles = articleService.findAll();
+	
+		
+		model.addAttribute("articles", articles);
 		
 		
 		return "sl-news";

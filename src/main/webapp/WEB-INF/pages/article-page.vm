@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>上海双隆投资有限公司</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="stylesheet" href="./resources/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./resources/css/icomoon-social.css">
+	<link rel="stylesheet" href="./resources/css/leaflet.css" />
+	<link rel="stylesheet" href="./resources/css/main.css">
+	<link rel="stylesheet" href="./resources/css/about-us.css">
+	<link rel="Shortcut Icon" href="./resources/img/icon.png">
+	<script src="./resources/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+</head>
+<body data-spy="scroll" data-target=".navbar-example">
+
+
+	<!-- Navigation & Logo-->
+	<div class="mainmenu-wrapper">
+		<div class="container">
+
+			<nav id="mainmenu" class="mainmenu">
+				<ul>
+					<li class="logo-wrapper"><a href="index.html"><img
+						src="./resources/img/logo2.png"
+						alt="Multipurpose Twitter Bootstrap Template"></a></li>
+						<li ><a href="index"><span class="glyphicon glyphicon-home"></span></a></li>
+						<li><a href="about-us">关于双隆</a></li>
+						<li><a href="show">基金产品</a></li>
+						<li  class="active"><a href="sl-news">双隆咨询</a></li>
+						<li><a href="contact-us">联系我们</a></li>
+						
+						
+					</ul>
+			</nav>
+		</div>
+	</div>
+	
+	  <div class="section">
+	    	<div class="container">
+				<div class="row">
+					<!-- Blog Post -->
+					<div class="col-sm-8">
+						<div class="blog-post blog-single-post">
+							<div class="single-post-title">
+								<h3>${article.title}</h3>
+							</div>
+							<div class="single-post-info">
+								<i class="glyphicon glyphicon-time"></i>${article.createDate}
+								#if ( ${article.type} == 1 )
+				<div class="article-type-solon">双隆公告</div>
+			#end
+			#if ( $article.type == 2 )
+				<div class="article-type-media">媒体报告</div>
+			#end
+							</div>
+							
+							<div class="single-post-content">
+								${article.content}
+							</div>
+							
+						</div>
+					</div>
+					<!-- End Blog Post -->
+					<!-- Sidebar -->
+					<div class="col-sm-4 blog-sidebar">
+						
+						<h4>最近发布</h4>
+						<ul class="recent-posts">
+						    #foreach ($art in $recentArticles)
+							<li><a href="get-article?id=$art.id">$art.title</a></li>
+						    #end
+						</ul>
+					
+					</div>
+					<!-- End Sidebar -->
+				</div>
+			</div>
+	    </div>
+
+
+<!-- Footer -->
+<div class="footer">
+	<div class="container">
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="footer-copyright">&copy; 2013 mPurpose. All rights reserved.</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Javascripts -->
+
+<script>window.jQuery || document.write('<script src="./resources/js/jquery-1.9.1.js"><\/script>')</script>
+<script src="./resources/js/bootstrap.min.js"></script>
+
+<script src="./resources/js/jquery.fitvids.js"></script>
+<script src="./resources/js/jquery.sequence-min.js"></script>
+<script src="./resources/js/jquery.bxslider.js"></script>
+<script src="./resources/js/main-menu.js"></script>
+<script src="./resources/js/template.js"></script>
+<script src="./resources/js/about-us.js"></script> 
+
+
+</body>
+</html>

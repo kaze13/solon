@@ -39,9 +39,9 @@ public class ArticleDaoImpl implements IArticleDao {
 
 	
 	private static String INSERT_SQL = " insert into article (article_type, publish_date, title, content) values (?, ?, ?, ?)";
-	private static String SQL_SELECT_ALL = "select article_id, article_type, title, content, publish_date from article ";
-	private static String SQL_SELECT_BY_ID = "select article_id, article_type, title, content, publish_date from article where article_id = ? ";
-	private static String SQL_SELECT_BY_TYPE = "select article_id, article_type, title, content, publish_date from article where article_type = ? ";
+	private static String SQL_SELECT_ALL = "select article_id, article_type, title, content, publish_date from article order by article_id DESC";
+	private static String SQL_SELECT_BY_ID = "select article_id, article_type, title, content, publish_date from article where article_id = ? order by article_id DESC";
+	private static String SQL_SELECT_BY_TYPE = "select article_id, article_type, title, content, publish_date from article where article_type = ? order by article_id DESC";
 	private static String SQL_DELETE_BY_ID = " delete from article where article_id = ?";
 	
 	

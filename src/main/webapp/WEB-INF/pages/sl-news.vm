@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="./resources/css/icomoon-social.css">
 	<link rel="stylesheet" href="./resources/css/leaflet.css" />
 	<link rel="stylesheet" href="./resources/css/main.css">
-	<link rel="stylesheet" href="./resources/css/about-us.css">
+	<link rel="stylesheet" href="./resources/css/sl-news.css">
 	<link rel="Shortcut Icon" href="./resources/img/icon.png">
 	
 </head>
@@ -48,9 +48,18 @@
 
 			<div class="col-md-9" id="contact-us">
 			#foreach( $article in $articles)
-				<div id="article-${article.id}" class="article-list"
+			
+				<div id="article-${article.id}" class="article-list bs-callout bs-callout-warning"
 					data-id="${article.id}">
-					<div class="list-title">${article.title}</div>
+					
+					#if ( $article.type == 1 )
+					<div class="article-type-solon">双隆公告</div>
+					#end
+						#if ( $article.type == 2 )
+					<div class="article-type-media">媒体报告</div>
+					#end
+					
+					<div class="list-title"><a href="get-article?id=${article.id}">${article.title}</a></div>
 					<div class="list-date">${article.createDate}</div>
 				</div>
 			#end
