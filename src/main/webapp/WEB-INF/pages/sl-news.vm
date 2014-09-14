@@ -32,8 +32,17 @@
 		</nav>
 	</div>
 </div>
-
-<div class="container">
+ <!-- Page Title -->
+		<div class="section section-breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h1>文章列表</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+<div class="container article-container">
 	<div class="box first">
 		<div class="row">
 			<div class="col-md-3">
@@ -47,6 +56,18 @@
 			</div>
 
 			<div class="col-md-9" id="contact-us">
+			
+			
+			
+			<ul class="pagination">
+  <li><a href="#">&laquo;</a></li>
+  <li><a href="#page1">1</a></li>
+  <li><a href="#page2">2</a></li>
+
+  <li><a href="#">&raquo;</a></li>
+</ul>
+<div id="page1">page 1</div>
+<div id="page2">page 2</div>
 			#foreach( $article in $articles)
 			
 				<div id="article-${article.id}" class="article-list bs-callout bs-callout-warning"
@@ -59,6 +80,9 @@
 					<div class="article-type-media">媒体报告</div>
 					#end
 					
+					
+					
+
 					<div class="list-title"><a href="get-article?id=${article.id}">${article.title}</a></div>
 					<div class="list-date">${article.createDate}</div>
 				</div>
