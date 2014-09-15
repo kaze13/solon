@@ -38,14 +38,19 @@
 			}
 			
 			if(data[i].status == 0){//close
-				data[i].statusClass="open";
-				data[i].statusName="开放";
+				data[i].statusClass="product-close";
+				data[i].statusName="关闭";
 				
 			}
-			else{
-				data[i].statusClass="open";
+			else if(data[i].status == 1){
+				data[i].statusClass="product-open";
 				data[i].statusName="开放";
 			}
+			else{
+				data[i].statusClass="product-future";
+				data[i].statusName="即将开放";
+			}
+			
 			
 		}
 		
