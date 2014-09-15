@@ -1,7 +1,9 @@
 package com.solon.dao.spec;
 
 import java.util.List;
+import java.util.Map;
 
+import com.solon.dto.Article;
 import com.solon.dto.Product;
 
 public interface IProductDao {
@@ -15,5 +17,11 @@ public interface IProductDao {
 	void update(Product product);
 
 	void remove(int id);
+	
+	
+	public int getProductsPagesCount(Map<String, String> condition);
+
+	
+	public List<Product> getProductsByPaging(Map<String, String> condition, int page);
 
 }

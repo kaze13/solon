@@ -3,7 +3,7 @@
 	
 	controller.buildPage = function(){
 		// get the first page
-		this.queryData({'page':1}, 'get-article-list', this.creatArticleList);
+		this.queryData({'page':1}, 'get-product-list', this.creatArticleList);
 	};
 	
 	controller.bindMyPageHander = function(){
@@ -18,7 +18,7 @@
 			 
 		      
 		     onPageClick: function (event, page) {
-		    	 self.queryData({'page':page}, 'get-article-list', self.creatArticleList);
+		    	 self.queryData({'page':page}, 'get-product-list', self.creatArticleList);
 		     }
 		 });
 	};
@@ -37,10 +37,10 @@
 			}
 		}
 		
-		$.get('/resources/template/article-list.tmpl').done(function(html){
+		$.get('/resources/template/product-list.tmpl').done(function(html){
 		
 		    var template = Hogan.compile(html);
-		    html = template.render({articles: data});
+		    html = template.render({products: data});
 		    $('#article-list').empty();
 		    $('#article-list').append(html);
 			 

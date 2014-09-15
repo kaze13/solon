@@ -25,8 +25,8 @@
 						alt="Multipurpose Twitter Bootstrap Template"></a></li>
 						<li ><a href="index"><span class="glyphicon glyphicon-home"></span></a></li>
 						<li ><a href="about-us">关于双隆</a></li>
-						<li><a href="show">基金产品</a></li>
-						<li class="active"><a href="sl-news">双隆咨询</a></li>
+						<li class="active"><a href="show">基金产品</a></li>
+						<li><a href="sl-news">双隆咨询</a></li>
 						<li><a href="contact-us">联系我们</a></li>
 					</ul>
 				</nav>
@@ -37,7 +37,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h1>文章列表</h1>
+						<h1>产品列表</h1>
 					</div>
 				</div>
 			</div>
@@ -48,9 +48,10 @@
 					<div class="col-md-3">
 						<div class="bar-container navbar-example" id="memu-bar-container">
 							<ul class="nav nav-pills nav-stacked" >
-								<li class="active"><a href="#">所有文章</a></li>
-								<li><a href="#">媒体报告</a></li>
-								<li><a href="#">双隆公告</a></li>
+								<li class="active"><a href="#">所有产品</a></li>
+								<li><a href="#">Alpha策略</a></li>
+								<li><a href="#">CTA策略</a></li>
+								<li><a href="#">开放产品</a></li>
 							</ul>
 						</div>
 					</div>
@@ -89,15 +90,21 @@
 
 		<!-- Javascripts -->
 
-		<script src="./resources/js/jquery-1.9.1.js"></script>
+		<script src="./resources/js/jquery-1.9.1.js"></script>'
+		
 		<script src="./resources/js/bootstrap.min.js"></script>
+		
+		
+		
+		
 	    <script src="./resources/js/lib/underscore/underscore-min.js"></script>
 	  
-	   	<script src="./resources/js/jquery-block-ui.js"></script>
-		<script src="./resources/js/lib/hogan/hogan2.js"></script> 
+	   	
+		<script src="./resources/js/lib/hogan/hogan2.js"></script>
+		<script src="./resources/js/jquery-block-ui.js"></script>
 		<script src="./resources/js/jquery.paging.min.js"></script>
 		<script src="./resources/js/controller.js"></script>	
-		<script src="./resources/js/slnews.js"></script> 
+		<script src="./resources/js/product-list.js"></script> 
 
 
 	</body>

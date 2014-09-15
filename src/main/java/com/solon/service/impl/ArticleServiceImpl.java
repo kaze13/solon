@@ -1,6 +1,7 @@
 package com.solon.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,6 +50,19 @@ public class ArticleServiceImpl implements IArticleService {
 	public void update(Article product) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public int articleCount(Map<String, String> condition) {
+		// TODO Auto-generated method stub
+		return articleDao.articleCount(condition);
+	}
+
+	@Override
+	public List<Article> getArticleByPaging(Map<String, String> condition,
+			int page) {
+		// TODO Auto-generated method stub
+		return articleDao.getArticleByPaging(condition, page);
 	}
 
 }

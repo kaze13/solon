@@ -27,7 +27,10 @@ public class Product {
 	private String subscriptionBank;
 	private String subscriptionId;
 	private String subscriptionProcess;
-
+	private String buyUrl;
+	private double newestNetVal;
+	private double totalNetVal;
+	
 	public Product(int id, String name, String shortName, int status,
 			int strategy, String range, String manager, String minInvest,
 			String adoptionPeriod, String closePeriod,
@@ -299,6 +302,30 @@ public class Product {
 				+ ", subscriptionBank=" + subscriptionBank
 				+ ", subscriptionId=" + subscriptionId
 				+ ", subscriptionProcess=" + subscriptionProcess + "]";
+	}
+
+	public String getBuyUrl() {
+		return buyUrl;
+	}
+
+	public void setBuyUrl(String buyUrl) {
+		this.buyUrl = buyUrl;
+	}
+
+	public double getTotalNetVal() {
+		return totalNetVal;
+	}
+
+	public void setTotalNetVal(double totalNetVal) {
+		this.totalNetVal = totalNetVal;
+	}
+
+	public double getNewestNetVal() {
+		return newestNetVal;
+	}
+
+	public void setNewestNetVal(double newestNetVal) {
+		this.newestNetVal = newestNetVal;
 	}
 
 }

@@ -16,3 +16,15 @@ html,body
 .article-container{
 	height:75%;
 }
+.article-paging{
+	text-align:center;
+}
+#article-list{
+	height: 80%;
+}
+#article-list-section{
+	height:80%;
+}
+.main-container{
+	height:80%;
+}

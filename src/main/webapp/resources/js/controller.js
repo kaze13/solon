@@ -89,6 +89,14 @@
 						contentType : "application/json",
 						type : 'POST',
 						url : url,
+						beforeSend : function() {
+				               $.blockUI({ message: 'OK' });
+				        }, 
+				        complete: function () {
+				                bc.find('.submit').removeClass('lock');
+				                 $.unblockUI();
+				        }
+				            
 					}).done(function() {
 					
 						$.proxy(self.defaultOperationSuccess, self)();
@@ -102,7 +110,28 @@
 				}
 			};
 			
-			proto.queryData = function(){
+			proto.queryData = function(param, url, callback){
+				
+			    var self = this;
+			    
+				$.ajax({
+					data : JSON.stringify(param),
+					contentType : "application/json",
+					type : 'POST',
+					url : url,
+					beforeSend : function() {
+			               $.blockUI({ message: 'LOADING' });
+			        }, 
+			        complete: function () {
+			               // bc.find('.submit').removeClass('lock');
+			               $.unblockUI();
+			        }
+				}).done(function(data) {
+					callback(data);
+					
+				}).fail(function(){
+					
+				});
 				
 			};
 			

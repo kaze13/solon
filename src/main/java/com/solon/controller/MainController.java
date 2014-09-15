@@ -180,18 +180,41 @@ public class MainController {
 		model.addAttribute("recentArticles", recentArticles);
 		return "article-page";
 	}
+	
+	@RequestMapping(value = "get-article-list", method = RequestMethod.POST)
+	public @ResponseBody List<Article> getArticle(@RequestBody Map<String, String> params) {
+		String id = params.get("page");
+		params.remove("page");
+		
+		List<Article> articles = articleService.getArticleByPaging(params, Integer.valueOf(id));
+		return articles;
+	}
+	
 	@RequestMapping(value = "sl-news")
 	public String getArticleList(ModelMap model) {
-		
-		List<Article> articles = null;
-		articles = articleService.findAll();
-	
-		
-		model.addAttribute("articles", articles);
-		
-		
+		int pages = articleService.articleCount(null);
+		model.addAttribute("pages", pages);
 		return "sl-news";
 	}
+	
+	@RequestMapping(value = "product-list")
+	public String getProductList(ModelMap model) {
+		int pages = productService.getProductsPagesCount(null);
+		model.addAttribute("pages", pages);
+		return "product-list";
+	}
+	
+	@RequestMapping(value = "get-product-list", method = RequestMethod.POST)
+	public @ResponseBody List<Product> getProduct(@RequestBody Map<String, String> params) {
+		String id = params.get("page");
+		params.remove("page");
+		
+		List<Product> products = productService.getProductsByPaging(params, Integer.valueOf(id));
+		return products;
+	}
+	
+	
+	
 	
 
 
