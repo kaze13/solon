@@ -58,7 +58,7 @@
 
 					<div class="col-md-9" id="article-list-section">
 						
-						<div class="article-list" id="article-list">
+						<div class="article-list" id="ul-list">
 						</div>
 						
 						<div class="article-paging" id="article-paging" page-number="$pages">
@@ -91,21 +91,12 @@
 		<!-- Javascripts -->
 
 		<script src="./resources/js/jquery-1.9.1.js"></script>'
-		
 		<script src="./resources/js/bootstrap.min.js"></script>
-		
-		
-		
-		
 	    <script src="./resources/js/lib/underscore/underscore-min.js"></script>
-	  
-	   	
 		<script src="./resources/js/lib/hogan/hogan2.js"></script>
 		<script src="./resources/js/jquery-block-ui.js"></script>
 		<script src="./resources/js/jquery.paging.min.js"></script>
 		<script src="./resources/js/controller.js"></script>	
 		<script src="./resources/js/product-list.js"></script> 
-
-
 	</body>
 	</html>

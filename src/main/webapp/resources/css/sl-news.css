@@ -3,9 +3,14 @@ html,body
     height: 100%;
 }
 
-.article-list div{
+.li-item{
 	display:inline-block;
 }
+
+.ul-item{
+	display:block;
+}
+
 
 .list-title{
 	width: 500px;
@@ -19,12 +24,26 @@ html,body
 .article-paging{
 	text-align:center;
 }
-#article-list{
+#ul-list{
 	height: 80%;
 }
+
 #article-list-section{
 	height:80%;
 }
 .main-container{
 	height:80%;
+}
+.product-name{
+	width:400px;
+}
+.net-value{
+	width:50px;
+	border-radius: 4px;
+	background: antiquewhite;
+}
+.total-value{
+	width:50px;
+	border-radius: 4px;
+	background: yellowgreen;
 }

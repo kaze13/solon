@@ -1,13 +1,16 @@
 	{{#products}}
-		<div id="article-{{id}}" class="article-list"
-			data-id="{{id}}">
+		<div id="article-{{productId}}" class="ul-item"
+			data-id="{{productId}}">
 			
 		     
-			<div class="{{strategy}}">{{strategy}}</div>
-			<div class="product-name">{{productShortName}}</div>
-			<div class="list-date">{{newestNetVal}}</div>
-			<div class="list-date">{{totalNetVal}}</div>
-			<div class="list-date">{{status}}</div>
-			<div class="list-date">{{buyUrl}}</div>
+			<div class="li-item {{strategyClass}}">{{strategyName}}</div>
+			<div class="li-item product-name"><a href="get-product?id={{product_id}}">{{productShortName}}</a></div>
+			<div class="li-item net-value">{{newestNetVal}}%</div>
+			<div class="li-item total-value">{{totalNetVal}}%</div>
+			<div class="li-item {{statusClass}}">{{statusName}}</div>
+			
+			<div class="li-item">
+			<a class="btn bt-primary" href="{{buyUrl}}">购买</a>
+			</div>
 		</div>
 		{{/products}} 

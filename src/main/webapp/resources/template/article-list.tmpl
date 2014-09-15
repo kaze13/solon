@@ -1,8 +1,8 @@
 	{{#articles}}
-		<div id="article-{{id}}" class="article-list"
+		<div id="article-{{id}}" class="ul-item"
 			data-id="{{id}}">
-			<div class="{{typeClass}}">{{typeName}}</div>
-			<div class="list-title"><a href="get-article?id={{id}}">{{title}}</a></div>
-			<div class="list-date">{{createDate}}</div>
+			<div class="li-item {{typeClass}}">{{typeName}}</div>
+			<div class="li-item list-title"><a href="get-article?id={{id}}">{{title}}</a></div>
+			<div class="li-item list-date">{{createDate}}</div>
 		</div>
 		{{/articles}} 

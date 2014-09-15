@@ -2685,7 +2685,7 @@ li.active{
 }
 .article-type-media{
 	border-left:solid rgb(74, 179, 238) 6px;
-	
+	width: 100px;
 	margin-bottom:2px;
 	padding-left:5px;
 	display:inline-block;
@@ -2693,7 +2693,7 @@ li.active{
 
 .article-type-solon{
 	border-left:solid rgb(228, 122, 39) 6px;
-	
+	width: 100px;
 	font:bold;
 	margin-bottom:2px;
 	padding-left:5px;

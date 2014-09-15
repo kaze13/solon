@@ -41,8 +41,8 @@
 		
 		    var template = Hogan.compile(html);
 		    html = template.render({articles: data});
-		    $('#article-list').empty();
-		    $('#article-list').append(html);
+		    $('#ul-list').empty();
+		    $('#ul-list').append(html);
 			 
 			
 			

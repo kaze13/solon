@@ -26,23 +26,35 @@
 	
 		
 		for(i = 0; i < data.length; i++){
-			if(data[i].type == 1){
-				data[i].typeClass="article-type-solon";
-				data[i].typeName = "双隆公告";
+			
+			if(data[i].strategy == 1){
+				data[i].strategyClass="article-type-solon";
+				data[i].strategyName = "ALPHA策略";
 
 			}
 			else{
-				data[i].typeClass="article-type-media";
-				data[i].typeName = "媒体报告"
+				data[i].strategyClass="article-type-media";
+				data[i].strategyName = "CTA策略"
 			}
+			
+			if(data[i].status == 0){//close
+				data[i].statusClass="open";
+				data[i].statusName="开放";
+				
+			}
+			else{
+				data[i].statusClass="open";
+				data[i].statusName="开放";
+			}
+			
 		}
 		
 		$.get('/resources/template/product-list.tmpl').done(function(html){
 		
 		    var template = Hogan.compile(html);
 		    html = template.render({products: data});
-		    $('#article-list').empty();
-		    $('#article-list').append(html);
+		    $('#ul-list').empty();
+		    $('#ul-list').append(html);
 			 
 			
 			
