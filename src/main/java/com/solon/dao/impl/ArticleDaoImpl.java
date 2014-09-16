@@ -45,7 +45,7 @@ public class ArticleDaoImpl implements IArticleDao {
 		}
 	}
 	
-	private static final int NUMBER_PER_PAGE = 2;
+	private static final int NUMBER_PER_PAGE = 20;
 	private static final CountRowMapper COUNT_ROW_MAPPER = new CountRowMapper();
 	private static class CountRowMapper implements RowMapper<Integer> {
 		@Override

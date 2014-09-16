@@ -21,9 +21,10 @@
 	<!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
-
-
-	<!-- Navigation & Logo-->
+        
+    <div id="wrapper">
+		<div id="header">
+			<!-- Navigation & Logo-->
 	<div class="mainmenu-wrapper">
 		<div class="container">
 
@@ -34,7 +35,7 @@
 							alt="Multipurpose Twitter Bootstrap Template"></a></li>
 					<li class="active"><a href="index"><span class="glyphicon glyphicon-home"></span></a></li>
 					<li><a href="about-us">关于双隆</a></li>
-					<li><a href="show">基金产品</a></li>
+					<li><a href="product-list">基金产品</a></li>
 					<li><a href="sl-news">双隆咨询</a></li>
 					<li><a href="contact-us">联系我们</a></li>
 
@@ -43,8 +44,11 @@
 			</nav>
 		</div>
 	</div>
-
-	<!-- Homepage Slider -->
+		
+		</div>
+		<div id="content">
+		
+		<!-- Homepage Slider -->
 	<div class="homepage-slider">
 		<div id="sequence">
 			<ul class="sequence-canvas">
@@ -130,16 +134,11 @@
 
 	<!-- End Services -->
 
-
-	<!-- End Call to Action Bar -->
-
-
-
-
-
-
-
-	<!-- Footer -->
+		
+		</div>
+		<div id="footer">
+		
+		<!-- Footer -->
 	<div class="footer">
 		<div class="container">
 
@@ -151,6 +150,21 @@
 			</div>
 		</div>
 	</div>
+		</div>
+	</div>
+	
+
+
+	
+	<!-- End Call to Action Bar -->
+
+
+
+
+
+
+
+	
 
 	<!-- Javascripts -->
 

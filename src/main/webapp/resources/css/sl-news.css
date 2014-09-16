@@ -1,6 +1,3 @@
-html,body {
-	height: 100%;
-}
 
 .li-item {
 	display: inline-block;
@@ -8,9 +5,8 @@ html,body {
 
 .ul-item {
 	display: block;
-	border-top: dashed 1px;
-	margin-top: 5px;
 	padding-top: 5px;
+	padding-left:5px;
 }
 
 .list-title {
@@ -20,24 +16,26 @@ html,body {
 }
 
 .article-container {
-	height: 75%;
+	min-height: 700px;
 }
 
 .article-paging {
 	text-align: center;
+	
 }
 
 #ul-list {
-	height: 80%;
+	height:600px;
+	border-left:1px solid lightblue;
+	border-right:1px solid lightblue;
+	border-bottom:1px solid lightblue;
+	
 }
 
 #article-list-section {
-	height: 80%;
+	min-height: 600px;
 }
 
-.main-container {
-	height: 80%;
-}
 
 .product-name {
 	width: 400px;
@@ -91,7 +89,7 @@ html,body {
 }
 
 .strategy-type {
-	width: 90px;
+	width: 95px;
 	vertical-align:center;
 }
 
@@ -113,4 +111,16 @@ html,body {
 .product-status {
 	width: 90px;
 	vertical-align:center;
+}
+.buy-btn{
+	margin-left:20px;
+}
+.article-type{
+	width:105px;
+}
+.article-name{
+	width:500px;
+}
+.published-date{
+	
 }

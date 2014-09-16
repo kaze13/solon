@@ -16,7 +16,9 @@
 
 <body data-spy="scroll" data-target=".navbar-example">
 	<!-- Navigation & Logo-->
-	<div class="mainmenu-wrapper">
+	<div id="wrapper">
+		<div id="header">
+		<div class="mainmenu-wrapper">
 		<div class="container">
 			<nav id="mainmenu" class="mainmenu">
 				<ul>
@@ -25,7 +27,7 @@
 						alt="Multipurpose Twitter Bootstrap Template"></a></li>
 						<li ><a href="index"><span class="glyphicon glyphicon-home"></span></a></li>
 						<li ><a href="about-us">关于双隆</a></li>
-						<li><a href="show">基金产品</a></li>
+						<li><a href="product-list">基金产品</a></li>
 						<li class="active"><a href="sl-news">双隆咨询</a></li>
 						<li><a href="contact-us">联系我们</a></li>
 					</ul>
@@ -42,9 +44,10 @@
 				</div>
 			</div>
 		</div>
-		<div class="container article-container">
-			<div class="box first main-container">
-				<div class="row main-container">
+		</div>
+		<div id="content">
+		<div class="container box article-container">
+			
 					<div class="col-md-3">
 						<div class="bar-container navbar-example" id="memu-bar-container">
 							<ul class="nav nav-pills nav-stacked" >
@@ -56,7 +59,13 @@
 					</div>
 
 					<div class="col-md-9" id="article-list-section">
+						<div class="header" id="product-header">
+						<div class="li-item article-type">文章类型</div>
+						<div class="li-item article-name">文章标题</div>
+						<div class="li-item published-date">发表日期</div>
 						
+						
+						</div>
 						<div class="article-list" id="ul-list">
 						</div>
 						
@@ -65,16 +74,13 @@
 						</div>
 
 
-					</div>
-
-					
-				</div>
-
+				
 			</div>
 
 		</div>
-
-
+		</div>
+		<div id="footer">
+		
 		<!-- Footer -->
 		<div class="footer">
 			<div class="container">
@@ -86,6 +92,13 @@
 				</div>
 			</div>
 		</div>
+		
+		</div>
+	</div>
+	
+	
+		
+
 
 		<!-- Javascripts -->
 

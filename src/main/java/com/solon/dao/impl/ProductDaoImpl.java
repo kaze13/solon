@@ -195,7 +195,7 @@ public class ProductDaoImpl implements IProductDao {
 	}
 
 	
-	private static final int NUMBER_PER_PAGE = 2;
+	private static final int NUMBER_PER_PAGE = 20;
 
 	
 	@Override

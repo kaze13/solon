@@ -170,6 +170,22 @@ public class MainController {
 		return "success";
 	}
 	
+	@RequestMapping(value = "get-product")
+	public String getProductById(@RequestParam int id, ModelMap model) {
+		Product product = productService.findById(id);
+		model.addAttribute("product", product);
+		List<NetValue> netValues = netValueService.findByProductId(product.getProductId());
+		Authentication auth = SecurityContextHolder.getContext()
+				.getAuthentication();
+		if (!auth.getPrincipal().equals("anonymousUser")) {
+			model.addAttribute("authenticated", true);
+		}
+		
+		model.addAttribute("netValues", netValues);
+		
+		return "product-page";
+	}
+	
 	
 	@RequestMapping(value = "get-article")
 	public String getArticleById(@RequestParam int id, ModelMap model) {

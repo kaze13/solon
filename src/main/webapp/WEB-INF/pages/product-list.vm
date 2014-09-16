@@ -14,37 +14,41 @@
 	
 </head>
 
+
 <body data-spy="scroll" data-target=".navbar-example">
 	<!-- Navigation & Logo-->
-	<div class="mainmenu-wrapper">
-		<div class="container">
-			<nav id="mainmenu" class="mainmenu">
-				<ul>
-					<li class="logo-wrapper"><a href="index.html"><img
-						src="./resources/img/logo2.png"
-						alt="Multipurpose Twitter Bootstrap Template"></a></li>
-						<li ><a href="index"><span class="glyphicon glyphicon-home"></span></a></li>
-						<li ><a href="about-us">关于双隆</a></li>
-						<li class="active"><a href="show">基金产品</a></li>
-						<li><a href="sl-news">双隆咨询</a></li>
-						<li><a href="contact-us">联系我们</a></li>
-					</ul>
-				</nav>
-			</div>
-		</div>
-		<!-- Page Title -->
-		<div class="section section-breadcrumbs">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<h1>产品列表</h1>
+	<div id="wrapper">
+		<div id="header">
+			<div class="mainmenu-wrapper">
+				<div class="container">
+					<nav id="mainmenu" class="mainmenu">
+						<ul>
+							<li class="logo-wrapper"><a href="index.html"><img
+								src="./resources/img/logo2.png"
+								alt="Multipurpose Twitter Bootstrap Template"></a></li>
+								<li ><a href="index"><span class="glyphicon glyphicon-home"></span></a></li>
+								<li ><a href="about-us">关于双隆</a></li>
+								<li class="active"><a href="product-list">基金产品</a></li>
+								<li><a href="sl-news">双隆咨询</a></li>
+								<li><a href="contact-us">联系我们</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+				<!-- Page Title -->
+				<div class="section section-breadcrumbs">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<h1>产品列表</h1>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="container article-container">
-			<div class="box first main-container">
-				<div class="row main-container">
+			<div id="content">
+				<div class="container box article-container">
+					
 					<div class="col-md-3">
 						<div class="bar-container navbar-example" id="memu-bar-container">
 							<ul class="nav nav-pills nav-stacked" >
@@ -58,12 +62,12 @@
 
 					<div class="col-md-9" id="article-list-section">
 						<div class="header" id="product-header">
-						<div class="li-item strategy-type">策略类型</div>
-						<div class="li-item product-name">产品名称</div>
-						<div class="li-item newest-net-value">最新净值</div>
-						<div class="li-item history-net-value">历史净值</div>
-						<div class="li-item product-status">产品状态</div>
-						
+							<div class="li-item strategy-type">策略类型</div>
+							<div class="li-item product-name">产品名称</div>
+							<div class="li-item newest-net-value">最新净值</div>
+							<div class="li-item history-net-value">历史净值</div>
+							<div class="li-item product-status">产品状态</div>
+							
 						</div>
 						<div class="article-list" id="ul-list">
 						</div>
@@ -76,30 +80,37 @@
 					</div>
 
 					
+					
+
 				</div>
-
 			</div>
+			<div id="footer">
+				
+				<!-- Footer -->
+				<div class="footer">
+					<div class="container">
 
-		</div>
-
-
-		<!-- Footer -->
-		<div class="footer">
-			<div class="container">
-
-				<div class="row">
-					<div class="col-md-12">
-						<div class="footer-copyright">&copy; 2013 mPurpose. All rights reserved.</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="footer-copyright">&copy; 2013 mPurpose. All rights reserved.</div>
+							</div>
+						</div>
 					</div>
 				</div>
+				
 			</div>
 		</div>
+		
+		
+		
 
+
+		
 		<!-- Javascripts -->
 
-		<script src="./resources/js/jquery-1.9.1.js"></script>'
+		<script src="./resources/js/jquery-1.9.1.js"></script>
 		<script src="./resources/js/bootstrap.min.js"></script>
-	    <script src="./resources/js/lib/underscore/underscore-min.js"></script>
+		<script src="./resources/js/lib/underscore/underscore-min.js"></script>
 		<script src="./resources/js/lib/hogan/hogan2.js"></script>
 		<script src="./resources/js/jquery-block-ui.js"></script>
 		<script src="./resources/js/jquery.paging.min.js"></script>

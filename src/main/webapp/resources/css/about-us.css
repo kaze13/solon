@@ -1,14 +1,17 @@
-body{
-	position: relative;
-}
 .bar-container{
 	margin-top:50px;
-	width:200px;
-	
+	width:200px;	
 }
 
 .affix{
 	position:fixed;
 	top:0px;
+}
+
+.container{
+	height:auto !important;
 	
+}
+.footer{
+	position:static !important;
 }

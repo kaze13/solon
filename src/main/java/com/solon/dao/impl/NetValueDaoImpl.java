@@ -44,7 +44,7 @@ public class NetValueDaoImpl implements INetValueDao {
 			+ " FROM net_value ";
 
 	private static final String SQL_FIND_BY_PRODUCT_ID = SQL_FIND_ALL
-			+ "WHERE PRODUCT_ID = ?";
+			+ "WHERE PRODUCT_ID = ? order by id DESC";
 
 	private static final String SQL_INSERT = "INSERT INTO net_value ("
 			+ SQL_COLUMNS + ") VALUES (?, ?, ?, ?, ?)";

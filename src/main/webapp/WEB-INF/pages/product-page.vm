@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>上海双隆投资有限公司</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="./resources/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./resources/css/icomoon-social.css">
+	<link rel="stylesheet" href="./resources/css/leaflet.css" />
+	<link rel="stylesheet" href="./resources/css/main.css">
+	<link rel="stylesheet" href="./resources/css/product-page.css">
+	<link rel="Shortcut Icon" href="./resources/img/icon.png">
+	
+</head>
+
+<body data-spy="scroll" data-target=".navbar-example">
+
+<div id="wrapper">
+		<div id="header">
+	
+	<!-- Navigation & Logo-->
+	<div class="mainmenu-wrapper">
+		<div class="container">
+			<nav id="mainmenu" class="mainmenu">
+				<ul>
+					<li class="logo-wrapper"><a href="index.html"><img
+						src="./resources/img/logo2.png"
+						alt="Multipurpose Twitter Bootstrap Template"></a></li>
+						<li ><a href="index"><span class="glyphicon glyphicon-home"></span></a></li>
+						<li ><a href="about-us">关于双隆</a></li>
+						<li class="active"><a href="product-list">基金产品</a></li>
+						<li><a href="sl-news">双隆咨询</a></li>
+						<li><a href="contact-us">联系我们</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<!-- Page Title -->
+		<div class="section section-breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h1>${product.productName}</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		</div>
+		<div id="content">
+		<div class="container article-container">
+			<div class="box first main-container">
+				<div class="row main-container">
+					<div class="col-md-3">
+						<div class="bar-container navbar-example" id="memu-bar-container">
+							<ul class="nav nav-pills nav-stacked" >
+								<li><a href="#introduction">产品概要</a>
+								<ul class="nav nav-stacked ">
+									<li><a href="#product-info-${product.productId}">产品要素</a></li>
+									<li><a href="#trusts-struct-${product.productId}">信托结构</a></li>
+									<li><a href="#fee-detail-${product.productId}">费率明细</a></li>
+									<li><a href="#trusts-info-${product.productId}">信托认购</a></li>
+								</ul></li>
+							<li><a href="#value-${product.productId}">产品净值</a></li>
+							<li><a href="#value-graph-${product.productId}">走势图</a></li>
+							<li><a href="#buy-process-${product.productId}">认购过程</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-md-9">
+					
+						<ul class="nav nav-tabs">
+							<li class="active"><a href="#product-introduction" data-toggle="tab">产品概要</a></li>
+							<li><a href="#product-net-value" data-toggle="tab">产品净值</a></li>
+							<li><a href="#product-graph" data-toggle="tab">走势图</a></li>
+							<li><a href="#buy-process" data-toggle="tab">认购流程</a></li>
+						</ul>
+
+						<div class="tab-content">
+							<div class="tab-pane active" id="product-introduction">
+  
+  
+							
+							#if($authenticated)
+							<div class="pull-right">
+								<button class="modify-product-btn btn btn-default">修改</button>
+								<button data-id="${product.productId}"
+									class="modify-product-confirm-btn btn btn-default">修改完成</button>
+								<button data-id="${product.productId}"
+									class="delete-product-btn btn btn-danger">删除</button>
+							</div>
+							#end
+						
+						
+						<div id="product-info-${product.productId}">
+							<div class="title first-title"><span class="glyphicon glyphicon-flag">产品要素</div>
+							<table class="table table-striped">
+								<col width="20%">
+								<col width="66%">
+								<tr>
+									<td>产品名称</td>
+									#if($authenticated)
+									<td class="modify-td" style="width: 15%;><input type="text"
+										id="productName-${product.productId}"
+										value="$product.productName" /></td>
+									#else
+									<td class="display-td">$product.productName</td>
+									#end
+								</tr>
+								<tr>
+									<td>投资范围</td>
+									#if($authenticated)
+									<td class="modify-td"><input type="text"
+										id="range-${product.productId}" value="$product.range" /></td>
+									#else
+									<td class="display-td">$product.range</td>
+									#end
+								</tr>
+								<tr>
+									<td>投资经理</td>
+									#if($authenticated)
+									<td class="modify-td"><input type="text"
+										id="manager-${product.productId}" value="$product.manager" /></td>
+									#else
+									<td class="display-td">$product.manager</td>
+									#end
+								</tr>
+								<tr>
+									<td>最低认购金额</td>
+										#if($authenticated)
+									<td class="modify-td"><input type="text"
+										id="minInvest-${product.productId}" value="$product.minInvest" /></td>
+										#else
+									<td class="display-td">$product.minInvest</td>
+									#end
+								</tr>
+								<tr>
+									<td>存续期</td>
+										#if($authenticated)
+									<td class="modify-td"><input type="text"
+										id="adoptionPeriod-${product.productId}"
+										value="$product.adoptionPeriod" /></td>
+										#else
+									<td class="display-td">$product.adoptionPeriod</td>
+									#end
+								</tr>
+								<tr>
+									<td>资金封闭期</td>
+										#if($authenticated)
+									<td class="modify-td"><input type="text"
+										id="closePeriod-${product.productId}"
+										value="$product.closePeriod" /></td>
+										#else
+									<td class="display-td">$product.closePeriod</td>
+									#end
+								</tr>
+								<tr>
+									<td>成立日</td>
+										#if($authenticated)
+									<td class="modify-td"><input type="text"
+										id="createDate-${product.productId}"
+										value="$product.createDate" /></td>
+										#else
+									<td class="display-td">$product.createDate</td>
+									#end
+								</tr>
+								<tr>
+									<td>开放日</td>
+										#if($authenticated)
+									<td class="modify-td"><input type="text"
+										id="openDate-${product.productId}" value="$product.openDate" /></td>
+										#else
+									<td class="display-td">$product.openDate</td>
+									#end
+								</tr>
+							</table>
+						</div>
+						<div id="trusts-struct-${product.productId}">
+							<div class="title"><span class="glyphicon glyphicon-th"/>信托结构</div>
+							<table class="table table-striped">
+								<col width="20%">
+								<col width="66%">
+								<tr>
+									<td>监管机构</td>
+										#if($authenticated)
+									<td class="modify-td"><input type="text"
+										id="watchingOrg-${product.productId}"
+										value="$product.watchingOrg" /></td>
+										#else
+									<td class="display-td">$product.watchingOrg</td>
+									#end
+								</tr>
+								<tr>
+									<td>受托人</td>
+										#if($authenticated)
+									<td class="modify-td"><input type="text"
+										id="trustee-${product.productId}" value="$product.trustee" /></td>
+										#else
+									<td class="display-td">$product.trustee</td>
+									#end
+								</tr>
+								<tr>
+									<td>保管银行</td>
+										#if($authenticated)
+									<td class="modify-td"><input type="text"
+										id="bank-${product.productId}" value="$product.bank" /></td>
+										#else
+									<td class="display-td">$product.bank</td>
+									#end
+								</tr>
+								<tr>
+									<td>证券经纪商</td>
+										#if($authenticated)
+									<td class="modify-td"><input type="text"
+										id="borker-${product.productId}" value="$product.borker" /></td>
+										#else
+									<td class="display-td">$product.borker</td>
+									#end
+								</tr>
+								<tr>
+									<td>投资顾问</td>
+										#if($authenticated)
+									<td class="modify-td"><input type="text"
+										id="counselor-${product.productId}" value="$product.counselor" /></td>
+										#else
+									<td class="display-td">$product.counselor</td>
+									#end
+								</tr>
+							</table>
+						</div>
+						<div id="fee-detail-${product.productId}">
+							<div class="title"><span class="glyphicon glyphicon-list-alt"/>费率明细</div>
+							<table class="table table-striped">
+							    <col width="20%">
+								<col width="66%">
+								<tr>
+									<td>认购费率</td>
+									#if($authenticated)
+									<td class="modify-td"><input type="text"
+										id="subscriptionFee-${product.productId}"
+										value="$product.subscriptionFee" />%</td>
+									#else
+									<td class="display-td">$product.subscriptionFee %</td>
+									#end
+								</tr>
+								<tr>
+									<td>年固定管理费率</td>
+									#if($authenticated)
+									<td class="modify-td"><input type="text"
+										id="annualManageFee-${product.productId}"
+										value="$product.annualManageFee" />%</td>
+									#else
+									<td class="display-td">$product.annualManageFee %</td>
+									#end
+								</tr>
+								<tr>
+									<td>浮动管理费</td>
+									#if($authenticated)
+									<td class="modify-td"><input type="text"
+										id="floatManageFee-${product.productId}"
+										value="$product.floatManageFee" />%</td>
+									#else
+									<td class="display-td">$product.floatManageFee %</td>
+									#end
+								</tr>
+							</table>
+						</div>
+						<div id="trusts-info-${product.productId}">
+							<div class="title"><span class="glyphicon glyphicon-asterisk"/>信托认购</div>
+							<table class="table table-striped">
+								<col width="20%">
+								<col width="66%">
+								<tr>
+									<td>认购账户名</td>
+									#if($authenticated)
+									<td class="modify-td"><input type="text"
+										id="subscriptionAccount-${product.productId}"
+										value="$product.subscriptionAccount" /></td>
+									#else
+									<td class="display-td">$product.subscriptionAccount</td>
+								    #end
+								</tr>
+								<tr>
+									<td>认购账户开户行</td>
+									#if($authenticated)
+									<td class="modify-td"><input type="text"
+										id="subscriptionBank-${product.productId}"
+										value="$product.subscriptionBank" /></td>
+									#else
+									<td class="display-td">$product.subscriptionBank</td>
+									#end
+								</tr>
+								<tr>
+									<td>认购账户账号</td>
+									#if($authenticated)
+									<td class="modify-td"><input type="text"
+										id="floatManageFee-${product.productId}"
+										value="$product.subscriptionId" /></td>
+									#else
+									<td class="display-td">$product.subscriptionId</td>
+									#end
+								</tr>
+							</table>
+						</div>
+  
+					</div>
+					<div class="tab-pane" id="product-net-value">
+						#if($authenticated)
+							<div>
+							<div class="pull-right">
+								<button data-id="${product.productId}"
+									class="add-value-btn btn btn-primary">新增</button>
+							</div>
+							</div>
+							#end
+						<div class="title first-title"><span class="glyphicon glyphicon-align-justify"/>产品净值表</div>
+						<table class="table netvalue table-striped">
+							<col width="10%">
+							<col width="25%">
+							<col width="25%">
+							<col width="25%">
+						    #if($authenticated)
+								<col width="25%">
+							    #end
+							<tr>
+								<th>日期类型</th>
+								<th>更新日期</th>
+								<th>信托单位净值（元）</th>
+								<th>累计净值增长率</th>
+								#if($authenticated)
+								<th>操作</th> 
+							    #end
+							</tr>
+							#foreach($value in $netValues)
+							<tr class="net-value-item-${product.productId}">
+							
+								<td class="display-td">#if($value.evalueType==1)估值日#end</td>
+								
+								
+								#if($authenticated)
+								<td class="modify-td"><input type="text"
+									id="evalueDate-${product.productId}" value="$value.evalueDate" /></td>
+								#else
+								<td class="display-td evalue-date">$value.evalueDate</td>
+								#end
+								
+								#if($authenticated)
+								
+								<td class="modify-td"><input type="text"
+									id="netValue-${product.productId}" value="$value.netValue" /></td>
+								
+								#else
+								<td class="display-td net-value">$value.netValue</td>
+								#end
+								
+								
+								
+								#if($authenticated)
+								<td class="modify-td"><input type="text"
+									id="netIncreaseRate-${product.productId}"
+									value="$value.netIncreaseRate" />%</td> 
+									
+								#else
+								<td class="display-td">$value.netIncreaseRate %</td>
+								#end
+									
+								#if($authenticated)
+								<td>
+									<button class="btn btn-warning modify-value-btn">保存</button>
+									<td><button data-id="$value.id" class="btn btn-danger remove-value-btn">删除</button></td>
+								</td>
+								
+								#end
+							</tr>
+							#end
+
+						</table>
+					</div>
+					<div class="tab-pane" id="product-graph">
+						<div class="value-graph-container" data-id="${product.productId}"
+						data-name="${product.productName}"
+						style="width: 800px; height: 400px;"></div>
+					</div>
+					<div class="tab-pane" id="buy-process">
+						<br>
+						<div>${product.subscriptionProcess}</div>
+					</div>
+				</div>
+			</div>
+
+			
+		</div>
+
+	</div>
+
+</div>
+
+</div>
+		<div id="footer">
+<!-- Footer -->
+<div class="footer">
+	<div class="container">
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="footer-copyright">&copy; 2013 mPurpose. All rights reserved.</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+	</div>
+<!-- Javascripts -->
+
+<script src="./resources/js/jquery-1.9.1.js"></script>
+<script src="./resources/js/bootstrap.min.js"></script>
+<script src="./resources/js/lib/underscore/underscore-min.js"></script>
+<script src="./resources/js/lib/hogan/hogan2.js"></script>
+<script src="./resources/js/jquery-block-ui.js"></script>
+<script src="./resources/js/jquery.paging.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="./resources/js/controller.js"></script>	
+<script src="./resources/js/product-page.js"></script> 
+</body>
+</html>

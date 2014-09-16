@@ -2689,6 +2689,7 @@ li.active{
 	margin-bottom:2px;
 	padding-left:5px;
 	display:inline-block;
+	text-align:left;
 }
 
 .article-type-solon{
@@ -2712,5 +2713,35 @@ li.active{
 	background-repeat: no-repeat !important;
 	background-position: center !important; 
 	font-family: "Times New Roman", Times, serif;
-	font-size:2em;
+	font-size:1.4em;
 }
+
+html,
+body {
+	margin:0;
+	padding:0;
+	height:100%;
+}
+#wrapper {
+	min-height:100%;
+	position:relative;
+}
+#header {
+	
+	
+}
+#content {
+	min-height:700px;
+	padding-bottom:65px;   /* Height of the footer element */
+}
+#footer {
+	width:100%;
+	height:65px;
+	position:absolute;
+	bottom:0;
+	left:0;
+
+}
+
+
+

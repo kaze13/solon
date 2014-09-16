@@ -58,26 +58,16 @@
 				bootbox.alert("操作失败");
 			};
 			proto.defaultOperationSuccess = function(){
-				if(this.appendResModal){
-					this.showSuccessAlert();
-				}
-				else{
-					var $def = this.appendResultModal();
-					$.when(this.appendResultModal()).done(function(){
-						this.showSuccessAlert();
-					});
-				}
+			
+				this.showSuccessAlert();
+				
+					
 			};
 			proto.defaultOperationFail = function(){
-				if(this.appendResModal){
-					this.showFailAlert();
-				}
-				else{
-					var $def = this.appendResultModal();
-					$.when(this.appendResultModal()).done(function(){
-						this.showFailAlert();
-					});
-				}
+			
+				this.showFailAlert();
+				
+				
 			};
 			proto.saveToServer = function(url, data){
 				if(this.validate(data)){
@@ -93,7 +83,7 @@
 				               $.blockUI({ message: 'OK' });
 				        }, 
 				        complete: function () {
-				                bc.find('.submit').removeClass('lock');
+				                //bc.find('.submit').removeClass('lock');
 				                 $.unblockUI();
 				        }
 				            
@@ -101,7 +91,7 @@
 					
 						$.proxy(self.defaultOperationSuccess, self)();
 						
-						window.location.reload();
+						//window.location.reload();
 					}).fail(function(){
 						
 						$.proxy(self.defaultOperationFail, self)();
@@ -120,7 +110,7 @@
 					type : 'POST',
 					url : url,
 					beforeSend : function() {
-			               $.blockUI({ message: 'LOADING' });
+			               $.blockUI({ message: '数据加载...' });
 			        }, 
 			        complete: function () {
 			               // bc.find('.submit').removeClass('lock');

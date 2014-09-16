@@ -1,0 +1,41 @@
+.tab-pane {
+	background-color: white;
+	border-left: 1px solid #ddd;
+	overflow:auto;
+	height:665px
+}
+
+.title {
+	font-size: 1.5em;
+	height: 50px;
+	padding-left: 16px;
+	
+}
+
+.netvalue td{
+	border: 1px solid #ddd;
+}
+
+.netvalue th{
+	border: 1px solid #ddd;
+}
+
+li .active{
+	font-weight:bold;
+}
+
+table td:first-child {
+	border-right:1px solid #ddd;
+	text-align:right;
+}
+
+table tr {
+	border-bottom: 1px solid #ddd;
+}
+.first-title{
+	padding-top:10px;
+	
+}
+#buy-process{
+	padding:10px;
+}

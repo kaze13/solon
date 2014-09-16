@@ -5,7 +5,7 @@
 	controller.createEditor = function(){
 		
 		this.editor = CKEDITOR.replace( 'editor1', {
-			height:'600px',
+			height:'550px',
 		});
 	};
 

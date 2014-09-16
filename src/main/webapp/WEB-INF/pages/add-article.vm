@@ -1,117 +1,138 @@
 <!DOCTYPE html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>上海双隆投资有限公司</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>上海双隆投资有限公司</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
 
-       <link rel="stylesheet" href="./resources/css/bootstrap.min.css">
-<link rel="stylesheet" href="./resources/css/icomoon-social.css">
-<link rel="stylesheet" href="./resources/css/leaflet.css" />
-<link rel="stylesheet" href="./resources/css/main.css">
-<link rel="stylesheet" href="./resources/css/add-article.css">
-<link rel="Shortcut Icon" href="./resources/img/icon.png">
+	<link rel="stylesheet" href="./resources/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./resources/css/icomoon-social.css">
+	<link rel="stylesheet" href="./resources/css/leaflet.css" />
+	<link rel="stylesheet" href="./resources/css/main.css">
+	<link rel="stylesheet" href="./resources/css/add-article.css">
+	<link rel="Shortcut Icon" href="./resources/img/icon.png">
 
-    </head>
-    <body>
-       
+</head>
+<body>
 
-        <!-- Navigation & Logo-->
-        <div class="mainmenu-wrapper">
-	        <div class="container">
-	        	
-		        <nav id="mainmenu" class="mainmenu">
-					<ul>
-						<li class="logo-wrapper"><a href="index.html"><img src="./resources/img/logo2.png" alt="Multipurpose Twitter Bootstrap Template"></a></li>
-						<li >
-							<a href="index"><span class="glyphicon glyphicon-home"></span></a>
-						</li>
-						<li >
-							<a href="about-us">产品管理</a>
-						</li>
-						<li>
-							<a href="show">净值管理</a>
-						</li>
-						
-						<li class="active">
-						    
-						    <a href="contact-us">咨询管理</a>
-						   
-						   
-							
-						</li>
-						
-						
-					</ul>
-				</nav>
+
+	<!-- Navigation & Logo-->
+	
+	<div class="mainmenu-wrapper">
+		<div class="container">
+
+			<nav id="mainmenu" class="mainmenu">
+				<ul>
+					<li class="logo-wrapper"><a href="index.html"><img src="./resources/img/logo2.png" alt="Multipurpose Twitter Bootstrap Template"></a></li>
+					<li >
+						<a href="index"><span class="glyphicon glyphicon-home"></span></a>
+					</li>
+					<li >
+						<a href="about-us">产品管理</a>
+					</li>
+					<li>
+						<a href="show">净值管理</a>
+					</li>
+
+					<li class="active">
+
+						<a href="contact-us">咨询管理</a>
+
+
+
+					</li>
+
+
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<div class="section section-breadcrumbs">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1>添加文章</h1>
+				</div>
 			</div>
 		</div>
-		
-		<div class="container after-heading">
+	</div>
+
+	<div class="container">
 		<div class="box first">
 			<div class="row">
 
-				<div class="col-md-12" id="contact-us">
-				<img class="button-pic" src="./resources/img/add-article.png"/>
-				<div class="btn btn-success" id="article-submit">提交新文章</div>
-				<div class="title-line">
-				
-				<div>
-				<label class="art-title-tag">文章标题</label>
-				<input type="text" class="art-title" id="article-title">
-				</div>
-				<div>
-				<label class="art-title-tag">文章类型</label>
-				<select id='article-type-selector' class="art-type">
-				<option value="1">双隆公告</option>
-				<option value="2">媒体报道</option>
-				</select>
-				</div>
-				</div>
-				
-   <textarea cols="80" id="editor1" name="editor1" rows="50"></textarea>
+				<div class="col-md-7" id="contact-us">
+					
+					<div class="title-line">
+
+						<div>
+							<label class="art-title-tag">文章标题</label>
+							<input type="text" class="art-title" id="article-title">
+						</div>
+						<div>
+							<label class="art-title-tag">文章类型</label>
+							<select id='article-type-selector' class="art-type">
+								<option value="1">双隆公告</option>
+								<option value="2">媒体报道</option>
+							</select>
+						</div>
+						
+						
+					
+					</div>
+
+					
 
 				</div>
+				<div class="col-md-4" id="submit-article">
+					
 
+				<div class="btn btn-success" id="article-submit">提交文章</div>
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<textarea cols="80" id="editor1" name="editor1" rows="50"></textarea>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+	<!-- Footer -->
+	<div class="footer">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="footer-copyright">&copy; 2013 mPurpose. All rights reserved.</div>
+				</div>
 			</div>
 		</div>
+	</div>
+
+	<!-- Javascripts -->
+
+	<script src="./resources/js/jquery-1.9.1.js"></script>
+	<script src="./resources/js/bootstrap.min.js"></script>
+	<script src="./resources/ckeditor/ckeditor.js"></script>
+	<script src="./resources/js/jquery-block-ui.js"></script>
+	<script src="./resources/js/bootbox.js"></script>
+	<script src="./resources/js/controller.js"></script>
+
+	<script src="./resources/js/add-article.js"></script>
 
 
-    
-
-
-		
-
-	
-
-	    <!-- Footer -->
-	    <div class="footer">
-	    	<div class="container">
-		    	
-		    	<div class="row">
-		    		<div class="col-md-12">
-		    			<div class="footer-copyright">&copy; 2013 mPurpose. All rights reserved.</div>
-		    		</div>
-		    	</div>
-		    </div>
-	    </div>
-
-        <!-- Javascripts -->
-        
-        <script src="./resources/js/jquery-1.9.1.js"></script>
-        <script src="./resources/js/bootstrap.min.js"></script>
-        <script src="./resources/ckeditor/ckeditor.js"></script>
-        <script src="./resources/js/jquery.fitvids.js"></script>
-        <script src="./resources/js/jquery.sequence-min.js"></script>
-        <script src="./resources/js/jquery.bxslider.js"></script>
-        <script src="./resources/js/main-menu.js"></script>
-        <script src="./resources/js/template.js"></script>
-        <script src="./resources/js/bootbox.js"></script>
-        <script src="./resources/js/controller.js"></script>
-       
-	    <script src="./resources/js/add-article.js"></script>
-	
-
-    </body>
+</body>
 </html>
