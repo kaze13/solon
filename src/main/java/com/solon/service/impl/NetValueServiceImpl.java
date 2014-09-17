@@ -41,4 +41,11 @@ public class NetValueServiceImpl implements INetValueService {
 		netValueDao.remove(id);
 	}
 
+	@Override
+	public void removeByProduct(int pId) {
+		// TODO Auto-generated method stub
+		netValueDao.removeByProduct(pId);
+	}
+	
+
 }

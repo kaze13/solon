@@ -18,6 +18,9 @@
 	<!-- Navigation & Logo-->
 	<div id="wrapper">
 		<div id="header">
+		#if($authenticated)
+		<a class="logout btn btn-default" href="j_spring_security_logout">退出</a>
+	#end
 		<div class="mainmenu-wrapper">
 		<div class="container">
 			<nav id="mainmenu" class="mainmenu">
@@ -46,6 +49,7 @@
 		</div>
 		</div>
 		<div id="content">
+		
 		<div class="container box article-container">
 			
 					<div class="col-md-3">
@@ -59,6 +63,7 @@
 					</div>
 
 					<div class="col-md-9" id="article-list-section">
+					
 						<div class="header" id="product-header">
 						<div class="li-item article-type">文章类型</div>
 						<div class="li-item article-name">文章标题</div>
@@ -66,12 +71,14 @@
 						
 						
 						</div>
-						<div class="article-list" id="ul-list">
+						<div class="article-list" id="ul-list" auth="#if($authenticated)true#else false #end">
+				
 						</div>
 						
 						<div class="article-paging" id="article-paging" page-number="$pages">
 							
 						</div>
+						
 
 
 				

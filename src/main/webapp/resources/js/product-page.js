@@ -2,6 +2,10 @@
 	var controller = new Controller();
 	controller.buildPage = function(){
 		$('#myTab a:last').tab('show');
+		$('.collapsible').collapsible({
+		      defaultOpen: 'nav-section1,nav-section3'
+		});
+		$('.init-open').collapsible('open');
 		this.drawNetValueGraph();
 	};
 	

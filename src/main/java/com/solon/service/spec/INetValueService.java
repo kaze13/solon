@@ -14,4 +14,6 @@ public interface INetValueService {
 	void update(NetValue value);
 
 	void remove(int id);
+	
+	void removeByProduct(int pId);
 }

@@ -2,16 +2,23 @@
 	background-color: white;
 	border-left: 1px solid #ddd;
 	overflow:auto;
-	height:665px
+	min-height:685px;
+	font-family: "微軟正黑體", "Microsoft JhengHei",  Tahoma , Verdana , Arial , sans-serif;
 }
 
 .title {
-	font-size: 1.5em;
+	font-size: 1.2em;
 	height: 50px;
 	padding-left: 16px;
-	
+}
+.other-title{
+	padding-top:10px;
 }
 
+.table{
+	font-size:10px;
+	margin-bottom:2px !important;
+}
 .netvalue td{
 	border: 1px solid #ddd;
 }
@@ -28,7 +35,9 @@ table td:first-child {
 	border-right:1px solid #ddd;
 	text-align:right;
 }
-
+table>tfoot>tr>th{
+	padding:2px !important;
+}
 table tr {
 	border-bottom: 1px solid #ddd;
 }
@@ -39,3 +48,34 @@ table tr {
 #buy-process{
 	padding:10px;
 }
+
+
+.collapse-open {
+    background:grey;
+    color: #fff;
+    border-bottom:solid 1px azure;
+}
+
+.collapse-close {
+    background:rgb(233, 233, 233);
+    color: black;
+    border-bottom:solid 1px rgb(200, 200, 200);
+}
+
+.collapse-open .collapse-toggle {
+    display:block;
+    float:right;
+    padding:10px;
+}
+
+.collapse-open .collapse-toggle {
+    background:url(../../resources/img/collapse.png) center center no-repeat;
+}
+
+.collapse-close .collapse-toggle {
+    display:block;
+    float:right;
+    background:url(../../resources/img/collapse_open.png) center center no-repeat;
+    padding:10px;
+}
+

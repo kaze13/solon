@@ -53,6 +53,9 @@ public class NetValueDaoImpl implements INetValueDao {
 			+ "evalue_type = ?, net_value = ?, net_increase_rate =?  WHERE id=?";
 
 	private static final String SQL_DELETE = "DELETE FROM NET_VALUE WHERE id=?";
+	
+	private static final String SQL_DELTE_BY_PRODUCT = " DELETE FROM net_value WHERE product_id = ? ";
+	
 
 	@Autowired
 	private JdbcTemplate template;
@@ -68,6 +71,7 @@ public class NetValueDaoImpl implements INetValueDao {
 
 	}
 
+	
 	@Override
 	public void insert(final NetValue value) {
 		template.update(SQL_INSERT, new PreparedStatementSetter() {
@@ -95,6 +99,12 @@ public class NetValueDaoImpl implements INetValueDao {
 	@Override
 	public void remove(int id){
 		template.update(SQL_DELETE, id);
+	}
+
+	@Override
+	public void removeByProduct(int pId) {
+		// TODO Auto-generated method stub
+		template.update(SQL_DELTE_BY_PRODUCT, pId);
 	}
 
 }

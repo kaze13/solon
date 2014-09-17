@@ -15,4 +15,6 @@ public interface INetValueDao {
 	void update(NetValue value);
 
 	void remove(int id);
+	
+	void removeByProduct(int pId);
 }

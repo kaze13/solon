@@ -22,7 +22,9 @@
 			<!-- Navigation & Logo-->
 			<div class="mainmenu-wrapper">
 				<div class="container">
-
+				#if($authenticated)
+		<a class="logout btn btn-default" href="j_spring_security_logout">退出</a>
+	#end
 					<nav id="mainmenu" class="mainmenu">
 						<ul>
 							<li class="logo-wrapper"><a href="index.html"><img

@@ -55,7 +55,7 @@
 
 .product-close {
 	border-radius: 4px;
-	background: coral;
+	background: grey;
 	width: 100px;
 	text-align: center;
 }
@@ -121,6 +121,9 @@
 .article-name{
 	width:500px;
 }
-.published-date{
-	
+
+
+.btn-warning.disabled{
+	border-color:grey !important;
+	background-color:grey !important;
 }

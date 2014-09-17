@@ -6,10 +6,12 @@
 	http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
 	<http auto-config="true">
-		<intercept-url pattern="/login" access="ROLE_USER" />
+		
 		<intercept-url pattern="/admin**" access="ROLE_USER" />
-
+        <form-login login-page="/login.html" default-target-url="/product-list"
+			authentication-failure-url="/loginError" />
 	</http>
+
 
 	<authentication-manager>
 		<authentication-provider>

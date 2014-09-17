@@ -43,6 +43,9 @@
 		    html = template.render({articles: data});
 		    $('#ul-list').empty();
 		    $('#ul-list').append(html);
+		    if($('#ul-list').attr('auth') == "true"){
+		    	$('#ul-list').append('<div class="add-article-btn"><a class="btn btn-default btn-xl" href="add-article">新建文章</a></div>');
+		    }
 			 
 			
 			

@@ -51,7 +51,7 @@
 			};
 			
 			proto.showSuccessAlert = function(){
-				bootbox.alert("操作成功");
+				bootbox.alert("操作成功", $.proxy(this.afterSave, this));
 			};
 			
 			proto.showFailAlert = function(){
@@ -64,10 +64,10 @@
 					
 			};
 			proto.defaultOperationFail = function(){
-			
 				this.showFailAlert();
-				
-				
+			};
+			proto.afterSave = function(){
+				window.location.reload();
 			};
 			proto.saveToServer = function(url, data){
 				if(this.validate(data)){
@@ -83,15 +83,13 @@
 				               $.blockUI({ message: 'OK' });
 				        }, 
 				        complete: function () {
-				                //bc.find('.submit').removeClass('lock');
-				                 $.unblockUI();
+				               $.unblockUI();
 				        }
-				            
 					}).done(function() {
 					
 						$.proxy(self.defaultOperationSuccess, self)();
 						
-						//window.location.reload();
+						
 					}).fail(function(){
 						
 						$.proxy(self.defaultOperationFail, self)();

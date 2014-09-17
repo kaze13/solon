@@ -3,7 +3,7 @@
 	
 	controller.buildPage = function(){
 		// get the first page
-		this.queryData({'page':1}, 'get-product-list', this.creatArticleList);
+		this.queryData({'page':1}, 'get-product-list', this.creatProductList);
 	};
 	
 	controller.bindMyPageHander = function(){
@@ -18,11 +18,11 @@
 			 
 		      
 		     onPageClick: function (event, page) {
-		    	 self.queryData({'page':page}, 'get-product-list', self.creatArticleList);
+		    	 self.queryData({'page':page}, 'get-product-list', self.creatProductList);
 		     }
 		 });
 	};
-	controller.creatArticleList = function(data){
+	controller.creatProductList = function(data){
 	
 		
 		for(i = 0; i < data.length; i++){
@@ -40,15 +40,27 @@
 			if(data[i].status == 0){//close
 				data[i].statusClass="product-close";
 				data[i].statusName="关闭";
+				data[i].buyDisabled = "disabled";
 				
 			}
 			else if(data[i].status == 1){
 				data[i].statusClass="product-open";
 				data[i].statusName="开放";
+				data[i].buyDisabled = "";
 			}
 			else{
 				data[i].statusClass="product-future";
 				data[i].statusName="即将开放";
+				data[i].buyDisabled = "disabled";
+			}
+			
+			if(!data[i].hasNetValue){
+				data[i].newestNetVal = "N/A";
+				data[i].totalNetVal = "N/A";
+			}
+			else{
+				data[i].totalNetVal += " %";
+				data[i].newestNetVal +=  " %";
 			}
 			
 			
@@ -60,9 +72,9 @@
 		    html = template.render({products: data});
 		    $('#ul-list').empty();
 		    $('#ul-list').append(html);
-			 
-			
-			
+		    if($('#ul-list').attr('auth') == "true"){
+		    	$('#ul-list').append('<div class="add-article-btn"><a class="btn btn-default btn-xl" href="add-product">添加产品</a></div>');
+		    }
 		});
 		
 	

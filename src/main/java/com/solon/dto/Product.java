@@ -4,33 +4,36 @@ import java.util.Date;
 
 public class Product {
 	private int productId;
-	private String productName;
-	private String productShortName;
-	private int status;
-	private int strategy;
-	private String range;
-	private String manager;
-	private String minInvest;
-	private String adoptionPeriod;
-	private String closePeriod;
-	private Date createDate;
-	private String openDate;
-	private String watchingOrg;
-	private String trustee;
-	private String bank;
-	private String borker;
-	private String counselor;
-	private double subscriptionFee;
-	private double annualManageFee;
-	private double floatManageFee;
-	private String subscriptionAccount;
-	private String subscriptionBank;
-	private String subscriptionId;
-	private String subscriptionProcess;
-	private String buyUrl;
-	private double newestNetVal;
-	private double totalNetVal;
+	private String productName = "";
+	private String productShortName = "";
+	private int status = 0;
+	private int strategy = 1;
+	private String range = "";
+	private String manager = "";
+	private String minInvest = "";
+	private String adoptionPeriod = "";
+	private String closePeriod = "";
+	private Date createDate = new Date();
+	private String openDate = "";
+	private String watchingOrg = "";
+	private String trustee = "";
+	private String bank = "";
+	private String borker = "";
+	private String counselor = "";
+	private double subscriptionFee = 0;
+	private double annualManageFee = 0;
+	private double floatManageFee = 0;
+	private String subscriptionAccount = "";
+	private String subscriptionBank = "";
+	private String subscriptionId = "";
+	private String subscriptionProcess = "";
+	private String buyUrl = "";
+	private double newestNetVal = 0;
+	private double totalNetVal = 0;
+	private boolean hasNetValue = true;
+	private int markRecommend = 0;
 	
+
 	public Product(int id, String name, String shortName, int status,
 			int strategy, String range, String manager, String minInvest,
 			String adoptionPeriod, String closePeriod,
@@ -79,7 +82,7 @@ public class Product {
 		this.closePeriod = "";
 		this.createDate = new Date();
 		this.openDate = "";
-		this.watchingOrg = "";	
+		this.watchingOrg = "";
 		this.trustee = "";
 		this.bank = "";
 		this.borker = "";
@@ -326,6 +329,22 @@ public class Product {
 
 	public void setNewestNetVal(double newestNetVal) {
 		this.newestNetVal = newestNetVal;
+	}
+
+	public boolean isHasNetValue() {
+		return hasNetValue;
+	}
+
+	public void setHasNetValue(boolean hasNetValue) {
+		this.hasNetValue = hasNetValue;
+	}
+
+	public int isMarkRecommend() {
+		return markRecommend;
+	}
+
+	public void setMarkRecommend(int markRecommend) {
+		this.markRecommend = markRecommend;
 	}
 
 }

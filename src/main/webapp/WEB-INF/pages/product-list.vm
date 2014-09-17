@@ -19,6 +19,9 @@
 	<!-- Navigation & Logo-->
 	<div id="wrapper">
 		<div id="header">
+		#if($authenticated)
+		<a class="logout btn btn-default" href="j_spring_security_logout">退出</a>
+	#end
 			<div class="mainmenu-wrapper">
 				<div class="container">
 					<nav id="mainmenu" class="mainmenu">
@@ -69,7 +72,7 @@
 							<div class="li-item product-status">产品状态</div>
 							
 						</div>
-						<div class="article-list" id="ul-list">
+						<div class="article-list" id="ul-list" auth="#if($authenticated)true#else false#end">
 						</div>
 						
 						<div class="article-paging" id="article-paging" page-number="$pages">

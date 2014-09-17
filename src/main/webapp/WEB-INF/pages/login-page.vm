@@ -10,20 +10,15 @@
 	<link rel="stylesheet" href="./resources/css/icomoon-social.css">
 	<link rel="stylesheet" href="./resources/css/leaflet.css" />
 	<link rel="stylesheet" href="./resources/css/main.css">
-	<link rel="stylesheet" href="./resources/css/add-article.css">
+	<link rel="stylesheet" href="./resources/css/contact.css">
 	<link rel="Shortcut Icon" href="./resources/img/icon.png">
-
+	<script src="./resources/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 </head>
 <body>
 
-
-	<!-- Navigation & Logo-->
 	<div id="wrapper">
 		<div id="header">
-		#if($authenticated)
-		<a class="logout btn btn-default" href="j_spring_security_logout">退出</a>
-	#end
-	
+			<!-- Navigation & Logo-->
 			<div class="mainmenu-wrapper">
 				<div class="container">
 
@@ -40,7 +35,7 @@
 								<a href="product-list">基金产品</a>
 							</li>
 							<li><a href="sl-news">双隆咨询</a></li>
-							<li class="active">
+							<li >
 								<a href="contact-us">联系我们</a>
 							</li>
 
@@ -53,67 +48,51 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<h1>添加文章</h1>
+							<h1>管理员登陆</h1>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
 		<div id="content">
 			<div class="container">
 				<div class="box first">
-					<div class="row">
-
-						<div class="col-md-7" id="contact-us">
-							
-							<div class="title-line">
-
-								<div>
-									<label class="art-title-tag">文章标题</label>
-									<input type="text" class="art-title" id="article-title">
+					<div class="col-sm-5">
+						<div class="basic-login">
+							<form name='loginForm' action="/j_spring_security_check" method='POST'>
+								<div class="form-group">
+									<label for="login-username"><i class="icon-user"></i> <b>用户名</b></label>
+									<input class="form-control" name="j_username" id="login-username" type="text" placeholder="">
 								</div>
-								<div>
-									<label class="art-title-tag">文章类型</label>
-									<select id='article-type-selector' class="art-type">
-										<option value="1">双隆公告</option>
-										<option value="2">媒体报道</option>
-									</select>
+								<div class="form-group">
+									<label for="login-password"><i class="icon-lock"></i> <b>密码</b></label>
+									<input class="form-control" name="j_password" id="login-password" type="password" placeholder="">
 								</div>
-								
-								
-								
-							</div>
-
-							
-
-						</div>
-						<div class="col-md-4" id="submit-article">
-							
-
-							<div class="btn btn-success" id="article-submit">提交文章</div>
-
+								<div class="form-group">
+									<label class="checkbox">
+										<input type="checkbox"> Remember me
+									</label>
+									
+									#if($error)
+									<div class="alert alert-danger fade in" role="alert">
+                                       <h4>Oppps... Wrong Password or User Name</h4>
+                                    </div>
+                                    #end
+                                    
+									<button type="submit" class="btn pull-right">Login</button>
+									<div class="clearfix"></div>
+								</div>
+							</form>
 						</div>
 					</div>
 
-					<div class="row">
-						<div class="col-md-12">
-							<textarea cols="80" id="editor1" name="editor1" rows="50"></textarea>
-						</div>
-					</div>
 
 				</div>
 			</div>
-
-
-
-
-
-
-
 		</div>
-		<div id="footer">
 
+
+		<div id="footer">
 			<!-- Footer -->
 			<div class="footer">
 				<div class="container">
@@ -127,17 +106,10 @@
 			</div>
 		</div>
 	</div>
-	<!-- Javascripts -->
 
-	<script src="./resources/js/jquery-1.9.1.js"></script>
+	<script src="./resources/js/jquery-1.9.1.min.js"></script>
+
 	<script src="./resources/js/bootstrap.min.js"></script>
-	<script src="./resources/ckeditor/ckeditor.js"></script>
-	<script src="./resources/js/jquery-block-ui.js"></script>
-	<script src="./resources/js/bootbox.js"></script>
-	<script src="./resources/js/controller.js"></script>
-
-	<script src="./resources/js/add-article.js"></script>
-
 
 </body>
 </html>
