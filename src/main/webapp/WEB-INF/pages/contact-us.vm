@@ -16,133 +16,124 @@
 </head>
 <body>
 
-<div id="wrapper">
+	<div id="wrapper">
 		<div id="header">
-		<!-- Navigation & Logo-->
-	<div class="mainmenu-wrapper">
-		<div class="container">
+		#if($authenticated)
+		<a class="logout btn btn-default" href="j_spring_security_logout">退出</a>
+	#end
+			<!-- Navigation & Logo-->
+			<div class="mainmenu-wrapper">
+				<div class="container">
 
-			<nav id="mainmenu" class="mainmenu">
-				<ul>
-					<li class="logo-wrapper"><a href="index.html"><img src="./resources/img/logo2.png" alt="Multipurpose Twitter Bootstrap Template"></a></li>
-					<li >
-						<a href="index"><span class="glyphicon glyphicon-home"></span></a>
-					</li>
-					<li >
-						<a href="about-us">关于双隆</a>
-					</li>
-					<li>
-						<a href="product-list">基金产品</a>
-					</li>
-					<li><a href="sl-news">双隆咨询</a></li>
-					<li class="active">
-						<a href="contact-us">联系我们</a>
-					</li>
+					<nav id="mainmenu" class="mainmenu">
+						<ul>
+							<li class="logo-wrapper"><a href="index.html"><img src="./resources/img/logo2.png" alt="Multipurpose Twitter Bootstrap Template"></a></li>
+							<li >
+								<a href="index"><span class="glyphicon glyphicon-home"></span></a>
+							</li>
+							<li >
+								<a href="about-us">关于双隆</a>
+							</li>
+							<li>
+								<a href="product-list">基金产品</a>
+							</li>
+							<li><a href="sl-news">双隆咨询</a></li>
+							<li class="active">
+								<a href="contact-us">联系我们</a>
+							</li>
 
 
-				</ul>
-			</nav>
-		</div>
-	</div>
-	<div class="section section-breadcrumbs">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h1>联系我们</h1>
+						</ul>
+					</nav>
 				</div>
 			</div>
-		</div>
-	</div>
+			<div class="section section-breadcrumbs">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h1>联系我们</h1>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div id="content">
-		<div class="container">
-		<div class="box first">
-			<div class="row">
-				<div id="map-container" class="map"></div>
-			</div>
-
-			<div class="row">
-				<div class="col-md-6 detail-info">
-					<div class="align-margin">
-						<p>
-							<span class="glyphicon glyphicon-map-marker"></span>地址：上海市浦东新区竹林路101号陆家嘴基金大厦1604室
-						</p>
-						<p>
-							<span class="glyphicon glyphicon-phone-alt"> </span>电话：021-68758628、68751106、68753522、68753711
-						</p>
-						<p>
-							<span class="glyphicon glyphicon-print"></span>传真：021-68758819
-						</p>
-						<p>
-							<span class="glyphicon glyphicon-envelope"></span>邮箱：service@solon.cn
-						</p>
-						<p>
-							<span class="glyphicon glyphicon-edit"></span>邮编：200122
-						</p>
-						
+			<div class="container">
+				<div class="box first">
+					<div class="row">
+						<div id="map-container" class="map"></div>
 					</div>
 
+					<div class="row">
+						<div class="col-md-6 detail-info">
+							<div class="align-margin">
+								<p>
+									<span class="glyphicon glyphicon-map-marker"></span>地址：上海市浦东新区竹林路101号陆家嘴基金大厦1604室
+								</p>
+								<p>
+									<span class="glyphicon glyphicon-phone-alt"> </span>电话：021-68758628、68751106、68753522、68753711
+								</p>
+								<p>
+									<span class="glyphicon glyphicon-print"></span>传真：021-68758819
+								</p>
+								<p>
+									<span class="glyphicon glyphicon-envelope"></span>邮箱：service@solon.cn
+								</p>
+								<p>
+									<span class="glyphicon glyphicon-edit"></span>邮编：200122
+								</p>
 
-					
-				</div>
+							</div>
 
-				<div class="col-md-6 weixin-info">
-					<div class="align-margin">
 
-						<p>
-							<span class="glyphicon glyphicon-qrcode"></span>官方微信
-						</p>
-						<img class="weixin" src="./resources/img/weixin.jpg">
+
+						</div>
+
+						<div class="col-md-6 weixin-info">
+							<div class="align-margin">
+
+								<p>
+									<span class="glyphicon glyphicon-qrcode"></span>官方微信
+								</p>
+								<img class="weixin" src="/resources/kcfinder/upload/images/weixin/weixin.jpg">
+							</div>
+						</div>
+
 					</div>
+
 				</div>
-
 			</div>
+		</div>
+		
 
-		</div>
-	</div>
-</div>
-		</div>
 		<div id="footer">
-		
-		
-<!-- Footer -->
-<div class="footer">
-	<div class="container">
+			<!-- Footer -->
+			<div class="footer">
+				<div class="container">
 
-		<div class="row">
-			<div class="col-md-12">
-				<div class="footer-copyright">&copy; 2013 mPurpose. All rights reserved.</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="footer-copyright">&copy; 2013 mPurpose. All rights reserved.</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-		</div>
-	</div>
-	
-	
-	
 
+	<!-- Javascripts -->
 
+	<script src="./resources/js/jquery-1.9.1.js"></script>
+	<script src="./resources/js/bootstrap.min.js"></script>
 
-
-
-
-
-
-
-<!-- Javascripts -->
-
-<script>window.jQuery || document.write('<script src="./resources/js/jquery-1.9.1.min.js"><\/script>')</script>
-<script src="./resources/js/bootstrap.min.js"></script>
-
-<script src="./resources/js/jquery.fitvids.js"></script>
-<script src="./resources/js/jquery.sequence-min.js"></script>
-<script src="./resources/js/jquery.bxslider.js"></script>
-<script src="./resources/js/main-menu.js"></script>
-<script src="./resources/js/template.js"></script>
-<script type="text/javascript"
-src="http://api.map.baidu.com/api?v=1.5&ak=71eb1b504f214932e4e623db3b21d2d8"></script>
-<script src="./resources/js/contact.main.js"></script>
+	<script src="./resources/js/jquery.fitvids.js"></script>
+	<script src="./resources/js/jquery.sequence-min.js"></script>
+	<script src="./resources/js/jquery.bxslider.js"></script>
+	<script src="./resources/js/main-menu.js"></script>
+	<script src="./resources/js/template.js"></script>
+	<script type="text/javascript"
+	src="http://api.map.baidu.com/api?v=1.5&ak=71eb1b504f214932e4e623db3b21d2d8"></script>
+	<script src="./resources/js/contact.main.js"></script>
 
 
 </body>

@@ -17,4 +17,11 @@ public interface INetValueDao {
 	void remove(int id);
 	
 	void removeByProduct(int pId);
+	
+
+	public void insertByBatch(List<NetValue> values);
+
+	public void updateByBatch(List<NetValue> values);
+
+	public void deleteByBatch(List<NetValue> values);
 }

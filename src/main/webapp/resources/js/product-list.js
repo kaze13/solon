@@ -3,7 +3,7 @@
 	
 	controller.buildPage = function(){
 		// get the first page
-		this.queryData({'page':1}, 'get-product-list', this.creatProductList);
+		this.queryData({'page':1}, 'get-product-list', $.proxy(this.creatProductList, this));
 	};
 	
 	controller.bindMyPageHander = function(){
@@ -18,7 +18,7 @@
 			 
 		      
 		     onPageClick: function (event, page) {
-		    	 self.queryData({'page':page}, 'get-product-list', self.creatProductList);
+		    	 self.queryData({'page':page}, 'get-product-list', $.proxy(self.creatProductList, self));
 		     }
 		 });
 	};
@@ -65,20 +65,38 @@
 			
 			
 		}
-		
+		var self = this;
 		$.get('/resources/template/product-list.tmpl').done(function(html){
 		
 		    var template = Hogan.compile(html);
+		    data.auth = $('#ul-list').attr('auth') == "true" ? true : false;
+		    
 		    html = template.render({products: data});
 		    $('#ul-list').empty();
 		    $('#ul-list').append(html);
-		    if($('#ul-list').attr('auth') == "true"){
+		    if(data.auth == true){
 		    	$('#ul-list').append('<div class="add-article-btn"><a class="btn btn-default btn-xl" href="add-product">添加产品</a></div>');
 		    }
+		    $.proxy(self.bindDeleteEvents, self)();
 		});
 		
 	
 	};
+	
+	controller.bindDeleteEvents = function(){
+		$("[action=delete]").on('click', $.proxy(this.deleteProduct, this));
+	};
+	
+	
+	controller.deleteProduct = function(e){
+		var id = $(e.target).data('id');
+		bootbox.confirm("确定删除吗？", $.proxy(function(result){
+			if(result){
+				this.saveToServer('remove_product?id='+id);
+			}
+		},this)); 
+	};
+	
 	controller.initialize();
 	
 	

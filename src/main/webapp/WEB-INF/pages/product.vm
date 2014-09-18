@@ -650,7 +650,7 @@
 	<!-- /.modal -->
 
 
-	<script src="./resources/js/jquery-1.9.1.min.js"></script>
+	<script src="./resources/js/jquery-1.9.1.js"></script>
 	<script src="http://code.highcharts.com/highcharts.js"></script>
 	<script src="./resources/js/bootstrap.min.js"></script>
 	<script src="./resources/js/product.js"></script>

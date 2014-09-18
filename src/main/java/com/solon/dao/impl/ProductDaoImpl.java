@@ -10,6 +10,7 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementSetter;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
@@ -100,7 +101,7 @@ public class ProductDaoImpl implements IProductDao {
 
 	private static final String SQL_COLUMNS = "product_name, product_short_name, status, strategy, product_range, manager, min_invest,"
 			+ "adoption_period, close_period, create_date, open_date, watching_org, trustee, bank, broker, counselor, subscription_free, anual_manage_free, "
-			+ "float_manage_free, subscription_account, subscription_bank, subscription_id, subscription_process, buy_url, mark_recommend";
+			+ "float_manage_free, subscription_account, subscription_bank, subscription_id, subscription_process, buy_url, mark_recommend ";
 
 	private static final String SQL_SIMPLE_COLS = "product.product_name, product.product_short_name, product.status, product.strategy, product.buy_url, "
 			+ "net_value.net_value, net_value.net_increase_rate ";
@@ -112,14 +113,14 @@ public class ProductDaoImpl implements IProductDao {
 			+ "FROM product LEFT JOIN net_value on product.product_id = net_value.product_id and "
 			+ "net_value.evalue_date = ( select max(evalue_date) from net_value nv where nv.product_id = product.product_id) ";
 	
-
+	private static String SQL_ORDER_BY = " order by product_id desc ";
 	private static final String SQL_FIND_BY_ID = SQL_FIND_ALL
-			+ " WHERE PRODUCT_ID = ?";
+			+ " WHERE PRODUCT_ID = ? " + SQL_ORDER_BY;;
 	private static final String SQL_INSERT = "INSERT INTO product ("
 			+ SQL_COLUMNS
-			+ ") VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			+ ") VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)";
 
-	private static final String SQL_ORDER_BY_STRING = " order by id ";
+	
 	private static final String SQL_UPDATE = "UPDATE solon.product SET "
 			+ "product_name = ?, product_short_name = ?, status = ?, "
 			+ "strategy = ?, product_range = ?, manager = ?, min_invest = ?, "
@@ -127,11 +128,15 @@ public class ProductDaoImpl implements IProductDao {
 			+ " watching_org = ?, trustee = ?, bank = ?, broker = ?, counselor = ?,"
 			+ " subscription_free = ?, anual_manage_free = ?, float_manage_free = ?,"
 			+ " subscription_account = ?, subscription_bank = ?, subscription_id = ?, "
-			+ "subscription_process = ? WHERE product_id = ? ";
+			+ "subscription_process = ?, buy_url = ?, mark_recommend=? WHERE product_id = ? ";
 
+	
 	private static String SQL_DELETE = "delete from product where product_id = ? ";
 
 	private static String SQL_BASIC_COUNT_STRING = " select count(*) from product ";
+	
+	private static String SQL_MAX_ID = " SELECT MAX(product_id) FROM product ";
+	
 	@Autowired
 	private JdbcTemplate template;
 
@@ -144,6 +149,7 @@ public class ProductDaoImpl implements IProductDao {
 	public Product findById(int id) {
 
 		try {
+			System.out.println(SQL_FIND_BY_ID + " Id:id");
 			return template.queryForObject(SQL_FIND_BY_ID, ROW_MAPPER, id);
 		} catch (Exception e) {
 
@@ -178,13 +184,15 @@ public class ProductDaoImpl implements IProductDao {
 						product.getSubscriptionBank(),
 						product.getSubscriptionId(),
 						product.getSubscriptionProcess(),
+						product.getBuyUrl(),
+						product.getMarkRecommend(),
 						product.getProductId());
 			}
 		});
 	}
 
 	@Override
-	public void insert(final Product product) {
+	public int insert(final Product product) {
 		template.update(SQL_INSERT, new PreparedStatementSetter() {
 
 			@Override
@@ -203,10 +211,17 @@ public class ProductDaoImpl implements IProductDao {
 						product.getSubscriptionAccount(),
 						product.getSubscriptionBank(),
 						product.getSubscriptionId(),
-						product.getSubscriptionProcess());
+						product.getSubscriptionProcess(),
+						product.getBuyUrl(),
+						product.getMarkRecommend());
 			}
 		});
-
+	
+		List<Integer> result = template.query(SQL_MAX_ID,
+				SQLUtility.COUNT_ROW_MAPPER);
+		return result.get(0);
+		
+		
 	}
 
 	private static final int NUMBER_PER_PAGE = 20;
@@ -230,7 +245,7 @@ public class ProductDaoImpl implements IProductDao {
 		int totalCount = getProductsPagesCount(condition);
 		
 		queryString = SQLUtility.getPagingSQL(totalCount, NUMBER_PER_PAGE,
-				page, queryString + SQL_ORDER_BY_STRING);
+				page, queryString + SQL_ORDER_BY);
 		System.out.println(queryString);
 		List<Product> result = template.query(queryString, SIMPLE_ROW_MAPPER);
 		return result;

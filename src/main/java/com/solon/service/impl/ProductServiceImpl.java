@@ -28,8 +28,8 @@ public class ProductServiceImpl implements IProductService {
 	}
 
 	@Override
-	public void insert(Product product) {
-		productDao.insert(product);
+	public int insert(Product product) {
+		return productDao.insert(product);
 	}
 	
 	@Override

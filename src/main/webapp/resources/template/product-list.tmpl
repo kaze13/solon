@@ -9,9 +9,21 @@
 			<div class="li-item total-value">{{totalNetVal}}</div>
 			<div class="li-item {{statusClass}}">{{statusName}}</div>
 			
+			{{^auth}}
 			<div class="li-item buy-btn">
 			    <a class="btn btn-xs btn-warning {{buyDisabled}} " {{buyDisabled}} href="{{buyUrl}}">购买</a>
 			</div>
+			{{/auth}}
+			
+			
+			{{#auth}}
+			<div class="li-item">
+			    <a class="btn-xs btn-warning margin-level1" action="delete" data-id="{{productId}}">删除</a>
+			</div>
+			<div class="li-item">
+			    <a class="btn-xs btn-warning" href="copy-add-product?id={{productId}}">copy</a>
+			</div>
+			{{/auth}}
 		</div>
 
 {{/products}} 

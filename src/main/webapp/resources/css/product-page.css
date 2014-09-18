@@ -78,4 +78,20 @@ table tr {
     background:url(../../resources/img/collapse_open.png) center center no-repeat;
     padding:10px;
 }
-
+.delete-line td{
+	background-color:orange !important;
+	text-decoration:line-through
+}
+.modified td{
+	color:blue;
+	font-weight:200;
+}
+.new-value td{
+	background-color:lightgreen !important;
+}
+.add-value-btn{
+	margin-top:10px;
+}
+.value-graph-container{
+	width:700px;
+}

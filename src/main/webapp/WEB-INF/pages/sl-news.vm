@@ -116,6 +116,7 @@
 	   	<script src="./resources/js/jquery-block-ui.js"></script>
 		<script src="./resources/js/lib/hogan/hogan2.js"></script> 
 		<script src="./resources/js/jquery.paging.min.js"></script>
+		<script src="./resources/js/bootbox.js"></script>
 		<script src="./resources/js/controller.js"></script>	
 		<script src="./resources/js/slnews.js"></script> 
 

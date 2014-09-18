@@ -24,9 +24,12 @@
 				newItem.push(parseFloat($(this).find('.net-value').text()));
 				series[0].data.push(newItem);
 		});
+		if(series[0] && series[0].data){
+			series[0].data.reverse();
+		}
 		$widget.highcharts({
 			title : {
-				text : '净值走势',
+				text : '',
 				x : -20
 				// center
 			},

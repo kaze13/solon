@@ -42,13 +42,15 @@
 }
 
 .net-value {
-	width: 100px;
+	width: 80px;
+	margin-right:20px;
 	border-radius: 4px;
 	background: antiquewhite;
 }
 
 .total-value {
-	width: 100px;
+	width: 80px;
+	margin-right:20px;
 	border-radius: 4px;
 	background: yellowgreen;
 }
@@ -62,7 +64,7 @@
 
 .product-open {
 	border-radius: 4px;
-	background: aqua;
+	background: aquamarine;
 	width: 100px;
 	text-align: center;
 }
@@ -83,10 +85,6 @@
 	padding:5px;
 }
 
-.buy-btn {
-	width: 50px;
-	
-}
 
 .strategy-type {
 	width: 95px;
@@ -121,7 +119,10 @@
 .article-name{
 	width:500px;
 }
-
+.copy-btn{
+	background-color:#BE0173 !important;
+	color:white;
+}
 
 .btn-warning.disabled{
 	border-color:grey !important;

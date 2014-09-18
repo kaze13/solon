@@ -47,7 +47,13 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
+					    #if($mode == "add")
+					    <h1>添加新产品</h1>
+					    #elseif($mode == "modify")
+					    <h1>修改产品信息</h1>
+					    #else
 						<h1>${product.productName}</h1>
+						#end
 					</div>
 				</div>
 			</div>
@@ -70,7 +76,7 @@
 								<button data-id="${product.productId}"
 									class="modify-product-confirm-btn btn btn-default">保存</button>
 								<button data-id="${product.productId}"
-									class="delete-product-btn btn btn-danger">删除</button>
+									class="delete-product-btn btn">删除产品</button>
 								#end
 								
 							</div>
@@ -183,7 +189,7 @@
 									<td>成立日</td>
 										#if($authenticated)
 									<td class="modify-td"><input type="text" mapping="createDate"
-										id="datepicker"
+										class="datepicker"
 										value="$product.createDate" /></td>
 										#else
 									<td class="display-td">$product.createDate</td>
@@ -261,7 +267,7 @@
 					</div>
 					#if($authenticated)
 					<div class="tab-pane" id="product-manage">
-					<table class="table netvalue table-striped">
+					<table class="table table-striped">
 					            <col width="20%">
 								<col width="66%">
 								<tr>
@@ -301,6 +307,19 @@
 									</td>
 									
 								</tr>
+								<tr>
+									<td>购买地址(http开头全地址)</td>
+									
+									
+									<td class="modify-td">
+									
+									<input type="text" mapping="buyUrl" value="$product.buyUrl" /></td>
+									
+									
+									</select>
+									</td>
+									
+								</tr>
 					</table>
 						
 					</div>
@@ -310,7 +329,7 @@
 							<div>
 							<div class="pull-right">
 								<button data-id="${product.productId}"
-									class="add-value-btn btn btn-primary">新增</button>
+									class="add-value-btn btn btn-primary">新增净值</button>
 							</div>
 							</div>
 							#end
@@ -318,11 +337,9 @@
 						<table class="table netvalue table-striped">
 							<col width="10%">
 							<col width="25%">
-							<col width="25%">
-							<col width="25%">
-						    #if($authenticated)
-								<col width="25%">
-							    #end
+							<col width="22%">
+							<col width="22%">
+						  
 							<tr>
 								<th>日期类型</th>
 								<th>更新日期</th>
@@ -333,22 +350,32 @@
 							    #end
 							</tr>
 							#foreach($value in $netValues)
-							<tr class="net-value-item-${product.productId}">
+							<tr class="net-value-item-${value.productId}" >
 							
-								<td class="display-td">#if($value.evalueType==1)估值日#end</td>
+								<td class="display-td">
+								
+							
+								<input type="text" net-mapping="id" value="${value.id}" class="hidden" ></input>
+								<input type="text" net-mapping="evalueType" value="${value.evalueType}" class="hidden" ></input>
+								
+								#if($value.evalueType==1)估值日#end
+								</td>
 								
 								
 								#if($authenticated)
-								<td class="modify-td"><input type="text"
-									id="evalueDate-${product.productId}" value="$value.evalueDate" /></td>
+								<td class="modify-td"><input type="text" net-mapping="evalueDate" class="datepicker"
+									id="evalueDate-${value.id}" value="$value.evalueDate" /></td>
+									<td class="display-td hidden evalue-date">$value.evalueDate</td>
 								#else
 								<td class="display-td evalue-date">$value.evalueDate</td>
 								#end
 								
 								#if($authenticated)
 								
-								<td class="modify-td"><input type="text"
+								<td class="modify-td"><input type="text" net-mapping="netValue"
 									id="netValue-${product.productId}" value="$value.netValue" /></td>
+									
+									<td class="display-td hidden net-value">$value.netValue</td>
 								
 								#else
 								<td class="display-td net-value">$value.netValue</td>
@@ -357,7 +384,7 @@
 								
 								
 								#if($authenticated)
-								<td class="modify-td"><input type="text"
+								<td class="modify-td"><input type="text" net-mapping="netIncreaseRate"
 									id="netIncreaseRate-${product.productId}"
 									value="$value.netIncreaseRate" />%</td> 
 									
@@ -368,7 +395,7 @@
 								#if($authenticated)
 								<td>
 									
-									<button data-id="$value.id" class="btn btn-danger remove-value-btn">删除</button>
+									<button data-id="$value.id" class="btn remove-value-btn">删除</button>
 								</td>
 								
 								#end
@@ -460,7 +487,7 @@
 					<div class="tab-pane" id="product-graph">
 						<div class="value-graph-container" data-id="${product.productId}"
 						data-name="${product.productName}"
-						style="width: 800px; height: 400px;"></div>
+						></div>
 					</div>
 					<div class="tab-pane" id="buy-process">
 						

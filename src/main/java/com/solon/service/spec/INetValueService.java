@@ -16,4 +16,11 @@ public interface INetValueService {
 	void remove(int id);
 	
 	void removeByProduct(int pId);
+	
+	void insertByBatch(List<NetValue> values);
+	
+	void updateByBatch(List<NetValue> values);
+	
+	void deleteByBatch(List<NetValue> values);
+	
 }

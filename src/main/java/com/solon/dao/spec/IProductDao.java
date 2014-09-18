@@ -3,7 +3,6 @@ package com.solon.dao.spec;
 import java.util.List;
 import java.util.Map;
 
-import com.solon.dto.Article;
 import com.solon.dto.Product;
 
 public interface IProductDao {
@@ -12,7 +11,7 @@ public interface IProductDao {
 
 	Product findById(int id);
 
-	void insert(Product product);
+	int insert(Product product);
 
 	void update(Product product);
 

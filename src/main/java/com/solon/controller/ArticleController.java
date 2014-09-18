@@ -37,6 +37,7 @@ public class ArticleController {
 	}
 
 
+	
 	@RequestMapping(value = "sl-news")
 	public String getArticleList(ModelMap model) {
 		
@@ -58,13 +59,30 @@ public class ArticleController {
 		articleService.insert(article);
 		return "success";
 	}
-
+	
+	public boolean checkAndAddAuth(ModelMap model){
+		Authentication auth = SecurityContextHolder.getContext()
+				.getAuthentication();
+		if (!auth.getPrincipal().equals("anonymousUser")) {
+			model.addAttribute("authenticated", true);
+			
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 	@RequestMapping(value = "delete-article", method = RequestMethod.POST)
 	public @ResponseBody
-	String deleteArticle(@RequestBody int id) {
+	String deleteArticle(@RequestParam int id) {
+		if(!checkAndAddAuth(new ModelMap())){
+			return "redirect:login";
+		}
 		articleService.remove(id);
+	
 		return "success";
 	}
+	
 	
 	@RequestMapping(value = "get-article")
 	public String getArticleById(@RequestParam int id, ModelMap model) {

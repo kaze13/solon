@@ -12,7 +12,7 @@ public interface IProductService {
 
 	Product findById(int id);
 
-	void insert(Product product);
+	int insert(Product product);
 
 	void remove(int id);
 
@@ -22,5 +22,7 @@ public interface IProductService {
     int getProductsPagesCount(Map<String, String> condition);
 	
     List<Product> getProductsByPaging(Map<String, String> condition, int page);
+    
+    
 
 }

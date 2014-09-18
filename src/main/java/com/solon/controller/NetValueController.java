@@ -2,9 +2,13 @@ package com.solon.controller;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,6 +23,18 @@ public class NetValueController {
 	@Autowired
 	INetValueService netValueService;
 	
+	
+	public boolean checkAndAddAuth(){
+		Authentication auth = SecurityContextHolder.getContext()
+				.getAuthentication();
+		if (!auth.getPrincipal().equals("anonymousUser")) {
+			
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 	
 	@RequestMapping(value = "net_value")
 	public @ResponseBody
@@ -42,6 +58,8 @@ public class NetValueController {
 		netValueService.update(value);
 		return "success";
 	}
+	
+	
 
 	@RequestMapping(value = "remove_value", method = RequestMethod.POST)
 	public @ResponseBody
@@ -49,4 +67,8 @@ public class NetValueController {
 		netValueService.remove(id);
 		return "success";
 	}
+	
+	
+	
+	
 }

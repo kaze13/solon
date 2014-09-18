@@ -12,7 +12,9 @@
 	controller.buildPage = function(){
 		this.createEditor();
 	};
-	
+	controller.afterSave = function(){
+		window.location.href="sl-news";	
+	};
 	controller.getArticleData = function(){
 		var data = {};
 		data.title = $('#article-title').val();

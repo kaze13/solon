@@ -46,6 +46,24 @@ public class NetValueServiceImpl implements INetValueService {
 		// TODO Auto-generated method stub
 		netValueDao.removeByProduct(pId);
 	}
+
+	@Override
+	public void insertByBatch(List<NetValue> values) {
+		// TODO Auto-generated method stub
+		netValueDao.insertByBatch(values);
+	}
+
+	@Override
+	public void updateByBatch(List<NetValue> values) {
+		// TODO Auto-generated method stub
+		netValueDao.updateByBatch(values);
+	}
+
+	@Override
+	public void deleteByBatch(List<NetValue> values) {
+		// TODO Auto-generated method stub
+		netValueDao.deleteByBatch(values);
+	}
 	
 
 }

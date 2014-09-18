@@ -339,12 +339,13 @@ public class Product {
 		this.hasNetValue = hasNetValue;
 	}
 
-	public int isMarkRecommend() {
+	public int getMarkRecommend() {
 		return markRecommend;
 	}
 
 	public void setMarkRecommend(int markRecommend) {
 		this.markRecommend = markRecommend;
 	}
+
 
 }

@@ -58,10 +58,7 @@
 				bootbox.alert("操作失败");
 			};
 			proto.defaultOperationSuccess = function(){
-			
-				this.showSuccessAlert();
-				
-					
+				this.showSuccessAlert();	
 			};
 			proto.defaultOperationFail = function(){
 				this.showFailAlert();
@@ -80,7 +77,7 @@
 						type : 'POST',
 						url : url,
 						beforeSend : function() {
-				               $.blockUI({ message: 'OK' });
+				               $.blockUI({ message: '数据保存中...' });
 				        }, 
 				        complete: function () {
 				               $.unblockUI();
