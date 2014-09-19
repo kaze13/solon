@@ -224,7 +224,7 @@ public class ProductDaoImpl implements IProductDao {
 		
 	}
 
-	private static final int NUMBER_PER_PAGE = 20;
+	private static final int NUMBER_PER_PAGE = 13;
 
 	@Override
 	public int getProductsPagesCount(Map<String, String> condition) {

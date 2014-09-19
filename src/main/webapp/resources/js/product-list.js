@@ -72,11 +72,17 @@
 		    data.auth = $('#ul-list').attr('auth') == "true" ? true : false;
 		    
 		    html = template.render({products: data});
-		    $('#ul-list').empty();
-		    $('#ul-list').append(html);
+		   // $('#ul-list').empty();
+		    $('#table-header').nextAll().remove();
+		    $('#table-header').after(html);
 		    if(data.auth == true){
 		    	$('#ul-list').append('<div class="add-article-btn"><a class="btn btn-default btn-xl" href="add-product">添加产品</a></div>');
 		    }
+		    
+		    $('#product-table').DataTable({
+		    	ordering: true,
+		    	search:false
+		    });
 		    $.proxy(self.bindDeleteEvents, self)();
 		});
 		

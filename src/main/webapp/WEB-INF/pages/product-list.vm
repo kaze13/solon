@@ -11,7 +11,12 @@
 	<link rel="stylesheet" href="./resources/css/main.css">
 	<link rel="stylesheet" href="./resources/css/sl-news.css">
 	<link rel="Shortcut Icon" href="./resources/img/icon.png">
-	
+	<!-- DataTables CSS -->
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.2/css/jquery.dataTables.css">
+  
+
+  
+
 </head>
 
 
@@ -64,18 +69,43 @@
 					</div>
 
 					<div class="col-md-9" id="article-list-section">
-						<div class="header" id="product-header">
-							<div class="li-item strategy-type">策略类型</div>
-							<div class="li-item product-name">产品名称</div>
-							<div class="li-item newest-net-value">最新净值</div>
-							<div class="li-item history-net-value">历史净值</div>
-							<div class="li-item product-status">产品状态</div>
+					
+						
 							
-						</div>
+							
 						<div class="article-list" id="ul-list" auth="#if($authenticated)true#else false#end">
+						<table class="table table-striped" id="product-table">
+						
+							<col width="20%">
+							<col width="30%">
+							<col width="15%">
+							<col width="15%">
+							<col width="20%">
+							<col width="10%">
+							<thead>
+							<tr id="table-header">
+								<th>策略类型</th>
+								<th>产品名称</th>
+								<th>最新净值</th>
+								<th>累计净值</th> 
+								
+									#if($authenticated)
+									<th>操作</th>
+									#else
+									<th>产品状态</th>
+									<th>链接</th>
+									#end
+								
+							</tr>
+							</thead>
+						
+						</table>
 						</div>
 						
 						<div class="article-paging" id="article-paging" page-number="$pages">
+						
+						
+							
 							
 						</div>
 
@@ -111,13 +141,20 @@
 		
 		<!-- Javascripts -->
 
-		<script src="./resources/js/jquery-1.9.1.js"></script>
+<!-- jQuery -->
+<script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+  
+		
 		<script src="./resources/js/bootstrap.min.js"></script>
 		<script src="./resources/js/lib/underscore/underscore-min.js"></script>
 		<script src="./resources/js/lib/hogan/hogan2.js"></script>
 		<script src="./resources/js/jquery-block-ui.js"></script>
 		<script src="./resources/js/jquery.paging.min.js"></script>
 		<script src="./resources/js/bootbox.js"></script>
+		<!-- DataTables -->
+		<!-- jQuery -->
+
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.2/js/jquery.dataTables.js"></script>
 		<script src="./resources/js/controller.js"></script>	
 		<script src="./resources/js/product-list.js"></script> 
 	</body>

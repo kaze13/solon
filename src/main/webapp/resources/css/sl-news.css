@@ -26,9 +26,9 @@
 
 #ul-list {
 	height:600px;
-	border-left:1px solid lightblue;
-	border-right:1px solid lightblue;
-	border-bottom:1px solid lightblue;
+	border-left:1px solid #ddd;
+	border-right:1px solid #ddd;
+	border-bottom:1px solid #ddd;
 	
 }
 
@@ -127,4 +127,11 @@
 .btn-warning.disabled{
 	border-color:grey !important;
 	background-color:grey !important;
+}
+.net-value-number{
+	width:40px;
+	border-radius:5px;
+	padding:3px;
+	vertical-align:center;
+	background-color:orange;
 }

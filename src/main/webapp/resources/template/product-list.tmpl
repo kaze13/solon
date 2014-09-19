@@ -1,29 +1,36 @@
 {{#products}}
-		<div id="article-{{productId}}" class="ul-item"
-			data-id="{{productId}}">
-			
-		     
-			<div class="li-item {{strategyClass}}">{{strategyName}}</div>
-			<div class="li-item product-name"><a href="get-product?id={{productId}}">{{productName}}</a></div>
-			<div class="li-item net-value">{{newestNetVal}}</div>
-			<div class="li-item total-value">{{totalNetVal}}</div>
-			<div class="li-item {{statusClass}}">{{statusName}}</div>
-			
-			{{^auth}}
-			<div class="li-item buy-btn">
-			    <a class="btn btn-xs btn-warning {{buyDisabled}} " {{buyDisabled}} href="{{buyUrl}}">购买</a>
-			</div>
-			{{/auth}}
-			
-			
-			{{#auth}}
-			<div class="li-item">
-			    <a class="btn-xs btn-warning margin-level1" action="delete" data-id="{{productId}}">删除</a>
-			</div>
-			<div class="li-item">
+        <tr data-id="{{productId}}">
+		
+		    <td >
+		    <div class="{{strategyClass}}">{{strategyName}}</div>
+		    </td>
+		    <td>
+		    <a href="get-product?id={{productId}}">{{productName}}</a>
+		    </td>
+		    <td>
+		    
+		    <div class="net-value-number">{{newestNetVal}}</div>
+		    </td>
+		    <td>
+		     <div class="net-value-number">{{totalNetVal}}</div>
+		    </td>
+		  
+		    {{^auth}}
+		      <td>
+		    {{statusName}}
+		    </td>
+		     <td>
+		     <a class="btn btn-xs btn-warning {{buyDisabled}} " {{buyDisabled}} href="{{buyUrl}}">购买</a>
+		    </td>
+		    {{/auth}}
+		    
+		    {{#auth}}
+	     	<td>
+			    <a class="btn-xs btn-warning" action="delete" data-id="{{productId}}">删除</a>
 			    <a class="btn-xs btn-warning" href="copy-add-product?id={{productId}}">copy</a>
-			</div>
+			</td>
 			{{/auth}}
-		</div>
-
+			
+			
+       </tr>
 {{/products}} 
