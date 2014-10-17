@@ -40,8 +40,8 @@ public class UserDaoImpl implements IUserDao {
 
 	private static final String SQL_FIND_BY_ID = SQL_FIND_ALL
 			+ " WHERE USER_ID = ?";
-	private static final String SQL_INSERT = "INSERT INTO product ("
-			+ SQL_COLUMNS + ") VALUES (?, ?)";
+	//private static final String SQL_INSERT = "INSERT INTO product ("
+	//		+ SQL_COLUMNS + ") VALUES (?, ?)";
 
 	@Autowired
 	private JdbcTemplate template;

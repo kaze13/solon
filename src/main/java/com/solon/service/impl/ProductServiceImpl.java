@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.solon.dao.spec.IProductDao;
-import com.solon.dto.Article;
+
 import com.solon.dto.Product;
 import com.solon.service.spec.IProductService;
 
@@ -53,5 +53,11 @@ public class ProductServiceImpl implements IProductService {
 			int page) {
 		// TODO Auto-generated method stub
 		return productDao.getProductsByPaging(condition, page);
+	}
+
+	@Override
+	public int queryProductIdByName(String productName) {
+		// TODO Auto-generated method stub
+		return productDao.queryProductIdByName(productName);
 	}
 }

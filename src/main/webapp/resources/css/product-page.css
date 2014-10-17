@@ -2,7 +2,7 @@
 	background-color: white;
 	border-left: 1px solid #ddd;
 	overflow:auto;
-	min-height:685px;
+	min-height:625px;
 	font-family: "微軟正黑體", "Microsoft JhengHei",  Tahoma , Verdana , Arial , sans-serif;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .table{
-	font-size:10px;
+	font-size:15px;
 	margin-bottom:2px !important;
 }
 .netvalue td{
@@ -93,5 +93,26 @@ table tr {
 	margin-top:10px;
 }
 .value-graph-container{
-	width:700px;
+	width:670px;
+	margin-left:30px;
+}
+
+#DataTables_Table_0_length{
+	display:none;
+}
+#DataTables_Table_0_filter{
+	display:none;
+}
+#DataTables_Table_0_info{
+	display:none;
+}
+.dataTables_wrapper .dataTables_paginate {
+float: none !important; 
+text-align: center !important;
+
+}
+.evalute-type{
+	width:100%;
+	text-align:left;
+	margin-left:8px;
 }

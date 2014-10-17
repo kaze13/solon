@@ -1,5 +1,6 @@
 package com.solon.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -39,7 +40,7 @@ public class ArticleController {
 
 	
 	@RequestMapping(value = "sl-news")
-	public String getArticleList(ModelMap model) {
+	public String getArticleList(ModelMap model, @RequestParam(required=false) Integer type) {
 		
 		Authentication auth = SecurityContextHolder.getContext()
 				.getAuthentication();
@@ -47,8 +48,11 @@ public class ArticleController {
 			model.addAttribute("authenticated", true);
 			
 		}
-		
-		int pages = articleService.articleCount(null);
+		Map<String, String> params = new HashMap<String, String>();
+		if(type != null){
+			params.put("article_type", type.toString());
+		}
+		int pages = articleService.articleCount(params);
 		model.addAttribute("pages", pages);
 		return "sl-news";
 	}
@@ -107,6 +111,7 @@ public class ArticleController {
 	List<Article> getArticle(@RequestBody Map<String, String> params) {
 		String id = params.get("page");
 		params.remove("page");
+		
 
 		List<Article> articles = articleService.getArticleByPaging(params,
 				Integer.valueOf(id));

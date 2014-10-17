@@ -2,7 +2,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>上海双隆投资有限公司</title>
+	<title>双隆投资有限公司</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width">
 
@@ -31,10 +31,10 @@
 							<li class="logo-wrapper"><a href="index.html"><img
 								src="./resources/img/logo2.png"
 								alt="Multipurpose Twitter Bootstrap Template"></a></li>
-								<li class="active"><a href="index"><span class="glyphicon glyphicon-home"></span></a></li>
+								<li class="active"><a href="index"><span class="glyphicon glyphicon-home">首页</span></a></li>
 								<li><a href="about-us">关于双隆</a></li>
 								<li><a href="product-list">基金产品</a></li>
-								<li><a href="sl-news">双隆咨询</a></li>
+								<li><a href="sl-news?type=1">双隆资讯</a></li>
 								<li><a href="contact-us">联系我们</a></li>
 
 
@@ -52,8 +52,8 @@
 						<!-- Slide 1 -->
 						<li class="bg4">
 							<!-- Slide Title -->
-							<h2 class="title">双隆投资</h2> <!-- Slide Text -->
-							<h3 class="subtitle">累计投资30亿，为客户赚取6亿</h3> <!-- Slide Image --> <img
+							<h2 class="title"><strong>双隆投资</strong></h2> <!-- Slide Text -->
+							<h2 class="subtitle orange">点亮你的财富生活</h2> <!-- Slide Image --> <img
 							class="slide-img" src="/resources/kcfinder/upload/images/homeSliders/slide1.png"
 							alt="Slide 1" />
 						</li>
@@ -61,8 +61,8 @@
 						<!-- Slide 2 -->
 						<li class="bg3">
 							<!-- Slide Title --> <!-- Slide Text -->
-							<h1 class="title">双天地之和，报以方圆之隆</h1>
-							<h1 class="title sub-title">眀阴阳之机，报以方圆之隆</h1> <!-- Slide Image -->
+			         		<h2 class="subtitle-first">明阴阳之机，跃与风云之堂</h2>
+							<h2 class="subtitle">双天地之和，报以方圆之隆</h2>
 							<img class="slide-img"
 							src="/resources/kcfinder/upload/images/homeSliders/slide2.png" alt="Slide 2" />
 						</li>
@@ -70,9 +70,9 @@
 						<!-- Slide 3 -->
 						<li class="bg1">
 							<!-- Slide Title -->
-							<h2 class="title">Feature Rich</h2> <!-- Slide Text -->
-							<h3 class="subtitle">Huge amount of components and over 30
-								sample pages!</h3> <!-- Slide Image --> <img class="slide-img"
+									<h2 class="subtitle">专注 卓越 诚信 共赢</h2>
+							
+							 <!-- Slide Image --> <img class="slide-img"
 								src="/resources/kcfinder/upload/images/homeSliders/slide3.png" alt="Slide 3" />
 							</li>
 							<!-- End Slide 3 -->
@@ -97,11 +97,19 @@
 				
 					#foreach($product in $recommends)
 						<div class="col-md-4 col-sm-6">
-							<div class="service-wrapper #if($product.strategy==0)cta-product#else alpha-product#end">
+							<div class="service-wrapper #if($product.status==0)insale-product#elseif($product.status==1)tosale-product#elseif($product.status==2)closed-product#else real-close-product#end">
 								
-								<h3>$product.productName</h3>
-								<p>产品描述1</p>
-								<a href="$product.buyUrl" class="btn btn-success">购买</a>
+								<h3><a href="get-product?id=$product.productId">$product.productShortName</a></h3>
+								#if($product.status==2 || $product.status==3)
+								<a target="_blank" href="get-product?id=$product.productId#product-graph" class="btn btn-success">净值</a>
+								
+								#elseif($product.status == 0)
+								<a target="_blank" href="$product.buyUrl" class="btn btn-orange">购买</a>
+								#else
+								<a target="_blank" href="get-product?id=$product.productId" class="btn btn-success">详情</a>
+								#end
+								
+								
 							</div>
 						</div>
 					#end
@@ -116,7 +124,7 @@
 
 					<div class="row">
 						<div class="col-md-12">
-							<div class="footer-copyright">&copy; 2014 双隆投资
+							<div class="footer-copyright">&copy; 上海双隆投资有限公司版权所有
 							</div>
 						</div>
 					</div>

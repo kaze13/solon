@@ -3,23 +3,48 @@
 	
 	controller.buildPage = function(){
 		// get the first page
-		this.queryData({'page':1}, 'get-article-list', $.proxy(this.creatArticleList, this));
-	};
+		var param = this.getConditon();
+    	param.page = 1;
+		this.queryData(param, 'get-article-list', $.proxy(this.creatArticleList, this));
 	
+		var href = "'sl-news" + window.location.search + "'";
+		var activeA = $('a[href=' + href + ']');
+		activeA.parent().addClass('active');
+	};
+	controller.getConditon = function(){
+		var param = {};
+		var search = window.location.search;
+		if(search && search.indexOf('type') != -1){
+			//var key = 'type';
+			var val = search.substring(6, 7);
+			param['article_type'] = val; 
+		}
+		return param;
+	};
 	controller.bindMyPageHander = function(){
 		var self = this;
+		var pages = $('#article-paging').attr('page-number');
+	    pages = pages == '0' ? 1 : pages;
+	    
 		 $('#article-paging').twbsPagination({
-		        
-			 totalPages: $('#article-paging').attr('page-number'),
+		     
+		     
+			 totalPages: pages,
 			 first:'<<',
 			 prev:'<',
 			 next:'>',
 			 last:'>>',
 			 
-		      
+		     
 		     onPageClick: function (event, page) {
-		    	 self.queryData({'page':page}, 'get-article-list', $.proxy(self.creatArticleList, self));
+		    	 var param = self.getConditon();
+		    	 param.page = page;
+		    	 self.queryData(param, 'get-article-list', $.proxy(self.creatArticleList, self));
 		     }
+		 });
+		 $('#memu-bar-container li').on('click', function(){
+			 $('#memu-bar-container li').removeClass('active');
+			 $(this).addClass('active');
 		 });
 	};
 	controller.bindDeleteEvents = function(){
@@ -47,9 +72,13 @@
 				data[i].typeName = "双隆公告";
 
 			}
-			else{
+			else if(data[i].type==2){
 				data[i].typeClass="article-type-media";
 				data[i].typeName = "媒体报告"
+			}
+			else{
+				data[i].typeClass="article-type-society";
+				data[i].typeName = "双隆江湖"
 			}
 		}
 		var self = this;

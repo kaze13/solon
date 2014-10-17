@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>上海双隆投资有限公司</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="./resources/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./resources/css/icomoon-social.css">
+	<link rel="stylesheet" href="./resources/css/leaflet.css" />
+	<link rel="stylesheet" href="./resources/css/main.css">
+	<link rel="stylesheet" href="./resources/css/sl-news.css">
+	<link rel="Shortcut Icon" href="./resources/img/icon.png">
+	
+</head>
+
+<body data-spy="scroll" data-target=".navbar-example">
+	<!-- Navigation & Logo-->
+	<div id="wrapper">
+		<div id="header">
+			#if($authenticated)
+			<a class="logout btn btn-default" href="j_spring_security_logout">退出</a>
+			#end
+			<div class="mainmenu-wrapper">
+				<div class="container">
+					<nav id="mainmenu" class="mainmenu">
+						<ul>
+							<li class="logo-wrapper"><a href="index.html"><img
+								src="./resources/img/logo2.png"
+								alt="Multipurpose Twitter Bootstrap Template"></a></li>
+								<li ><a href="index"><span class="glyphicon glyphicon-home"></span></a></li>
+								<li ><a href="about-us">关于双隆</a></li>
+								<li class="active"><a href="product-list">基金产品</a></li>
+								<li><a href="sl-news">双隆江湖</a></li>
+								<li><a href="contact-us">联系我们</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+				<!-- Page Title -->
+				<div class="section section-breadcrumbs">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<h1>净值更新结果</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="content">
+
+				<div class="container box article-container">
+
+
+
+					<div class="col-md-12" id="article-list-section">
+
+						<table>
+						<tr>
+						<th>
+						产品名称
+						</th>
+						<th>
+						更新结果
+						</th>
+						</tr>
+						#foreach($result in $updateResults)
+						<tr>
+						<td>
+						$result.productName
+						</td>
+						<td>
+						$result.resultString
+						</td>
+						</tr>
+						#end
+						</table>
+						
+						
+
+
+
+					</div>
+
+				</div>
+			</div>
+			<div id="footer">
+
+				<!-- Footer -->
+				<div class="footer">
+					<div class="container">
+
+						<div class="row">
+							<div class="col-md-12">
+								<div class="footer-copyright">&copy; 上海双隆投资有限公司版权所有.</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+		
+
+
+		<!-- Javascripts -->
+
+		<script src="./resources/js/jquery-1.9.1.js"></script>
+		<script src="./resources/js/bootstrap.min.js"></script>
+		<script src="./resources/js/lib/underscore/underscore-min.js"></script>
+
+		<script src="./resources/js/jquery-block-ui.js"></script>
+		<script src="./resources/js/lib/hogan/hogan2.js"></script> 
+		<script src="./resources/js/jquery.paging.min.js"></script>
+		<script src="./resources/js/bootbox.js"></script>
+		<script src="./resources/js/controller.js"></script>	
+		<script src="./resources/js/slnews.js"></script> 
+
+
+	</body>
+	</html>

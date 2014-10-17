@@ -7,10 +7,24 @@
 		$('.delete-product-btn').on('click', $.proxy(this.deleteProductData, this));
 		$('.add-product-confirm-btn').on('click', $.proxy(this.addProduct, this));
 		this.mode = $('[mapping=productId]').data('mode');
-		$('.remove-value-btn').on('click', $.proxy(this.deleteNetValue, this));
-		$('.netvalue input').on('change', $.proxy(this.changeNetValue, this));
-		$('.add-value-btn').on('click', $.proxy(this.addNewNetValue, this));
+		
+		$('table.netvalue').on( 'page.dt',   $.proxy(this.initializeTable, this) );
+		$('table.netvalue').on( 'order.dt',   $.proxy(this.initializeTable, this) );
+		
+		
+		this.initializeTable();
 	}
+	
+	controller.initializeTable = function(){
+		var self = this;
+		setTimeout(function(){
+			self.createDatepicker($( ".datepicker" ));
+			$('.remove-value-btn').on('click', $.proxy(self.deleteNetValue, self));
+			$('.netvalue input').on('change', $.proxy(self.changeNetValue, self));
+			$('.add-value-btn').on('click', $.proxy(self.addNewNetValue, self));
+		}, 20);
+		
+	};
 	
 	controller.getNetValuesToSave = function(){
 		var $table = $('.netvalue tbody');
@@ -66,10 +80,10 @@
 		}
 	};
 	controller.addNewNetValue = function(e){
-		var $tableHeader = $('.netvalue tbody').children().first();
+		var $tableHeader = $('.netvalue tbody');
 		$.get('/resources/template/add-new-netvalue.tmpl').done($.proxy(function(html){
 			var $html = $(html);
-			$tableHeader.after($html);
+			$tableHeader.prepend($html);
 			this.createDatepicker($html.find('.datepicker'));
 			$html.find('.remove-value-btn').on('click', $.proxy(this.deleteNetValue, this));
 		}, this));
@@ -144,8 +158,10 @@
 		});
 	};
 	controller.buildPage = function(){
-		this.createDatepicker($( ".datepicker" ));
+		
 		this.createEditor();
+		
+		
 	};
 	
 	controller.getDataToSave = function(){

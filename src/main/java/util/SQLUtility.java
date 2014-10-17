@@ -11,6 +11,9 @@ import org.springframework.jdbc.core.RowMapper;
 
 public class SQLUtility {
 
+	public static String wrapBySingleQuat(String s){
+		return "\'" + s + "\'";
+	}
 	public static String getFullSQLByCondition(Map<String, String> condition, String basicQuery){
 		StringBuffer resultSql = new StringBuffer(basicQuery);
 		resultSql.append(" where 1=1 ");

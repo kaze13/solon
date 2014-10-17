@@ -1,0 +1,189 @@
+.li-item {
+	display: inline-block;
+}
+
+.ul-item {
+	display: block;
+	padding-top: 5px;
+	padding-left: 5px;
+}
+
+.list-title {
+	width: 500px;
+	font-family: bold 寰蒋闆呴粦;
+	margin-left: 10px;
+}
+
+
+
+.article-paging {
+	text-align: center;
+}
+
+#ul-list {
+	height: 590px;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+
+
+.product-name {
+	width: 400px;
+}
+
+.net-value {
+	width: 80px;
+	margin-right: 20px;
+	border-radius: 4px;
+	background: antiquewhite;
+}
+
+.total-value {
+	width: 80px;
+	margin-right: 20px;
+	border-radius: 4px;
+	background: yellowgreen;
+}
+
+.product-close {
+	border-radius: 4px;
+	background: grey;
+	width: 100px;
+	text-align: center;
+}
+
+.product-open {
+	border-radius: 4px;
+	background: aquamarine;
+	width: 100px;
+	text-align: center;
+}
+
+.product-future {
+	border-radius: 4px;
+	background: gold;
+	width: 100px;
+	text-align: center;
+}
+
+#product-header {
+	background: lightblue;
+	height: 30px;
+	font-size: 1.4em;
+	font-weight: bold;
+	vertical-align: center;
+	padding: 5px;
+}
+
+.strategy-type {
+	width: 95px;
+	vertical-align: center;
+}
+
+.product-name {
+	width: 290px;
+	vertical-align: center;
+}
+
+.newest-net-value {
+	width: 100px;
+	vertical-align: center;
+}
+
+.history-net-value {
+	width: 100px;
+	vertical-align: center;
+}
+
+.product-status {
+	width: 90px;
+	vertical-align: center;
+}
+
+.buy-btn {
+	margin-left: 20px;
+}
+
+.article-type {
+	width: 105px;
+}
+
+.article-name {
+	width: 500px;
+}
+
+.copy-btn {
+	background-color: #BE0173 !important;
+	color: white;
+}
+
+.btn-warning.disabled {
+	border-color: grey !important;
+	background-color: grey !important;
+}
+
+.net-value-number {
+	width: 50px;
+	border-radius: 5px;
+	padding: 3px;
+	vertical-align: center;
+	background-color: orange;
+}
+
+.product-hot {
+	background-color: orange;
+	width: 75px;
+	border-radius: 5px;
+	padding: 3px;
+	vertical-align: center;
+	color: white;
+}
+
+.product-to-open {
+	background-color: darkGreen;
+	width: 75px;
+	border-radius: 5px;
+	padding: 3px;
+	vertical-align: center;
+	color: white;
+}
+
+.product-closed {
+	background-color: grey;
+	width: 75px;
+	border-radius: 5px;
+	padding: 3px;
+	vertical-align: center;
+	color: white;
+}
+
+table {
+	font-family:'Microsoft JhengHei', Tahoma, Verdana, Arial,
+		sans-serif;
+}
+
+.slicknav_nav {
+	font-size: 1.1em !important;
+	font-family: 黑体;
+}
+
+.slicknav_nav a.active {
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	background: #428bca;
+	color: #fff !important;
+}
+a.active>a{
+	color:white !important;
+}
+.slicknav_btn{
+	display :none !important;
+}
+.slicknav_menu{
+	background:none !important;
+}
+.slicknav_nav a{
+	padding:10px !important;
+}

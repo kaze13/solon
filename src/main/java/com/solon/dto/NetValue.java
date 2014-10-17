@@ -7,7 +7,7 @@ public class NetValue implements Comparable<NetValue> {
 	private int id;
 	private int productId;
 	private Date evalueDate;
-	private int evalueType;
+	private int evalueType = 1;
 	private double netValue;
 	private double netIncreaseRate;
 

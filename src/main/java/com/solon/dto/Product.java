@@ -29,6 +29,7 @@ public class Product {
 	private String subscriptionProcess = "";
 	private String buyUrl = "";
 	private double newestNetVal = 0;
+	
 	private double totalNetVal = 0;
 	private boolean hasNetValue = true;
 	private int markRecommend = 0;

@@ -10,14 +10,10 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementSetter;
-import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
-
 import util.SQLUtility;
-
 import com.solon.dao.spec.IProductDao;
-import com.solon.dto.Article;
 import com.solon.dto.Product;
 
 @Repository
@@ -103,8 +99,8 @@ public class ProductDaoImpl implements IProductDao {
 			+ "adoption_period, close_period, create_date, open_date, watching_org, trustee, bank, broker, counselor, subscription_free, anual_manage_free, "
 			+ "float_manage_free, subscription_account, subscription_bank, subscription_id, subscription_process, buy_url, mark_recommend ";
 
-	private static final String SQL_SIMPLE_COLS = "product.product_name, product.product_short_name, product.status, product.strategy, product.buy_url, "
-			+ "net_value.net_value, net_value.net_increase_rate ";
+	//private static final String SQL_SIMPLE_COLS = "product.product_name, product.product_short_name, product.status, product.strategy, product.buy_url, "
+	//		+ "net_value.net_value, net_value.net_increase_rate ";
 	private static final String SQL_FIND_ALL = "SELECT " + "product_id,"
 			+ SQL_COLUMNS + " FROM product ";
 
@@ -137,6 +133,7 @@ public class ProductDaoImpl implements IProductDao {
 	
 	private static String SQL_MAX_ID = " SELECT MAX(product_id) FROM product ";
 	
+	private static String SQL_QUERY_ID = " SELECT product_id from product where product_name = ";
 	@Autowired
 	private JdbcTemplate template;
 
@@ -249,5 +246,19 @@ public class ProductDaoImpl implements IProductDao {
 		System.out.println(queryString);
 		List<Product> result = template.query(queryString, SIMPLE_ROW_MAPPER);
 		return result;
+	}
+
+	@Override
+	public int queryProductIdByName(String productName) {
+		// TODO Auto-generated method stub
+		String SQL_QUERY_STRING = SQL_QUERY_ID + SQLUtility.wrapBySingleQuat(productName);
+		List<Integer> result = template.query(SQL_QUERY_STRING,
+				SQLUtility.COUNT_ROW_MAPPER);
+		if(result.size() == 0){
+			return -1;
+		}
+		else{
+			return result.get(0);
+		}
 	}
 }

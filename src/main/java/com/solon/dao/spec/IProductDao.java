@@ -22,5 +22,7 @@ public interface IProductDao {
 
 	
 	public List<Product> getProductsByPaging(Map<String, String> condition, int page);
+	
+	public int queryProductIdByName(String productName);
 
 }

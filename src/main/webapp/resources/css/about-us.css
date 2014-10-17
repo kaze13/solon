@@ -7,3 +7,11 @@
 	position:fixed;
 	top:0px;
 }
+#contact-us p{
+	font-size: 20px;
+}
+#contact-us h2{
+	font-family:黑体;
+	font-weight:600 !important;
+	padding-left:0px !important;
+}

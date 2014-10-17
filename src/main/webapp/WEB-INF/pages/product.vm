@@ -29,7 +29,7 @@
 							class="glyphicon glyphicon-home"></span></a></li>
 					<li><a href="about-us">关于双隆</a></li>
 					<li class="active"><a href="product-list">基金产品</a></li>
-					<li><a href="sl-news">双隆咨询</a></li>
+					<li><a href="sl-news?type=1">双隆江湖</a></li>
 					<li><a href="contact-us">联系我们</a></li>
 
 

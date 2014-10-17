@@ -2,14 +2,15 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>上海双隆投资有限公司</title>
+	<title>双隆投资有限公司</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width">
 	<link rel="stylesheet" href="./resources/css/bootstrap.min.css">
 	<link rel="stylesheet" href="./resources/css/icomoon-social.css">
 	<link rel="stylesheet" href="./resources/css/leaflet.css" />
 	<link rel="stylesheet" href="./resources/css/main.css">
-	<link rel="stylesheet" href="./resources/css/sl-news.css">
+	<link rel="stylesheet" href="./resources/css/product-list.css">
+	<link rel="stylesheet" href="./resources/js/SlickNav/slicknav.css" />
 	<link rel="Shortcut Icon" href="./resources/img/icon.png">
 	<!-- DataTables CSS -->
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.2/css/jquery.dataTables.css">
@@ -22,6 +23,9 @@
 
 <body data-spy="scroll" data-target=".navbar-example">
 	<!-- Navigation & Logo-->
+	
+
+    
 	<div id="wrapper">
 		<div id="header">
 		#if($authenticated)
@@ -34,10 +38,10 @@
 							<li class="logo-wrapper"><a href="index.html"><img
 								src="./resources/img/logo2.png"
 								alt="Multipurpose Twitter Bootstrap Template"></a></li>
-								<li ><a href="index"><span class="glyphicon glyphicon-home"></span></a></li>
+								<li ><a href="index"><span class="glyphicon glyphicon-home"></span>首页</a></li>
 								<li ><a href="about-us">关于双隆</a></li>
 								<li class="active"><a href="product-list">基金产品</a></li>
-								<li><a href="sl-news">双隆咨询</a></li>
+								<li><a href="sl-news?type=1">双隆资讯</a></li>
 								<li><a href="contact-us">联系我们</a></li>
 							</ul>
 						</nav>
@@ -58,13 +62,35 @@
 				<div class="container box article-container">
 					
 					<div class="col-md-3">
-						<div class="bar-container navbar-example" id="memu-bar-container">
-							<ul class="nav nav-pills nav-stacked" >
-								<li class="active"><a href="#">所有产品</a></li>
-								<li><a href="#">Alpha策略</a></li>
-								<li><a href="#">CTA策略</a></li>
-								<li><a href="#">开放产品</a></li>
-							</ul>
+						<div class="bar-container navbar-example" id="demo2">
+							<ul id="menu2" class="hidden">
+							<li><a href="#">全部产品</a></li>
+    <li> <a href="#status=0" >火热销售</a>
+           <ul class="open-bar">
+            <li><a href="#status=0&strategy=0">CTA产品</a></li>
+            <li><a href="#status=0&strategy=1">Alpha产品</a></li>
+    </ul>
+    </li>
+    <li><a href="#status=1">即将推出</a>
+    <ul class="open-bar">
+            <li><a href="#status=1&strategy=0">CTA产品</a></li>
+            <li><a href="#status=1&strategy=1">Alpha产品</a></li>
+    </ul>
+    </li>
+    <li><a href="#status=2">封闭运行</a>
+    <ul class="open-bar">
+            <li><a href="#status=2&strategy=0">CTA产品</a></li>
+            <li><a href="#status=2&strategy=1">Alpha产品</a></li>
+    </ul>
+    </li>
+     <li><a href="#status=3">结束运行</a>
+    <ul class="open-bar">
+            <li><a href="#status=3&strategy=0">CTA产品</a></li>
+            <li><a href="#status=3&strategy=1">Alpha产品</a></li>
+    </ul>
+    </li>
+   
+</ul>
 						</div>
 					</div>
 
@@ -93,7 +119,7 @@
 									<th>操作</th>
 									#else
 									<th>产品状态</th>
-									<th>链接</th>
+									<th></th>
 									#end
 								
 							</tr>
@@ -125,7 +151,7 @@
 
 						<div class="row">
 							<div class="col-md-12">
-								<div class="footer-copyright">&copy; 2013 mPurpose. All rights reserved.</div>
+								<div class="footer-copyright">&copy; 上海双隆投资有限公司版权所有.</div>
 							</div>
 						</div>
 					</div>
@@ -142,8 +168,9 @@
 		<!-- Javascripts -->
 
 <!-- jQuery -->
-<script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-  
+<script src="/resources/js/jquery-1.9.1.js"></script>
+ <script src="./resources/js/jquery-ui.min.js"></script>
+<script src="./resources/js/SlickNav/jquery.slicknav.js"></script>
 		
 		<script src="./resources/js/bootstrap.min.js"></script>
 		<script src="./resources/js/lib/underscore/underscore-min.js"></script>
@@ -153,8 +180,6 @@
 		<script src="./resources/js/bootbox.js"></script>
 		<!-- DataTables -->
 		<!-- jQuery -->
-
-<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.2/js/jquery.dataTables.js"></script>
 		<script src="./resources/js/controller.js"></script>	
 		<script src="./resources/js/product-list.js"></script> 
 	</body>
