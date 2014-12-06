@@ -8,10 +8,16 @@
 	top:0px;
 }
 #contact-us p{
-	font-size: 20px;
+	font-size: 19px;
+	text-indent: 40px;
 }
 #contact-us h2{
 	font-family:黑体;
 	font-weight:600 !important;
 	padding-left:0px !important;
+}
+#contact-us ul{
+	margin-left:20px;
+	font-family: 黑体;
+	font-size:19px;
 }

@@ -41,6 +41,10 @@
 							<li class="active">
 								<a href="contact-us">联系我们</a>
 							</li>
+							#if($authenticated)
+								<li ><a href="documentation">使用文档</a></li>
+								#end
+								
 
 
 						</ul>
@@ -68,7 +72,7 @@
 						<div class="col-md-6 detail-info">
 							<div class="align-margin">
 								<p>
-									<span class="glyphicon glyphicon-map-marker"></span>地址：上海市浦东新区竹林路101号陆家嘴基金大厦16层1604室
+									<span class="glyphicon glyphicon-map-marker"></span>地址：上海市浦东新区竹林路101号陆家嘴基金大厦16层
 								</p>
 								<p>
 									<span class="glyphicon glyphicon-phone-alt"> </span>电话：021-68758628、68751106、68753522、68753711
@@ -88,7 +92,8 @@
 
 
 						</div>
-
+						
+						<!--
 						<div class="col-md-6 weixin-info">
 							<div class="align-margin">
 
@@ -96,7 +101,7 @@
 								<img class="weixin" src="/resources/kcfinder/upload/images/weixin/weixin.jpg">
 							</div>
 						</div>
-
+						-->
 					</div>
 
 				</div>
@@ -104,19 +109,8 @@
 		</div>
 		
 
-		<div id="footer">
-			<!-- Footer -->
-			<div class="footer">
-				<div class="container">
-
-					<div class="row">
-						<div class="col-md-12">
-							<div class="footer-copyright">&copy; 上海双隆投资有限公司版权所有.</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		
+	#include("footer.vm")
 	</div>
 
 	<!-- Javascripts -->

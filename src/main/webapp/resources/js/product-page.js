@@ -32,7 +32,7 @@
 		var $widget = $('.value-graph-container');
 		var productId = $widget.data('id');
 		var series = [ {
-			name : '净值',
+			name : '累计净值',
 			data : [],
 			 color: '#FF0000',
 		},
@@ -58,9 +58,11 @@
 		});
 		if(series[0] && series[0].data){
 			series[0].data.reverse();
+			
 		}
 		if(series[1] && series[1].data){
 			series[1].data.reverse();
+			
 		}
 		$widget.highcharts({
 			title : {
@@ -68,7 +70,13 @@
 				x : -20
 				// center
 			},
-
+	        plotOptions: {
+	            series: {
+	                marker: {
+	                    enabled: false
+	                }
+	            }
+	        },
 			xAxis : {
 				categories : [],
 				type: "datetime",    

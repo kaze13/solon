@@ -2855,3 +2855,13 @@ em{
 .orange{
 	color:gold !important;
 }
+
+#mainmenu img{
+	vertical-align:bottom;
+}
+#article-header-section h1{
+	margin-left:-3px;
+}
+.large-text{
+	line-height:35px;
+}

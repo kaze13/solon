@@ -57,5 +57,22 @@ public class MainController {
 		checkAndAddAuth(model);
 		return "contact-us";
 	}
+	
+	@RequestMapping(value = "menu")
+	public String menu(ModelMap model) {
+		checkAndAddAuth(model);
+		return "menu";
+	}
+	@RequestMapping(value = "hours")
+	public String hours(ModelMap model) {
+		checkAndAddAuth(model);
+		return "hours";
+	}
+	@RequestMapping(value = "documentation")
+	public String documentation(ModelMap model) {
+		checkAndAddAuth(model);
+		return "documentation";
+	}
 
+	
 }

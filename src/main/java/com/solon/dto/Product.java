@@ -1,6 +1,9 @@
 package com.solon.dto;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class Product {
 	private int productId;
@@ -34,6 +37,12 @@ public class Product {
 	private boolean hasNetValue = true;
 	private int markRecommend = 0;
 	
+	private String expectionBroker = "";
+	private String refund = "";
+	private String publishStage = "";
+	private String other = "";
+	private Date prcDate = new Date();
+	private String createDateString;
 
 	public Product(int id, String name, String shortName, int status,
 			int strategy, String range, String manager, String minInvest,
@@ -346,6 +355,54 @@ public class Product {
 
 	public void setMarkRecommend(int markRecommend) {
 		this.markRecommend = markRecommend;
+	}
+
+	public String getExpectionBroker() {
+		return expectionBroker;
+	}
+
+	public void setExpectionBroker(String expectionBroker) {
+		this.expectionBroker = expectionBroker;
+	}
+
+	public String getRefund() {
+		return refund;
+	}
+
+	public void setRefund(String refund) {
+		this.refund = refund;
+	}
+
+	public String getPublishStage() {
+		return publishStage;
+	}
+
+	public void setPublishStage(String publishStage) {
+		this.publishStage = publishStage;
+	}
+
+	public String getOther() {
+		return other;
+	}
+
+	public void setOther(String other) {
+		this.other = other;
+	}
+
+	public Date getPrcDate() {
+		return prcDate;
+	}
+
+	public void setPrcDate(Date prcDate) {
+		this.prcDate = prcDate;
+	}
+
+	public String getCreateDateString() {
+		return new SimpleDateFormat("yyyy-MM-dd").format(this.createDate);
+	}
+
+	public void setCreateDateString(String createDateString) {
+		this.createDateString = createDateString;
 	}
 
 

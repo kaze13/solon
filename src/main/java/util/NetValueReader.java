@@ -59,14 +59,19 @@ public class NetValueReader
             {
                 Row row = rowIterator.next();
                 //For each row, iterate through all the columns
-                Date date = row.getCell(0).getDateCellValue();
-                double netvalue = row.getCell(1).getNumericCellValue();
-                double ns300 = row.getCell(2).getNumericCellValue();
-                NetValue value = new NetValue();
-                value.setEvalueDate(new java.sql.Date(date.getTime()));
-                value.setNetValue(netvalue);
-                value.setNetIncreaseRate(ns300);
-                myValues.add(value);
+                try {
+                	 Date date = row.getCell(0).getDateCellValue();
+                     double netvalue = row.getCell(1).getNumericCellValue();
+                     double ns300 = row.getCell(2).getNumericCellValue();
+                     NetValue value = new NetValue();
+                     value.setEvalueDate(new java.sql.Date(date.getTime()));
+                     value.setNetValue(netvalue);
+                     value.setNetIncreaseRate(ns300);
+                     myValues.add(value);
+				} catch (Exception e) {
+					break;
+				}
+               
             }
             values.put(sheetName, myValues);
         }

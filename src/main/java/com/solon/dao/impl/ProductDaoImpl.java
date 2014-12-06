@@ -3,6 +3,7 @@ package com.solon.dao.impl;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -12,7 +13,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+
 import util.SQLUtility;
+
 import com.solon.dao.spec.IProductDao;
 import com.solon.dto.Product;
 
@@ -51,6 +54,13 @@ public class ProductDaoImpl implements IProductDao {
 				product.setSubscriptionProcess(rs.getString(24));
 				product.setBuyUrl(rs.getString(25));
 				product.setMarkRecommend(rs.getInt(26));
+				product.setExpectionBroker(rs.getString(27));
+				product.setRefund(rs.getString(28));
+				product.setPublishStage(rs.getString(29));
+				product.setOther(rs.getString(30));
+				java.sql.Date date = rs.getDate(31);
+				product.setPrcDate(date == null ? new Date() : new Date(date.getTime()));
+				
 
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -72,17 +82,18 @@ public class ProductDaoImpl implements IProductDao {
 			Product product = new Product();
 			try {
 				product.setProductId(rs.getInt(1));
-				product.setProductName(rs.getString(2));
-				product.setProductShortName(rs.getString(3));
-				product.setStatus(rs.getInt(4));
-				product.setStrategy(rs.getInt(5));
-				product.setBuyUrl(rs.getString(6));
-				Object r = rs.getObject(7);
+				product.setCreateDate(rs.getDate(2));
+				product.setProductName(rs.getString(3));
+				product.setProductShortName(rs.getString(4));
+				product.setStatus(rs.getInt(5));
+				product.setStrategy(rs.getInt(6));
+				product.setBuyUrl(rs.getString(7));
+				Object r = rs.getObject(8);
 				if(r == null){
 					product.setHasNetValue(false);
 				}
-				product.setNewestNetVal(rs.getDouble(7));
-				product.setTotalNetVal(rs.getDouble(8));
+				product.setNewestNetVal(rs.getDouble(8));
+				product.setTotalNetVal(rs.getDouble(9));
 
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -97,14 +108,15 @@ public class ProductDaoImpl implements IProductDao {
 
 	private static final String SQL_COLUMNS = "product_name, product_short_name, status, strategy, product_range, manager, min_invest,"
 			+ "adoption_period, close_period, create_date, open_date, watching_org, trustee, bank, broker, counselor, subscription_free, anual_manage_free, "
-			+ "float_manage_free, subscription_account, subscription_bank, subscription_id, subscription_process, buy_url, mark_recommend ";
+			+ "float_manage_free, subscription_account, subscription_bank, subscription_id, subscription_process, buy_url, mark_recommend,expection_broker,refund, "
+			+ " publish_stage, other, prc_date";
 
 	//private static final String SQL_SIMPLE_COLS = "product.product_name, product.product_short_name, product.status, product.strategy, product.buy_url, "
 	//		+ "net_value.net_value, net_value.net_increase_rate ";
 	private static final String SQL_FIND_ALL = "SELECT " + "product_id,"
 			+ SQL_COLUMNS + " FROM product ";
 
-	private static final String SQL_SIMPLE_FIND_ALL = "SELECT product.product_id, product.product_name, product.product_short_name, product.status, "
+	private static final String SQL_SIMPLE_FIND_ALL = "SELECT product.product_id, product.create_date, product.product_name, product.product_short_name, product.status, "
 			+ "product.strategy, product.buy_url, net_value.net_value, net_value.net_increase_rate "
 			+ "FROM product LEFT JOIN net_value on product.product_id = net_value.product_id and "
 			+ "net_value.evalue_date = ( select max(evalue_date) from net_value nv where nv.product_id = product.product_id) ";
@@ -114,7 +126,7 @@ public class ProductDaoImpl implements IProductDao {
 			+ " WHERE PRODUCT_ID = ? " + SQL_ORDER_BY;;
 	private static final String SQL_INSERT = "INSERT INTO product ("
 			+ SQL_COLUMNS
-			+ ") VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)";
+			+ ") VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?)";
 
 	
 	private static final String SQL_UPDATE = "UPDATE solon.product SET "
@@ -124,7 +136,7 @@ public class ProductDaoImpl implements IProductDao {
 			+ " watching_org = ?, trustee = ?, bank = ?, broker = ?, counselor = ?,"
 			+ " subscription_free = ?, anual_manage_free = ?, float_manage_free = ?,"
 			+ " subscription_account = ?, subscription_bank = ?, subscription_id = ?, "
-			+ "subscription_process = ?, buy_url = ?, mark_recommend=? WHERE product_id = ? ";
+			+ "subscription_process = ?, buy_url = ?, mark_recommend=?, expection_broker=?, refund=?, publish_stage=?, other=?, prc_date=? WHERE product_id = ? ";
 
 	
 	private static String SQL_DELETE = "delete from product where product_id = ? ";
@@ -183,7 +195,14 @@ public class ProductDaoImpl implements IProductDao {
 						product.getSubscriptionProcess(),
 						product.getBuyUrl(),
 						product.getMarkRecommend(),
-						product.getProductId());
+						product.getExpectionBroker(),
+						product.getRefund(),
+						product.getPublishStage(), 
+						product.getOther(),
+						new Date(),
+						product.getProductId()
+						
+						);
 			}
 		});
 	}
@@ -210,7 +229,14 @@ public class ProductDaoImpl implements IProductDao {
 						product.getSubscriptionId(),
 						product.getSubscriptionProcess(),
 						product.getBuyUrl(),
-						product.getMarkRecommend());
+						product.getMarkRecommend(),
+						
+						
+						product.getExpectionBroker(),
+						product.getRefund(),
+						product.getPublishStage(), 
+						product.getOther(),
+						new Date());
 			}
 		});
 	

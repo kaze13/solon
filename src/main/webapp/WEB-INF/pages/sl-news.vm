@@ -33,6 +33,10 @@
 						<li><a href="product-list">基金产品</a></li>
 						<li class="active"><a href="sl-news?type=1">双隆资讯</a></li>
 						<li><a href="contact-us">联系我们</a></li>
+						#if($authenticated)
+								<li ><a href="documentation">使用文档</a></li>
+								#end
+								
 					</ul>
 				</nav>
 			</div>
@@ -55,7 +59,7 @@
 					<div class="col-md-3">
 						<div class="bar-container navbar-example" id="memu-bar-container">
 							<ul class="nav nav-pills nav-stacked" >
-								<li><a href="sl-news">所有文章</a></li>
+								<!-- <li><a href="sl-news">所有文章</a></li> -->
 								<li><a href="sl-news?type=1">双隆公告</a></li>
 								<li><a href="sl-news?type=2">媒体报告</a></li>
 								<li><a href="sl-news?type=3">双隆江湖</a></li>
@@ -87,21 +91,8 @@
 
 		</div>
 		</div>
-		<div id="footer">
 		
-		<!-- Footer -->
-		<div class="footer">
-			<div class="container">
-
-				<div class="row">
-					<div class="col-md-12">
-						<div class="footer-copyright">&copy; 上海双隆投资有限公司版权所有.</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		</div>
+	#include("footer.vm")
 	</div>
 	
 	

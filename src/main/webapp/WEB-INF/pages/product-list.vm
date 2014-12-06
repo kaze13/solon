@@ -43,6 +43,10 @@
 								<li class="active"><a href="product-list">基金产品</a></li>
 								<li><a href="sl-news?type=1">双隆资讯</a></li>
 								<li><a href="contact-us">联系我们</a></li>
+								#if($authenticated)
+								<li ><a href="documentation">使用文档</a></li>
+								#end
+								
 							</ul>
 						</nav>
 					</div>
@@ -83,7 +87,7 @@
             <li><a href="#status=2&strategy=1">Alpha产品</a></li>
     </ul>
     </li>
-     <li><a href="#status=3">结束运行</a>
+     <li><a href="#status=3">往期产品</a>
     <ul class="open-bar">
             <li><a href="#status=3&strategy=0">CTA产品</a></li>
             <li><a href="#status=3&strategy=1">Alpha产品</a></li>
@@ -112,8 +116,8 @@
 							<tr id="table-header">
 								<th>策略类型</th>
 								<th>产品名称</th>
-								<th>最新净值</th>
-								<th>累计净值</th> 
+								<th>累计净值</th>
+								<th>成立时间</th> 
 								
 									#if($authenticated)
 									<th>操作</th>
@@ -143,21 +147,8 @@
 
 				</div>
 			</div>
-			<div id="footer">
-				
-				<!-- Footer -->
-				<div class="footer">
-					<div class="container">
-
-						<div class="row">
-							<div class="col-md-12">
-								<div class="footer-copyright">&copy; 上海双隆投资有限公司版权所有.</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-			</div>
+			
+	#include("footer.vm")
 		</div>
 		
 		

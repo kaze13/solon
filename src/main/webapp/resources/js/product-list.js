@@ -122,7 +122,7 @@
 			}
 			else{
 				data[i].statusClass="product-closed";
-				data[i].statusName="结束运行";
+				data[i].statusName="往期产品";
 				data[i].buyDisabled = "disabled";
 			}
 			
@@ -135,8 +135,7 @@
 				
 				data[i].totalNetVal = Math.round( data[i].totalNetVal * 100 )/ 100;
 				data[i].newestNetVal = Math.round( data[i].newestNetVal * 100) /100;
-				data[i].totalNetVal += "%";
-				data[i].newestNetVal +=  "%";
+			
 			}
 			
 			

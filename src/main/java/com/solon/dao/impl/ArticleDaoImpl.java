@@ -3,12 +3,12 @@ package com.solon.dao.impl;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.dbutils.QueryRunner;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.jdbc.core.RowMapper;
@@ -18,6 +18,9 @@ import util.SQLUtility;
 
 import com.solon.dao.spec.IArticleDao;
 import com.solon.dto.Article;
+
+
+
 @Repository
 public class ArticleDaoImpl implements IArticleDao {
 
@@ -88,6 +91,7 @@ public class ArticleDaoImpl implements IArticleDao {
 	}
 
 	@Override
+	@Cacheable(value = { "article" })
 	public Article findById(int id) {
 		// TODO Auto-generated method stub
 		List<Article> result = template.query(SQL_SELECT_BY_ID, ROW_MAPPER, id);

@@ -113,6 +113,16 @@
 			<type>jar</type>
 		</dependency>
 
+
+
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+			<version>2.7.4</version>
+		</dependency>
+
+
+
 	</dependencies>
 
 	<build>

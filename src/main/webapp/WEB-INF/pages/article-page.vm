@@ -35,6 +35,9 @@
 								<li><a href="product-list">基金产品</a></li>
 								<li  class="active"><a href="sl-news?type=1">双隆资讯</a></li>
 								<li><a href="contact-us">联系我们</a></li>
+								#if($authenticated)
+								<li ><a href="documentation">使用文档</a></li>
+								#end
 								
 								
 							</ul>
@@ -42,7 +45,7 @@
 					</div>
 				</div>
 
-				<div class="section section-breadcrumbs">
+				<div class="section section-breadcrumbs" id="article-header-section">
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12">
@@ -69,6 +72,11 @@
 								#end
 								#if ( $article.type == 2 )
 								<div class="article-type-media">媒体报告</div>
+								
+								#end
+								#if ( $article.type == 3 )
+								<div class="article-type-society">双隆江湖</div>
+								
 								#end
 								<i class="glyphicon glyphicon-time"></i>${article.createDate}
 							</div>
@@ -101,21 +109,8 @@
 				</div>
 				
 			</div>
-			<div id="footer">
-				<!-- Footer -->
-				<div class="footer">
-					<div class="container">
-
-						<div class="row">
-							<div class="col-md-12">
-								<div class="footer-copyright">&copy; 上海双隆投资有限公司版权所有.</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Javascripts -->
-			</div>
+			
+	#include("footer.vm")
 		</div>
 
 

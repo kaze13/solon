@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>双隆投资有限公司</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="stylesheet" href="./resources/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./resources/css/icomoon-social.css">
+	<link rel="stylesheet" href="./resources/css/leaflet.css" />
+	<link rel="stylesheet" href="./resources/css/main.css">
+	<link rel="stylesheet" href="./resources/css/about-us.css">
+	<link rel="Shortcut Icon" href="./resources/img/icon.png">
+	<script src="./resources/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+</head>
+<body data-spy="scroll" data-target=".navbar-example">
+
+	<div id ="wrapper">
+		<div id="header">
+		#if($authenticated)
+		<a class="logout btn btn-default" href="j_spring_security_logout">退出</a>
+	#end
+			<!-- Navigation & Logo-->
+			<div class="mainmenu-wrapper">
+
+				<div class="container">
+
+					<nav id="mainmenu" class="mainmenu">
+						<ul>
+							<li class="logo-wrapper"><a href="index.html"><img
+								src="./resources/img/logo2.png"
+								alt="Multipurpose Twitter Bootstrap Template"></a></li>
+								<li ><a href="index"><span class="glyphicon glyphicon-home"></span>首页</a></li>
+								<li ><a href="about-us">关于双隆</a></li>
+								<li><a href="product-list">基金产品</a></li>
+								<li><a href="sl-news?type=1">双隆资讯</a></li>
+								<li><a href="contact-us">联系我们</a></li>
+								#if($authenticated)
+								<li class="active"><a href="documentation">使用文档</a></li>
+								#end
+
+
+
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+		<div id="content">
+			<div class="container">
+
+				<div class="box first">
+					<div class="row">
+
+						<div class="col-md-3">
+							<div class="bar-container navbar-example" id="memu-bar-container">
+
+								<ul class="nav nav-pills nav-stacked" >
+									<li class="active"><a href="#company-general">服务器信息</a></li>
+									<li><a href="#company-structure">如何更新净值</a></li>
+									<li><a href="#investment-way">图片管理</a></li>
+									
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-9" id="contact-us">
+
+
+							<div id="company-general" class="about-us-tab">
+								<div class="large-text">
+									<h2>服务器信息</h2>
+									<p>IP: 115.29.246.84</p>
+									<p>User: root</p>
+									<p>Password: Solon123456</p>
+									<p>可以通过Xftp管理服务器上的文件等信息,例如：</p>
+									<p><img src="resources/img/server.png"></p>
+									<p>可以通过软件浏览代码目录</p>
+									<p><img src="resources/img/server2.png"></p>
+								</div>
+							</div>
+							
+							<div id="company-structure" class="about-us-tab">
+								<div class="large-text">
+									<h2>如何更新净值</h2>
+									<p>1. 管理员登陆</p>
+									<p>2. 添加产品</p>
+									<p>3. 在产品目录页面点击 "更新净值"</p>
+									<p>4. 上传文件， 当Excel文件中的<strong>Sheet名称</strong>和产品名称一致的时候，系统会更新该产品的净值信息，一个Excel可以定义N多产品，系统会一次更新</p>
+								</div>
+							</div>
+							
+
+
+							<div id="investment-way" class="about-us-tab">
+								<div class="large-text">
+									<h2>图片管理</h2>
+									<p>管理网站图片通过Kfinder</p>
+									<p>在任何存在文本编辑的页面点击图片（例如新建文章，产品页面的认购流程均可）:例如</p>
+									<img src="resources/img/uploadpic.jpg">
+									<p>点击浏览服务器</p>
+									<img src="resources/img/upload2.png">
+									<p>浏览文件如下</p>
+									<img src="resources/img/upload3.png">
+									<p>关于双隆的 公司文化会加载 CompanyCulture文件夹的1 2 3 4文件，使用自己的文件替换即可(确保命名规则)</p>
+									<p>首页展示的动画图片 使用 homeSliders 文件夹的1 2 3文件，使用自己的文件替换即可</p>
+									<p>关于双隆的 组织结构加载了 structure文件夹中的 一张图片</p>
+									<p>更新图片请上传一张新的图片 覆盖以前图片，确保名称一致！</p>
+								</div>
+							</div>
+
+							
+						</div>
+					</div>
+
+				</div>
+			</div>
+		
+	
+	
+	#include("footer.vm")
+</div>
+	<!-- Javascripts -->
+
+	<script src="./resources/js/jquery-1.9.1.js"></script>
+	<script src="./resources/js/bootstrap.min.js"></script>
+
+	<script src="./resources/js/jquery.fitvids.js"></script>
+	<script src="./resources/js/jquery.sequence-min.js"></script>
+	<script src="./resources/js/jquery.bxslider.js"></script>
+	<script src="./resources/js/main-menu.js"></script>
+	<script src="./resources/js/template.js"></script>
+	<script src="./resources/js/documentation.js"></script> 
+	
+
+</body>
+</html>

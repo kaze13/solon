@@ -39,6 +39,10 @@
 						<li class="active"><a href="product-list">基金产品</a></li>
 						<li><a href="sl-news?type=1">双隆资讯</a></li>
 						<li><a href="contact-us">联系我们</a></li>
+						#if($authenticated)
+								<li ><a href="documentation">使用文档</a></li>
+								#end
+								
 						
 					</ul>
 				</nav>
@@ -91,7 +95,7 @@
 							#end
 							<li><a href="#product-net-value" data-toggle="tab">产品净值</a></li>
 							<li><a href="#product-graph" data-toggle="tab">走势图</a></li>
-							<!--<li><a href="#buy-information" data-toggle="tab">认购信息</a></li>-->
+							<li><a href="#buy-information" data-toggle="tab">费率信息</a></li>
 							<li><a href="#buy-process" data-toggle="tab">认购流程</a></li>
 						</ul>
 
@@ -152,19 +156,47 @@
 									</td>
 									#end
 								</tr>
-								#if($product.range != "" && !$authenticated)
+								
+								#if($product.watchingOrg != "" && !$authenticated)
 								<tr>
-									<td>投资范围</td>
-									<td class="display-td">$product.range</td>
+									<td>产品类型</td>
+									
+									<td class="display-td">$product.watchingOrg</td>
+					
 								</tr>
 								#end
 								#if($authenticated)
 								<tr>
-								<td>投资范围</td>
-								<td class="modify-td"><input type="text" mapping="range"
-										 value="$product.range" /></td>
+									<td>产品类型</td>
+									
+									<td class="modify-td"><input type="text" mapping="watchingOrg"
+										
+										value="$product.watchingOrg" /></td>
+										
+									
 								</tr>
 								#end
+								#if(!$authenticated && $product.trustee != "")
+								<tr>
+									<td>产品结构</td>
+										
+									<td class="display-td">$product.trustee</td>
+								
+								</tr>
+								
+								#end
+								#if($authenticated)
+								<tr>
+									<td>产品结构</td>
+									<td class="modify-td"><input type="text" mapping="trustee"
+										value="$product.trustee" /></td>
+										
+								
+								</tr>
+							
+						
+								#end
+								
 								#if($product.manager != "" && !$authenticated)
 								<tr>
 									<td>投资经理</td>
@@ -181,6 +213,21 @@
 										mapping="manager" value="$product.manager" /></td>
 									
 								</tr>
+								#if($product.range != "" && !$authenticated)
+								<tr>
+									<td>投资范围</td>
+									<td class="display-td">$product.range</td>
+								</tr>
+								#end
+								#if($authenticated)
+								<tr>
+								<td>投资范围</td>
+								<td class="modify-td"><input type="text" mapping="range"
+										 value="$product.range" /></td>
+								</tr>
+								#end
+								
+								
 								#end
 								#if($product.minInvest != "" && !$authenticated)
 								<tr>
@@ -199,7 +246,62 @@
 									
 								
 								</tr>
+								
 								#end
+								
+								#if($product.subscriptionAccount != "" && !$authenticated)
+								<tr>
+									<td>基金经理</td>
+									<td class="display-td">$product.subscriptionAccount</td>
+								</tr>
+								#end
+								
+								#if($authenticated)
+								<tr>
+									<td>基金经理</td>
+									<td class="modify-td"><input type="text"
+										mapping="subscriptionAccount"
+										value="$product.subscriptionAccount" /></td>
+								</tr>
+								#end
+								
+								
+								
+								#if($product.subscriptionBank != "" && !$authenticated)
+								<tr>
+									<td>管理人</td>
+									<td class="display-td">$product.subscriptionBank</td>
+								</tr>
+								#end
+								
+								#if($authenticated)
+								<tr>
+									<td>管理人</td>
+									<td class="modify-td"><input type="text"
+										mapping="subscriptionBank"
+										value="$product.subscriptionBank" /></td>
+								
+								</tr>
+								#end
+								
+								#if($product.subscriptionId != "" && !$authenticated)
+								<tr>
+									<td>规模上限</td>
+									
+									<td class="display-td">$product.subscriptionId</td>
+								</tr>
+								#end
+								
+								#if($authenticated)
+								<tr>
+									<td>规模上限</td>
+									<td class="modify-td"><input type="text"
+										mapping="subscriptionId"
+										value="$product.subscriptionId" /></td>
+									
+								</tr>
+								#end
+								
 								#if( !$authenticated && $product.adoptionPeriod != "")
 								<tr>
 									<td>存续期</td>
@@ -219,6 +321,7 @@
 									
 								</tr>
 								#end
+								
 								#if( $product.closePeriod != "" && !$authenticated)
 									<tr>
 									<td>资金封闭期</td>
@@ -228,8 +331,6 @@
 								</tr>
 								#end
 								#if($authenticated)
-								
-								
 								<tr>
 									<td>资金封闭期</td>
 										
@@ -238,12 +339,39 @@
 										
 								</tr>
 								#end
+								
+								#if( $product.refund != "" && !$authenticated)
+									<tr>
+									<td>业绩报酬</td>
+									
+									<td class="display-td">$product.refund</td>
+								
+								</tr>
+								#end
+								#if($authenticated)
+								<tr>
+									<td>业绩报酬</td>
+										
+									<td class="modify-td"><input type="text" mapping="refund"
+										value="$product.refund" /></td>
+										
+								</tr>
+								#end
+								
 								<tr>
 									<td>成立日</td>
 										#if($authenticated)
-									<td class="modify-td"><input type="text" mapping="createDate"
+										 #if($mode == "add")
+										
+									<td class="modify-td"><input type="text" mapping="createDate" value="2015-01-01"
 										class="datepicker"
-										value="2014-01-01" /></td>
+										/></td>
+										#else
+										<td class="modify-td"><input type="text" mapping="createDate" value="$product.createDate"
+										class="datepicker"
+										/></td>
+										#end
+										
 										#else
 									<td class="display-td">$product.createDate</td>
 									#end
@@ -257,6 +385,7 @@
 									
 								</tr>
 								#end
+								
 								#if( $authenticated)
 									<tr>
 									<td>开放日</td>
@@ -267,60 +396,12 @@
 								</tr>
 								#end
 								
-							</table>
-							</div>
-						</div>
-						<!--
-						<div  id="trusts-struct-${product.productId}">
-							<div class="title other-title init-open collapsible"><span class="glyphicon glyphicon-th">信托结构</span><span class="collapse-toggle"></div>
-							<div>
-							<table class="table table-striped">
-								<col width="20%">
-								<col width="66%">
-								
-								#if($product.watchingOrg != "" && !$authenticated)
-								<tr>
-									<td>监管机构</td>
-									
-									<td class="display-td">$product.watchingOrg</td>
 					
-								</tr>
-								#end
-								#if($authenticated)
-								<tr>
-									<td>监管机构</td>
-									
-									<td class="modify-td"><input type="text" mapping="watchingOrg"
-										
-										value="$product.watchingOrg" /></td>
-										
-									
-								</tr>
-								#end
-								#if(!$authenticated && $product.trustee != "")
-								<tr>
-									<td>受托人</td>
-										
-									<td class="display-td">$product.trustee</td>
 								
-								</tr>
-								
-								#end
-								#if($authenticated)
-								<tr>
-									<td>受托人</td>
-									<td class="modify-td"><input type="text" mapping="trustee"
-										value="$product.trustee" /></td>
-										
-								
-								</tr>
-							
-						
-								#end
 								
 								#if(!$authenticated && $product.bank != "")
 								<tr>
-									<td>保管银行</td>
+									<td>托管银行</td>
 										
 									<td class="display-td">$product.bank</td>
 								
@@ -329,7 +410,7 @@
 								
 								#if($authenticated)
 								<tr>
-									<td>保管银行</td>
+									<td>托管银行</td>
 									
 									<td class="modify-td"><input type="text" mapping="bank"
 										value="$product.bank" /></td>
@@ -340,7 +421,7 @@
 								
 								#if( $product.borker != "" && !$authenticated)
 								<tr>
-									<td>证券经纪商</td>
+									<td>证券经纪</td>
 									
 									<td class="display-td">$product.borker</td>
 									
@@ -348,7 +429,7 @@
 								#end
 								#if($authenticated)
 								<tr>
-									<td>证券经纪商</td>
+									<td>证券经纪</td>
 									
 									<td class="modify-td"><input type="text" mapping="borker"
 										value="$product.borker" /></td>
@@ -356,9 +437,28 @@
 								</tr>
 								#end
 								
+								#if( $product.expectionBroker != "" && !$authenticated)
+								<tr>
+									<td>期货经纪</td>
+									
+									<td class="display-td">$product.expectionBroker</td>
+									
+								</tr>
+								#end
+								
+								#if($authenticated)
+								<tr>
+									<td>期货经纪</td>
+									
+									<td class="modify-td"><input type="text" mapping="expectionBroker"
+										value="$product.expectionBroker" /></td>
+										
+								</tr>
+								#end
+								
 								#if(!$authenticated && $product.counselor != "")
 								<tr>
-									<td>投资顾问</td>
+									<td>研究顾问</td>
 										
 									<td class="display-td">$product.counselor</td>
 								
@@ -367,7 +467,7 @@
 								
 								#if($authenticated)
 								<tr>
-									<td>投资顾问</td>
+									<td>研究顾问</td>
 										
 									<td class="modify-td"><input type="text" mapping="counselor"
 										value="$product.counselor" /></td>
@@ -375,10 +475,48 @@
 								</tr>
 								#end
 								
+								#if(!$authenticated && $product.publishStage != "")
+								<tr>
+									<td>发行平台</td>
+										
+									<td class="display-td">$product.publishStage</td>
+								
+								</tr>
+								#end
+								
+								#if($authenticated)
+								<tr>
+									<td>发行平台</td>
+										
+									<td class="modify-td"><input type="text" mapping="publishStage"
+										value="$product.publishStage" /></td>
+									
+								</tr>
+								#end
+								
+								#if(!$authenticated && $product.other != "")
+								<tr>
+									<td>其他</td>
+										
+									<td class="display-td">$product.other</td>
+								
+								</tr>
+								#end
+								
+								#if($authenticated)
+								<tr>
+									<td>其他</td>
+										
+									<td class="modify-td"><input type="text" mapping="other"
+										value="$product.other" /></td>
+									
+								</tr>
+								#end
+								
 							</table>
 							</div>
 						</div>
-						-->
+						
   
 					</div>
 					
@@ -397,7 +535,7 @@
 									<option value="0" #if($product.status==0) selected #end>火热销售</option>
 									<option value="1" #if($product.status==1) selected #end>即将发售</option>
 									<option value="2" #if($product.status==2) selected #end>封闭运行</option>
-									<option value="3" #if($product.status==3) selected #end>结束</option>
+									<option value="3" #if($product.status==3) selected #end>往期产品</option>
 									</select>
 									</td>
 									
@@ -453,8 +591,8 @@
 							<tr>
 								<th>日期类型</th>
 								<th>更新日期</th>
-								<th>单位净值（元）</th>
-								<th>累计净值（元）</th>
+								<th>累计净值</th>
+								<th>HS300</th>
 								
 								#if($authenticated)
 								<th>操作</th> 
@@ -522,7 +660,7 @@
                         </tbody>
 						</table>
 					</div>
-					<!--
+					
 					<div class="tab-pane" id="buy-information">
 					<div id="fee-detail-${product.productId}">
 							<div class="title other-title init-open collapsible"><span class="glyphicon glyphicon-list-alt">费率明细</span><span class="collapse-toggle"></div>
@@ -541,7 +679,7 @@
 									#end
 								</tr>
 								<tr>
-									<td>年固定管理费率</td>
+									<td>管理费率</td>
 									#if($authenticated)
 									<td class="modify-td"><input type="text"
 										mapping="annualManageFee"
@@ -550,6 +688,7 @@
 									<td class="display-td">$product.annualManageFee %</td>
 									#end
 								</tr>
+								<!--
 								<tr>
 									<td>浮动管理费</td>
 									#if($authenticated)
@@ -560,50 +699,13 @@
 									<td class="display-td">$product.floatManageFee %</td>
 									#end
 								</tr>
+								-->
 							</table>
 							</div>
 						</div>
-						<div id="trusts-info-${product.productId}">
-							<div class="title other-title init-open collapsible"><span class="glyphicon glyphicon-asterisk">信托认购</span><span class="collapse-toggle"></div>
-							<div>
-							<table class="table table-striped">
-								<col width="20%">
-								<col width="66%">
-								<tr>
-									<td>认购账户名</td>
-									#if($authenticated)
-									<td class="modify-td"><input type="text"
-										mapping="subscriptionAccount"
-										value="$product.subscriptionAccount" /></td>
-									#else
-									<td class="display-td">$product.subscriptionAccount</td>
-								    #end
-								</tr>
-								<tr>
-									<td>认购账户开户行</td>
-									#if($authenticated)
-									<td class="modify-td"><input type="text"
-										mapping="subscriptionBank"
-										value="$product.subscriptionBank" /></td>
-									#else
-									<td class="display-td">$product.subscriptionBank</td>
-									#end
-								</tr>
-								<tr>
-									<td>认购账户账号</td>
-									#if($authenticated)
-									<td class="modify-td"><input type="text"
-										mapping="subscriptionId"
-										value="$product.subscriptionId" /></td>
-									#else
-									<td class="display-td">$product.subscriptionId</td>
-									#end
-								</tr>
-							</table>
-							</div>
-						</div>
+						
 					</div>
-					-->
+					
 					<div class="tab-pane" id="product-graph">
 						<div class="value-graph-container" data-id="${product.productId}"
 						data-name="${product.productName}"
@@ -637,19 +739,11 @@
 </div>
 
 </div>
-		<div id="footer">
-<!-- Footer -->
-<div class="footer">
-	<div class="container">
 
-		<div class="row">
-			<div class="col-md-12">
-				<div class="footer-copyright">&copy; 上海双隆投资有限公司版权所有.</div>
-			</div>
-		</div>
-	</div>
-</div>
-</div>
+
+
+	#include("footer.vm")
+	
 	</div>
 <!-- Javascripts -->
 
